@@ -23,13 +23,6 @@ public class MyLinearLayoutManager extends LinearLayoutManager {
 
 
 
-
-
-
-
-
-
-
     private static final String TAG = MyLinearLayoutManager.class.getSimpleName();
 
     public MyLinearLayoutManager(Context context) {
