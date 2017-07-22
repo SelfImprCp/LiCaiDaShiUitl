@@ -66,6 +66,9 @@ public class CameraAndSelectPicUtil {
 
     private int CROP_W = 200;
     private int CROP_H = 200;
+    private int BILI_W = 200;
+    private int BILI_H = 200;
+
 
     /**
      * @param context
@@ -307,8 +310,8 @@ public class CameraAndSelectPicUtil {
         intent.setDataAndType(data, "image/*");
         intent.putExtra("output", getUploadTempFile(data));
         intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", 1);// 裁剪框比例
-        intent.putExtra("aspectY", 1);
+        intent.putExtra("aspectX", getBILI_W());// 裁剪框比例
+        intent.putExtra("aspectY", getBILI_H());
         intent.putExtra("outputX", getCROP_W());// 输出图片大小
         intent.putExtra("outputY", getCROP_H());
         intent.putExtra("scale", true);// 去黑边
@@ -347,6 +350,22 @@ public class CameraAndSelectPicUtil {
 
         cropUri = Uri.fromFile(protraitFile);
         return this.cropUri;
+    }
+
+    public int getBILI_W() {
+        return BILI_W;
+    }
+
+    public void setBILI_W(int BILI_W) {
+        this.BILI_W = BILI_W;
+    }
+
+    public int getBILI_H() {
+        return BILI_H;
+    }
+
+    public void setBILI_H(int BILI_H) {
+        this.BILI_H = BILI_H;
     }
 
     public int getCROP_W() {
