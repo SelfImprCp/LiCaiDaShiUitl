@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
-
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.LogCp;
 import com.google.gson.JsonArray;
@@ -29,7 +28,7 @@ import java.util.Map.Entry;
  *
  * @author zihao
  */
-public class CityPicker extends LinearLayout {
+public class WorkPicker extends LinearLayout {
     /**
      * 滑动控件
      */
@@ -59,14 +58,14 @@ public class CityPicker extends LinearLayout {
     private String city_code_string;
     private String city_string;
 
-    public CityPicker(Context context, AttributeSet attrs) {
+    public WorkPicker(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         getaddressinfo();
         // TODO Auto-generated constructor stub
     }
 
-    public CityPicker(Context context) {
+    public WorkPicker(Context context) {
         super(context);
         this.context = context;
         getaddressinfo();
@@ -78,15 +77,18 @@ public class CityPicker extends LinearLayout {
         // TODO Auto-generated method stub
         // 读取城市信息string
         JSONParser parser = new JSONParser();
-        String area_str = FileAreaUtil.readAssets(context, "licaishi_area.json");
-        province_list = parser.getJSONParserResult(area_str, "area0");
-        city_map = parser.getJSONParserResultArray(area_str, "area1");
+//        String area_str = FileAreaUtil.readAssets(context, "licaishi_area.json");
+//        province_list = parser.getJSONParserResult(area_str, "area0");
+//        city_map = parser.getJSONParserResultArray(area_str, "area1");
 
 
+        String area_str = FileAreaUtil.readAssets(context, "licaishi_hangye.json");
+        province_list = parser.getJSONParserResult(area_str, "hang0");
+        city_map = parser.getJSONParserResultArray(area_str, "hang1");
 //        couny_map = parser.getJSONParserResultArray(area_str, "area2");
 
 
-        LogCp.i(LogCp.CP, CityPicker.class + "解析了多少省：" + province_list.size() + " 多少市" + city_map + " 区");
+        LogCp.i(LogCp.CP, WorkPicker.class + "解析了多少省：" + province_list.size() + " 多少市" + city_map + " 区");
 
 
     }
@@ -162,7 +164,7 @@ public class CityPicker extends LinearLayout {
         cityPicker.setData(citycodeUtil.getCity(city_map, citycodeUtil
                 .getProvince_list_code().get(0)), province_list, city_map);
 
-        LogCp.i(LogCp.CP, CityPicker.class + "市有多少" + citycodeUtil
+        LogCp.i(LogCp.CP, WorkPicker.class + "市有多少" + citycodeUtil
                 .getCity_list_code().size());
 
 
