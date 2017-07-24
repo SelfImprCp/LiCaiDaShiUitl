@@ -84,7 +84,7 @@ public class CityPicker extends LinearLayout {
 //        couny_map = parser.getJSONParserResultArray(area_str, "area2");
 
 
-        LogCp.i(LogCp.CP,CityPicker.class + "解析了多少省：" + province_list.size() + " 多少市" + city_map.size() + " 区"   );
+        LogCp.i(LogCp.CP,CityPicker.class + "解析了多少省：" + province_list.size()  + " 多少市" + city_map + " 区"   );
 
 
     }
@@ -155,17 +155,19 @@ public class CityPicker extends LinearLayout {
 
         provincePicker.setData(citycodeUtil.getProvince(province_list),province_list,city_map  );
 
-        provincePicker.setDefault(1);
+        provincePicker.setDefault(0);
 
         cityPicker.setData(citycodeUtil.getCity(city_map, citycodeUtil
-                .getProvince_list_code().get(1)),province_list,city_map);
+                .getProvince_list_code().get(0)),province_list,city_map);
 
-        cityPicker.setDefault(1);
+        LogCp.i(LogCp.CP,CityPicker.class + "市有多少"  +  citycodeUtil
+                .getCity_list_code().size()  );
+
+
+        cityPicker.setDefault(0);
 
 
 
-//        LogCp.i(LogCp.CP,CityPicker.class + "区有多少"  +citycodeUtil.getCouny(couny_map, citycodeUtil
-//                .getCity_list_code().get(1)).size());
 
 
 //        if (citycodeUtil.getCouny(couny_map, citycodeUtil
