@@ -261,6 +261,9 @@ public class CityPicker extends LinearLayout {
                     if (onSelectingListener != null)
                         onSelectingListener.selected(true);
                     break;
+
+
+
                 default:
                     break;
             }
