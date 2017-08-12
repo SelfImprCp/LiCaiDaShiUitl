@@ -12,6 +12,7 @@ import com.cp.mylibrary.dialog.DialogHelper;
 
 import com.cp.mylibrary.dialog.EditTextDialog;
 import com.cp.mylibrary.dialog.ShareDialog;
+import com.cp.mylibrary.dialog.TimePickerDialog;
 import com.cp.mylibrary.dialog.WaitDialog;
 import com.cp.mylibrary.interf.ShareListener;
 import com.cp.mylibrary.pullto.XRefreshView;
@@ -21,6 +22,7 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 import org.kymjs.kjframe.ui.BindView;
 
 import cn.licaidashi.main.R;
+
 /**
  * Created by Jerry on 2016/6/28.
  * <p>
@@ -112,17 +114,14 @@ public class DialogTestActivity extends BaseActivity {
 //                simplecDialog.show();
 
 
+                // 提示对话框
 
+                simplecDialog = DialogHelper.getTiShiDialog(DialogTestActivity.this, "标题", "提示", "知道了", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                 // 提示对话框
-
-                 simplecDialog = DialogHelper.getTiShiDialog(DialogTestActivity.this,"标题","提示","知道了", new View.OnClickListener() {
-                     @Override
-                     public void onClick(View v) {
-
-                          switch (v.getId())
-                          {
-                               case R.id.base_tishi_dialog_sure_btn_b:
+                        switch (v.getId()) {
+                            case R.id.base_tishi_dialog_sure_btn_b:
 //
 //                                simplecDialog.dismiss();
 //
@@ -130,12 +129,12 @@ public class DialogTestActivity extends BaseActivity {
 //                                String str = editText.getText().toString();
 //                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
 //
-                              break;
+                                break;
 
-                          }
+                        }
 
-                     }
-                 }).getConfigDialog();
+                    }
+                }).getConfigDialog();
 
                 simplecDialog.show();
 
@@ -181,15 +180,35 @@ public class DialogTestActivity extends BaseActivity {
 
             case R.id.dialog_share:
 
-                if (mDialog == null)
-                    mDialog = new ShareDialog(this  ,this);
-                mDialog.setShareInfo("标题","内容","www.baidu.com","http://img0.imgtn.bdimg.com/it/u=1126541908,2603454962&fm=21&gp=0.jpg");
-                mDialog.setCancelable(true);
-                mDialog.setCanceledOnTouchOutside(true);
-                mDialog.setTitle(R.string.share_to);
-                mDialog.show();
+
+                final TimePickerDialog timePickerDialog = new TimePickerDialog(DialogTestActivity.this);
+                timePickerDialog.showDatePickerDialog();
+
+                TimePickerDialog.TimePickerDialogInterface timePickerDialogInterface = new TimePickerDialog.TimePickerDialogInterface() {
+                    @Override
+                    public void positiveListener() {
 
 
+                        LogCp.i(LogCp.CP, "取到的日期" + timePickerDialog.getYear() + "-" + timePickerDialog.getMonth());
+
+                    }
+
+                    @Override
+                    public void negativeListener() {
+
+                    }
+                };
+                timePickerDialog.setAlertDialogListener(timePickerDialogInterface);
+
+
+//                if (mDialog == null)
+//                    mDialog = new ShareDialog(this  ,this);
+//                mDialog.setShareInfo("标题","内容","www.baidu.com","http://img0.imgtn.bdimg.com/it/u=1126541908,2603454962&fm=21&gp=0.jpg");
+//                mDialog.setCancelable(true);
+//                mDialog.setCanceledOnTouchOutside(true);
+//                mDialog.setTitle(R.string.share_to);
+//                mDialog.show();
+//
 
 
 //                WaitDialog waitDialog = DialogHelper.getWaitDialog(DialogTestActivity.this,"加载中...");

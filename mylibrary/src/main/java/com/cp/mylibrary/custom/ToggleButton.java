@@ -29,7 +29,7 @@ public class ToggleButton extends View {
     /**
      * 开启颜色
      */
-    private int onColor = Color.parseColor("#4ebb7f");
+    private int onColor = Color.parseColor("#29a7e1");
     /**
      * 关闭颜色
      */

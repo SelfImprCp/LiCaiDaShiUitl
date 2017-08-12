@@ -1,10 +1,16 @@
 package com.cp.mylibrary.twocode;
+
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -33,17 +39,16 @@ import java.lang.reflect.Field;
 
 /**
  * Created by Jerry on 2016/7/6.
- *
- *
+ * <p>
+ * <p>
  * 二维码扫描界面
  */
 public class BaseCaptureActivity extends MyBaseActivity implements
-        SurfaceHolder.Callback  {
+        SurfaceHolder.Callback {
     private static final String TAG = BaseCaptureActivity.class.getSimpleName();
 
 
-
-  //  @BindView(id = R.id.capture_preview)
+    //  @BindView(id = R.id.capture_preview)
     private SurfaceView scanPreview;
 
     //@BindView(id = R.id.capture_container)
@@ -97,17 +102,15 @@ public class BaseCaptureActivity extends MyBaseActivity implements
         super.initView();
 
 
-
         scanPreview = (SurfaceView) findViewById(R.id.capture_preview);
-        scanContainer = (RelativeLayout)findViewById(R.id.capture_container);
+        scanContainer = (RelativeLayout) findViewById(R.id.capture_container);
 
         scanContainer = (RelativeLayout) findViewById(R.id.capture_container);
         scanCropView = (RelativeLayout) findViewById(R.id.capture_crop_view);
         scanLine = (ImageView) findViewById(R.id.capture_scan_line);
 
 
-
-        mFlash = (ImageView)findViewById(R.id.capture_flash);
+        mFlash = (ImageView) findViewById(R.id.capture_flash);
 
         //设置闪光灯事件
         mFlash.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +120,6 @@ public class BaseCaptureActivity extends MyBaseActivity implements
 
             }
         });
-
 
 
         Window window = getWindow();
@@ -141,7 +143,7 @@ public class BaseCaptureActivity extends MyBaseActivity implements
     @Override
     public void setRootView() {
         super.setRootView();
-    setContentView(R.layout.activity_qr_scan);
+        setContentView(R.layout.activity_qr_scan);
     }
 
 //    @Override
@@ -178,6 +180,9 @@ public class BaseCaptureActivity extends MyBaseActivity implements
         } else {
             // Install the callback and wait for surfaceCreated() to init the
             // camera.
+            // 防止sdk8的设备初始化预览异常
+            SurfaceHolder surfaceHolder = scanPreview.getHolder();
+            surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
             scanPreview.getHolder().addCallback(this);
         }
 
@@ -201,6 +206,9 @@ public class BaseCaptureActivity extends MyBaseActivity implements
 
     @Override
     protected void onDestroy() {
+
+
+
         inactivityTimer.shutdown();
         super.onDestroy();
     }
@@ -277,12 +285,16 @@ public class BaseCaptureActivity extends MyBaseActivity implements
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
+
+
         if (cameraManager.isOpen()) {
             Log.w(TAG,
                     "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
+
+
             cameraManager.openDriver(surfaceHolder);
             // Creating the handler starts the preview, which can also throw a
             // RuntimeException.
@@ -290,6 +302,7 @@ public class BaseCaptureActivity extends MyBaseActivity implements
                 handler = new CaptureActivityHandler(this, cameraManager,
                         DecodeThread.ALL_MODE);
             }
+
 
             initCrop();
         } catch (IOException ioe) {
