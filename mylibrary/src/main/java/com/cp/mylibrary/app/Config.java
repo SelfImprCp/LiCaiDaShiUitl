@@ -8,10 +8,13 @@ import java.io.File;
  * Created by Jerry on 2016/8/17.
  */
 public class Config {
+
      public static int PAGE_SIXE = 20;
 
-     public static final String WEICHAT_APPID = "wx6a54a8cecdce38e9";
-     public static final String WEICHAT_SECRET = "9f67580ae92be8fe3260e0c9b06eff09";
+
+     public static final String WEICHAT_APPID = "wxfa0c39107c4cfd92";
+     public static final String WEICHAT_SECRET = "045e666ee508437f8a80bd6a2a18e33e";
+
 
 
      public static final String SINA_APPID = "3182205453";
