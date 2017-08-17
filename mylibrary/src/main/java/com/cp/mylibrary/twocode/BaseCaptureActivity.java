@@ -288,8 +288,7 @@ public class BaseCaptureActivity extends MyBaseActivity implements
 
 
         if (cameraManager.isOpen()) {
-            Log.w(TAG,
-                    "initCamera() while already open -- late SurfaceView callback?");
+            Log.w(TAG,  "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {

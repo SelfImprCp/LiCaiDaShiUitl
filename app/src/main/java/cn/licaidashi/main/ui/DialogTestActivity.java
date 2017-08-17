@@ -116,27 +116,27 @@ public class DialogTestActivity extends BaseActivity {
 
                 // 提示对话框
 
-                simplecDialog = DialogHelper.getTiShiDialog(DialogTestActivity.this, "标题", "提示", "知道了", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        switch (v.getId()) {
-                            case R.id.base_tishi_dialog_sure_btn_b:
+//                simplecDialog = DialogHelper.getTiShiDialog(DialogTestActivity.this, "标题", "提示", "知道了", new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
 //
-//                                simplecDialog.dismiss();
+//                        switch (v.getId()) {
+//                            case R.id.base_tishi_dialog_sure_btn_b:
+////
+////                                simplecDialog.dismiss();
+////
+////                                EditText editText = DialogHelper.getDialogEditText();
+////                                String str = editText.getText().toString();
+////                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
+////
+//                                break;
 //
-//                                EditText editText = DialogHelper.getDialogEditText();
-//                                String str = editText.getText().toString();
-//                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
+//                        }
 //
-                                break;
-
-                        }
-
-                    }
-                }).getConfigDialog();
-
-                simplecDialog.show();
+//                    }
+//                }).getConfigDialog();
+//
+//                simplecDialog.show();
 
 
 //                EditTextDialog dialog = (EditTextDialog) DialogHelper.getEditTextDialog(DialogTestActivity.this, "来啊，", "cc");
@@ -145,34 +145,35 @@ public class DialogTestActivity extends BaseActivity {
 
 
 //
-//                simplecDialog = DialogHelper.EditTextDialog(DialogTestActivity.this, "delete ", null,null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
-//
-//
-//                    @Override
-//                    public void onClick(View v) {
-//
-//                        switch (v.getId()) {
-//                            case R.id.base_config_dialog_sure_btn:
-//
-//                                simplecDialog.dismiss();
-//
-//                                EditText editText = DialogHelper.getDialogEditText();
-//                                String str = editText.getText().toString();
-//                                ShowToastUtil.showToast(DialogTestActivity.this," ,," + str);
-//
-//                                break;
-//                            case R.id.base_config_dialog_cannel_btn:
-//                                simplecDialog.dismiss();
-//
-//                                break;
-//                            default:
-//                                break;
-//                        }
-//
-//                    }
-//                }  ).getConfigDialog();
-//
-//                simplecDialog.show();
+                simplecDialog = DialogHelper.EditTextDialog(DialogTestActivity.this, "delete ", null, null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View v) {
+
+                        switch (v.getId()) {
+                            case R.id.base_config_dialog_sure_btn_b:
+
+                                simplecDialog.dismiss();
+
+                                EditText editText = DialogHelper.getDialogEditText();
+                                String str = editText.getText().toString();
+                                ShowToastUtil.showToast(DialogTestActivity.this, " ,," + str);
+
+                                break;
+                            case R.id.base_config_dialog_cannel_btn_b:
+                                simplecDialog.dismiss();
+
+
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                }).getConfigDialog();
+
+                simplecDialog.show();
 //
 
 
