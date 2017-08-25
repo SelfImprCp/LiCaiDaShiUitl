@@ -359,6 +359,8 @@ public class TestActivity extends BaseActivity {
 
             case R.id.city_select_test:
 
+
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
                 View view = LayoutInflater.from(TestActivity.this).inflate(R.layout.addressdialog, null);
                 builder.setView(view);
