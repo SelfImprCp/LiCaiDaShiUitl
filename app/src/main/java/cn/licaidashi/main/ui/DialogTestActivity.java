@@ -89,29 +89,29 @@ public class DialogTestActivity extends BaseActivity {
 
                 //     DialogHelper.getPinterestDialog(this);
 //
-//                simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
-//                        "温馨提示", "确认删除", "删除", "消",
-//                        new View.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(View arg0) {
-//                                switch (arg0.getId()) {
-//                                    case R.id.base_config_dialog_sure_btn_b:
-//
-//                                        simplecDialog.dismiss();
-//
-//                                        break;
-//                                    case R.id.base_config_dialog_cannel_btn_b:
-//                                        simplecDialog.dismiss();
-//
-//                                        break;
-//                                    default:
-//                                        break;
-//                                }
-//
-//                            }
-//                        }).getConfigDialog();
-//                simplecDialog.show();
+                simplecDialog = DialogHelper.configDialog(DialogTestActivity.this,
+                        "温馨提示", "确认删除", "删除", "消",
+                        new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View arg0) {
+                                switch (arg0.getId()) {
+                                    case R.id.base_config_dialog_sure_btn_b:
+
+                                        simplecDialog.dismiss();
+
+                                        break;
+                                    case R.id.base_config_dialog_cannel_btn_b:
+                                        simplecDialog.dismiss();
+
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                            }
+                        }).getConfigDialog();
+                simplecDialog.show();
 
 
                 // 提示对话框
@@ -145,35 +145,35 @@ public class DialogTestActivity extends BaseActivity {
 
 
 //
-                simplecDialog = DialogHelper.EditTextDialog(DialogTestActivity.this, "delete ", null, null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
-
-
-                    @Override
-                    public void onClick(View v) {
-
-                        switch (v.getId()) {
-                            case R.id.base_config_dialog_sure_btn_b:
-
-                                simplecDialog.dismiss();
-
-                                EditText editText = DialogHelper.getDialogEditText();
-                                String str = editText.getText().toString();
-                                ShowToastUtil.showToast(DialogTestActivity.this, " ,," + str);
-
-                                break;
-                            case R.id.base_config_dialog_cannel_btn_b:
-                                simplecDialog.dismiss();
-
-
-                                break;
-                            default:
-                                break;
-                        }
-
-                    }
-                }).getConfigDialog();
-
-                simplecDialog.show();
+//                simplecDialog = DialogHelper.EditTextDialog(DialogTestActivity.this, "delete ", null, null, " 不超过", "confim ", "ttest", new View.OnClickListener() {
+//
+//
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        switch (v.getId()) {
+//                            case R.id.base_config_dialog_sure_btn_b:
+//
+//                                simplecDialog.dismiss();
+//
+//                                EditText editText = DialogHelper.getDialogEditText();
+//                                String str = editText.getText().toString();
+//                                ShowToastUtil.showToast(DialogTestActivity.this, " ,," + str);
+//
+//                                break;
+//                            case R.id.base_config_dialog_cannel_btn_b:
+//                                simplecDialog.dismiss();
+//
+//
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//
+//                    }
+//                }).getConfigDialog();
+//
+//                simplecDialog.show();
 //
 
 

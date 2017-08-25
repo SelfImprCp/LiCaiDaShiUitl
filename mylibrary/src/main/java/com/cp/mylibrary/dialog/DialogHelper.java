@@ -5,16 +5,21 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.StringUtils;
 
 
@@ -143,6 +148,7 @@ public class DialogHelper {
         instantce = getInstances();
         instantce.setConfigDialog(cd);
         return instantce;
+
     }
 
 
@@ -160,6 +166,8 @@ public class DialogHelper {
         // 设置标题
         TextView title_tv = (TextView) dialogLayout
                 .findViewById(R.id.base_config_dialog_title);
+
+        RelativeLayout ll_popup = (RelativeLayout) dialogLayout.findViewById(R.id.ll_popup);
 
         title_tv.setText(title);
         // 设置内容
@@ -185,7 +193,21 @@ public class DialogHelper {
         cancelbtn.setOnClickListener(itemsOnClick);
         cd.show();
 
+        //  cd.setContentView(dialogLayout);
+
+        Window dialogWindow = cd.getWindow();
+
+        dialogWindow.setGravity(Gravity.CENTER);
+
+
+        WindowManager.LayoutParams p = dialogWindow.getAttributes(); // 获取对话框当前的参数值
+
+        dialogWindow.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_bg_white));
+      //  p.height = (int) (ScreenUtils.getScreenHeight(context)*0.6); // 高度设置为屏幕的0.6
+        p.width = (int) (ScreenUtils.getScreenWidth(context)*0.7) ; // 宽度设置为屏幕的0.65
+        dialogWindow.setAttributes(p);
         cd.setContentView(dialogLayout);
+        //  cd.addContentView(dialogLayout, layoutParams);
         instantce = getInstances();
         instantce.setConfigDialog(cd);
         return instantce;
@@ -246,7 +268,6 @@ public class DialogHelper {
         // 实例化对话框布局
         View dialogLayout = LayoutInflater.from(context).inflate(
                 R.layout.base_tishi_dialog, null);
-
 
 
         cd.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
