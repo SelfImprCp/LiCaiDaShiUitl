@@ -291,14 +291,6 @@ public class CityPicker extends LinearLayout {
     }
 
 
-//    public void setProVinceDefault(String provinceStr
-//    ) {
-//
-//        // 省ID
-//        int provinceID = StringUtils.toInt(provincePicker.getSelectedProvinceID(provinceStr));
-//
-//
-//    }
 
     public void setCityDefault(String provinceStr, String cityStr) {
         // 省ID
