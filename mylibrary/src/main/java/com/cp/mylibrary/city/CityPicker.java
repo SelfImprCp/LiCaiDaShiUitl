@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.StringUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -263,7 +264,6 @@ public class CityPicker extends LinearLayout {
                     break;
 
 
-
                 default:
                     break;
             }
@@ -289,4 +289,32 @@ public class CityPicker extends LinearLayout {
 
         public void selected(boolean selected);
     }
+
+
+//    public void setProVinceDefault(String provinceStr
+//    ) {
+//
+//        // 省ID
+//        int provinceID = StringUtils.toInt(provincePicker.getSelectedProvinceID(provinceStr));
+//
+//
+//    }
+
+    public void setCityDefault(String provinceStr, String cityStr) {
+        // 省ID
+        int provinceID = StringUtils.toInt(provincePicker.getSelectedProvinceID(provinceStr)) - 1;
+
+        provincePicker.setDefault(provinceID);
+        // 城市数组
+        cityPicker.setData(citycodeUtil.getCity(city_map,
+                citycodeUtil.getProvince_list_code().get(provinceID)), province_list, city_map);
+
+        int cityIndex = StringUtils.toInt(cityPicker.getSelectedCityIndex(provinceID+1 + "", cityStr));
+        LogCp.i(LogCp.CP, CityPicker.class + cityStr + "  市的位置 ：" +
+                cityIndex);
+
+        cityPicker.setDefault(cityIndex);
+
+    }
+
 }

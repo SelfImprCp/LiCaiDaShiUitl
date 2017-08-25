@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cp.mylibrary.city.CityPicker;
 import com.cp.mylibrary.city.ScrollerNumberPicker;
 import com.cp.mylibrary.custom.TitleBarView;
+import com.cp.mylibrary.dialog.DialogHelper;
 import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimePickDialogUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
@@ -131,14 +133,10 @@ public class TestActivity extends BaseActivity {
     private TextView nest_scrollview_viewpager;
 
 
-
-
-
     @BindView(id = R.id.nest_scrollview_text, click = true)
     private TextView nest_scrollview_text;
 
-
-
+    private CityPicker cityPicker1;
 
     @Override
     public void setRootView() {
@@ -366,32 +364,40 @@ public class TestActivity extends BaseActivity {
                 builder.setView(view);
                 LinearLayout addressdialog_linearlayout = (LinearLayout) view.findViewById(R.id.addressdialog_linearlayout);
                 final ScrollerNumberPicker provincePicker = (ScrollerNumberPicker) view.findViewById(R.id.province);
+
+
                 final ScrollerNumberPicker cityPicker = (ScrollerNumberPicker) view.findViewById(R.id.city);
-                 final AlertDialog dialog = builder.show();
+                cityPicker1 = (CityPicker) view.findViewById(R.id.citypicker);
+
+                cityPicker1.setCityDefault("海南", "乐东黎族自治县");
+
+                final AlertDialog dialog = builder.show();
 
                 addressdialog_linearlayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-//                        textid.setText(provincePicker.getSelectedText()+cityPicker.getSelectedText()+counyPicker.getSelectedText());
-//                        Log.i("kkkk",provincePicker.getSelectedText()+cityPicker.getSelectedText()+counyPicker.getSelectedText());
-//                        dialog.dismiss();
+
+                        dialog.dismiss();
 
                         LogCp.i(LogCp.CP, TestActivity.class + "选择的省ID：" + ", 是执行这里了，," + provincePicker.getSelectedText());
 
-                        String str = provincePicker.getSelectedText();
-                        String provinceID = provincePicker.getSelectedProvinceID(str);
+                        String provinceStr = provincePicker.getSelectedText();
+                        String provinceID = provincePicker.getSelectedProvinceID(provinceStr);
 
 
-                        String strCity = cityPicker.getSelectedText();
-                        String cityID = cityPicker.getSelectedCityID(provinceID, strCity);
+                        String cityStr = cityPicker.getSelectedText();
+                        String cityID = cityPicker.getSelectedCityID(provinceID, cityStr);
 
 
+                        LogCp.i(LogCp.CP, TestActivity.class + "选择的省ID：" + provinceID + ",,选择的市ID：" + cityID + ",,选择的区ID：");
+//                        user_info_userarea.setText(provinceStr + " " + cityStr);
 
-                        LogCp.i(LogCp.CP, TestActivity.class + "选择的省ID：" + provinceID + ",,选择的市ID：" + cityID + ",,选择的区ID："    );
 
                     }
                 });
+
+
                 break;
 
 
@@ -428,8 +434,6 @@ public class TestActivity extends BaseActivity {
 
 
                 break;
-
-
 
 
         }

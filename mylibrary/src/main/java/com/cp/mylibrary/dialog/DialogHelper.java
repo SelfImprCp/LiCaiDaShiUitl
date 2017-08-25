@@ -19,6 +19,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.city.CityPicker;
+import com.cp.mylibrary.city.ScrollerNumberPicker;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.StringUtils;
 
@@ -38,7 +41,7 @@ public class DialogHelper {
         this.configDialog = configDialog;
     }
 
-    private static DialogHelper getInstances() {
+    public static DialogHelper getInstances() {
         if (instantce == null) {
             instantce = new DialogHelper();
         }
@@ -203,8 +206,8 @@ public class DialogHelper {
         WindowManager.LayoutParams p = dialogWindow.getAttributes(); // 获取对话框当前的参数值
 
         dialogWindow.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.rounded_bg_white));
-      //  p.height = (int) (ScreenUtils.getScreenHeight(context)*0.6); // 高度设置为屏幕的0.6
-        p.width = (int) (ScreenUtils.getScreenWidth(context)*0.7) ; // 宽度设置为屏幕的0.65
+        //  p.height = (int) (ScreenUtils.getScreenHeight(context)*0.6); // 高度设置为屏幕的0.6
+        p.width = (int) (ScreenUtils.getScreenWidth(context) * 0.7); // 宽度设置为屏幕的0.65
         dialogWindow.setAttributes(p);
         cd.setContentView(dialogLayout);
         //  cd.addContentView(dialogLayout, layoutParams);
@@ -322,6 +325,8 @@ public class DialogHelper {
         }
         return dialog;
     }
+
+
 
 
 }

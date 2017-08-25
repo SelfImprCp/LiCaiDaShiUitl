@@ -140,6 +140,47 @@ public class ScrollerNumberPicker extends View {
 		return "";
 	}
 
+
+
+
+
+	/**
+	 *  通过市名名取得市id
+	 *
+	 * @return
+	 */
+	public String getSelectedCityIndex(String provinceID ,String cityStr) {
+
+		LogCp.i(LogCp.CP,ScrollerNumberPicker.class +
+				"来取的名： 外面 市" + cityStr +" city map " + city_map.size() );
+
+		// 通过省名取得这个省id下面所有的市
+
+		List<Cityinfo> cityList = city_map.get(provinceID);
+
+		LogCp.i(LogCp.CP,ScrollerNumberPicker.class +
+				"来取的名： 当前省下多少市" + cityList);
+		if (cityList!=null)
+		{
+
+
+
+			 for (int i = 0;i<cityList.size();i++)
+			 {
+				 if (cityList.get(i).getCity_name().equals(cityStr))
+					 return  i+"";
+			 }
+
+		}
+
+
+		return "";
+	}
+
+
+
+
+
 	/**
 	 *  通过区名名取得区id
 	 *
