@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_popup"
-    android:layout_width="wrap_content"
+    android:layout_width="250dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="100dp"
     android:layout_marginRight="100dp"
     android:layout_marginTop="100dp"
-    android:background="@drawable/login_layout_btn_bg_white"
+    android:background="@drawable/rounded_bg_white"
     android:orientation="vertical">
 
     <TextView
@@ -20,11 +20,7 @@
         android:textColor="@color/black_color_30"
         android:textSize="22sp" />
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/gray_cp_util" />
+
 
     <TextView
         android:id="@+id/base_config_dialog_txt"
@@ -69,7 +65,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_1"
+        android:layout_height="1px"
         android:layout_marginTop="@dimen/space_15"
         android:background="@color/gray_cp_util"></View>
 
@@ -96,7 +92,7 @@
 
         <View
 
-            android:layout_width="@dimen/space_1"
+            android:layout_width="1px"
             android:layout_height="match_parent"
             android:gravity="center"
             android:background="@color/gray_cp_util"></View>
