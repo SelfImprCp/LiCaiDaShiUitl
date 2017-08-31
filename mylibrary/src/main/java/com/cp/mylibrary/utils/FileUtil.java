@@ -788,9 +788,11 @@ public class FileUtil {
      */
 
     public void showSelectOpenType(Context context, String filesPath) {
-        Intent intent = new Intent();
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setAction(Intent.ACTION_VIEW);
+//        Intent intent = new Intent();
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.setAction(Intent.ACTION_VIEW);
+//
+
         context.startActivity(showOpenTypeDialog(filesPath));
     }
 
