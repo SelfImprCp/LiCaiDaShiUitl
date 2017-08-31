@@ -252,7 +252,10 @@ public class TestActivity extends BaseActivity {
 
             case R.id.webview_test:
 
-                TestUIhelper.showWebView(this);
+                TestUIhelper.showWebView(TestActivity.this,
+                        "理财规划手册",
+                        "" ,
+                        "", "", "", "", "", "");
 
                 break;
 

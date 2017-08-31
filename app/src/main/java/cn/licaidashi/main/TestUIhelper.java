@@ -94,8 +94,26 @@ public class TestUIhelper {
     public static void showBanner(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
     }
-    public static void showWebView(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestWebView.class);
+    /**
+     * 显示
+     *
+     * @param context
+     */
+    public static void showWebView(Context context, String title, String url, String isShare, String shareTitle, String shareContent, String shareImg, String shareUrl, String showHtml) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(TestWebView.WEB_TITLE, title);
+        bundle.putString(TestWebView.WEB_URL, url);
+        bundle.putString(TestWebView.WEB_SHARE_TAG, isShare);
+        bundle.putString(TestWebView.WEB_SHARE_TITLE, shareTitle);
+
+        bundle.putString(TestWebView.WEB_SHARE_CONTENT, shareContent);
+        bundle.putString(TestWebView.WEB_SHARE_IMG, shareImg);
+        bundle.putString(TestWebView.WEB_SHARE_URL, shareUrl);
+        bundle.putString(TestWebView.WEB_SHOW_HTML, showHtml);
+
+
+        OpenActivityUtil.getInstance().openActivity(context, TestWebView.class, bundle);
     }
 
 

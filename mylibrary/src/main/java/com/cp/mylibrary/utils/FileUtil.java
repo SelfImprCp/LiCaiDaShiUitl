@@ -788,10 +788,6 @@ public class FileUtil {
      */
 
     public void showSelectOpenType(Context context, String filesPath) {
-//        Intent intent = new Intent();
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        intent.setAction(Intent.ACTION_VIEW);
-//
 
         context.startActivity(showOpenTypeDialog(filesPath));
     }
@@ -802,7 +798,17 @@ public class FileUtil {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(android.content.Intent.ACTION_VIEW);
         Uri uri = Uri.fromFile(new File(param));
-        intent.setDataAndType(uri, "*/*");
+        //获取文件file的MIME类型
+        // LogCp.i(LogCp.CP, FileUtil.class + "   文件名" + new File(param).getName());
+
+        String type = getFileFormat(new File(param).getName());
+        //  type = ".pdf";
+        //LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名!" + type);
+
+        //  intent.setDataAndType(uri, "*/*");
+        intent.setDataAndType(uri, type);
+
+
         return intent;
     }
 
@@ -814,7 +820,7 @@ public class FileUtil {
     private String fileName = "";
     private String fileUrl = "";
 
-    public void showFileForWebView(  String url) {
+    public void showFileForWebView(String url) {
         fileUrl = url;
         //判断是否是文件下载链接，如果不是则返回，直接访问
         fileName = fileUrl.substring(fileUrl.lastIndexOf("/")).replace("/", "");
@@ -828,7 +834,7 @@ public class FileUtil {
     }
 
     /**
-     *  开启一个线程下载文件
+     * 开启一个线程下载文件
      */
     private Runnable mdownApkRunnable = new Runnable() {
         @Override
@@ -932,5 +938,6 @@ public class FileUtil {
             }
         }
     };
+
 
 }

@@ -2,6 +2,8 @@ package cn.licaidashi.main;
 
 import android.content.Context;
 import android.os.Environment;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import java.io.File;
 
@@ -48,5 +50,31 @@ public static final String SUFFIX = "catering";
             Environment.getExternalStorageDirectory() + File.separator + "AiLiBuLi"
                     + File.separator + "download" + File.separator;
 
+
+
+
+
+
+
+    /**
+     * @param webView
+     */
+
+    public static void setWebViewSetting(WebView webView) {
+
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        //设置 缓存模式
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+// 开启 DOM storage API 功能
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setDefaultTextEncodingName("utf-8");
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webSettings.setDomStorageEnabled(true);
+
+        webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+
+    }
 
 }
