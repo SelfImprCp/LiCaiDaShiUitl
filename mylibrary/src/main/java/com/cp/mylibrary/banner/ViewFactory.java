@@ -27,6 +27,8 @@ public class ViewFactory {
 	 * @return
 	 */
 
+
+
 	public static ImageView getImageView(final Context context, String url, int layoutID, final int round) {
 		final ImageView imageView = (ImageView) LayoutInflater.from(context).inflate(
 				layoutID, null);
