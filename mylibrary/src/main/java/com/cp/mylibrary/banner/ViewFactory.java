@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.ImageUtils;
 import com.cp.mylibrary.utils.LogCp;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -29,7 +31,18 @@ public class ViewFactory {
 		final ImageView imageView = (ImageView) LayoutInflater.from(context).inflate(
 				layoutID, null);
 
-		ImageLoader.getInstance().displayImage(url, imageView,
+
+		DisplayImageOptions options = new DisplayImageOptions.Builder()
+				.showStubImage(R.drawable.default_750_400)
+				.showImageForEmptyUri(R.drawable.default_750_400)     //url爲空會显示该图片，自己放在drawable里面的
+				.showImageOnFail(R.drawable.default_750_400)                //加载图片出现问题，会显示该图片
+				.cacheInMemory()                                               //缓存用
+				.cacheOnDisc()                                                    //缓存用
+				.build();
+
+
+
+		ImageLoader.getInstance().displayImage(url, imageView,options,
 				new ImageLoadingListener() {
 
 					@Override
