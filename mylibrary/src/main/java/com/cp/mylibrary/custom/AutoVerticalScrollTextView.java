@@ -57,7 +57,7 @@ public class AutoVerticalScrollTextView extends TextSwitcher implements ViewSwit
         Rotate3dAnimation rotation = new Rotate3dAnimation(turnIn, turnUp);
         rotation.setDuration(1200);//执行动画的时间
         rotation.setFillAfter(false);//是否保持动画完毕之后的状态
-        rotation.setInterpolator(new AccelerateInterpolator());//设置加速模式
+    //   rotation.setInterpolator(new AccelerateInterpolator());//设置加速模式
 
         return rotation;
     }
