@@ -13,6 +13,7 @@ import cn.licaidashi.main.ui.GestureLockActivity;
 import cn.licaidashi.main.ui.GestureVerifyActivity;
 import cn.licaidashi.main.ui.ResumeActivity;
 import cn.licaidashi.main.ui.ScrollViewTextActivity;
+import cn.licaidashi.main.ui.TestFuWenBenUtil;
 import cn.licaidashi.main.ui.TestListViewRefreshActivity;
 import cn.licaidashi.main.ui.SimpleBackActivity;
 import cn.licaidashi.main.ui.TestActivity;
@@ -69,6 +70,14 @@ public class TestUIhelper {
     public static void showTesObjectsUitls(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestObjectUtils.class);
     }
+
+
+
+    public static void showTestFuWenBenUtil(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestFuWenBenUtil.class);
+    }
+
+
 
 
 

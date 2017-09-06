@@ -82,6 +82,15 @@
 
 
         <activity
+            android:name=".ui.TestFuWenBenUtil"
+            android:label="Object Util "
+            android:screenOrientation="portrait" />
+
+
+
+
+
+        <activity
             android:name=".ui.TextRandomUtils"
             android:label="RandomUtil "
             android:screenOrientation="portrait" />

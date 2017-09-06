@@ -136,6 +136,15 @@ public class TestActivity extends BaseActivity {
     @BindView(id = R.id.nest_scrollview_text, click = true)
     private TextView nest_scrollview_text;
 
+
+
+
+
+
+    @BindView(id = R.id.fuwenben_text, click = true)
+    private TextView fuwenben_text;
+
+
     private CityPicker cityPicker1;
 
     @Override
@@ -254,7 +263,7 @@ public class TestActivity extends BaseActivity {
 
                 TestUIhelper.showWebView(TestActivity.this,
                         "理财规划手册",
-                        "" ,
+                        "",
                         "", "", "", "", "", "");
 
                 break;
@@ -363,7 +372,6 @@ public class TestActivity extends BaseActivity {
             case R.id.city_select_test:
 
 
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
                 View view = LayoutInflater.from(TestActivity.this).inflate(R.layout.addressdialog, null);
                 builder.setView(view);
@@ -437,6 +445,13 @@ public class TestActivity extends BaseActivity {
 
                 TestUIhelper.showScrollViewText(TestActivity.this);
 
+
+                break;
+
+
+            case R.id.fuwenben_text:
+
+                TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
 
                 break;
 

@@ -5,11 +5,10 @@
     android:orientation="vertical">
 
 
-
-     <com.cp.mylibrary.custom.TitleBarView
-         android:id="@+id/text_title"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"></com.cp.mylibrary.custom.TitleBarView>
+    <com.cp.mylibrary.custom.TitleBarView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.cp.mylibrary.custom.TitleBarView>
 
     <com.cp.mylibrary.custom.CPScrollView
         android:layout_width="match_parent"
@@ -141,6 +140,7 @@
 
                 style="@style/test_textview_style"
                 android:text="   url 试    " />
+
             <TextView
                 android:id="@+id/pickview_test"
 
@@ -175,7 +175,6 @@
                 android:text="  测试选择时间   " />
 
 
-
             <TextView
                 android:id="@+id/city_select_test"
 
@@ -183,14 +182,11 @@
                 android:text="  测试选择城市   " />
 
 
-
-
             <TextView
                 android:id="@+id/city_parse_area"
 
                 style="@style/test_textview_style"
                 android:text="  解析一下gson   " />
-
 
 
             <TextView
@@ -211,6 +207,14 @@
 
                 style="@style/test_textview_style"
                 android:text="   测试文字滚动 " />
+
+
+            <TextView
+                android:id="@+id/fuwenben_text"
+
+                style="@style/test_textview_style"
+                android:text="    富文本测试  " />
+
 
         </LinearLayout>
     </com.cp.mylibrary.custom.CPScrollView>
