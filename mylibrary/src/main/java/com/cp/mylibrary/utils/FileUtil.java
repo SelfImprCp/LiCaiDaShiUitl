@@ -61,7 +61,7 @@ public class FileUtil {
 //
 
 
-    private Activity context;
+    private Context context;
 
 
 //    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
@@ -79,7 +79,7 @@ public class FileUtil {
     }
 
 
-    public FileUtil(Activity contex) {
+    public FileUtil(Context contex) {
         this.context = contex;
     }
 
@@ -789,7 +789,7 @@ public class FileUtil {
      * 显示选择打开的方式
      */
 
-    public void showSelectOpenType(Activity context, String filesPath) {
+    public void showSelectOpenType(Context context, String filesPath) {
         Intent intent = showOpenTypeDialog(filesPath);
 
 
