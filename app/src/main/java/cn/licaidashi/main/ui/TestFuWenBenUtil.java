@@ -2,21 +2,13 @@ package cn.licaidashi.main.ui;
 
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
 import android.widget.TextView;
 
 import com.cp.mylibrary.custom.TitleBarView;
-import com.cp.mylibrary.utils.FileUtil;
-import com.cp.mylibrary.utils.LogCp;
-import com.cp.mylibrary.utils.SDCardUtils;
-import com.cp.mylibrary.utils.ShowToastUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import java.io.IOException;
-
 import cn.licaidashi.main.R;
-import cn.licaidashi.main.event.TestEvent;
 
 
 /**
