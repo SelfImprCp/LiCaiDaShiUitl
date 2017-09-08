@@ -1,9 +1,11 @@
 package com.cp.mylibrary.utils;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -59,7 +61,7 @@ public class FileUtil {
 //
 
 
-    private Context context;
+    private Activity context;
 
 
 //    public static String DATA_DATA_FILE_PATH = "/data/data/cn.myasapp.main/files/";
@@ -77,7 +79,7 @@ public class FileUtil {
     }
 
 
-    public FileUtil(Context contex) {
+    public FileUtil(Activity contex) {
         this.context = contex;
     }
 
@@ -787,26 +789,39 @@ public class FileUtil {
      * 显示选择打开的方式
      */
 
-    public void showSelectOpenType(Context context, String filesPath) {
+    public void showSelectOpenType(Activity context, String filesPath) {
+        Intent intent = showOpenTypeDialog(filesPath);
 
-        context.startActivity(showOpenTypeDialog(filesPath));
+
+        LogCp.i(LogCp.CP, FileUtil.class + "    有没有的响应 " + intent.resolveActivity(context.getPackageManager()) );
+        //   if (context.getPackageManager().resolveActivity(intent,
+        //        PackageManager.MATCH_DEFAULT_ONLY) != null)
+         if (intent.resolveActivity(context.getPackageManager()) != null)
+
+        {
+
+            context.startActivity(intent);
+        }
+        //  context.startActivityForResult(intent, 0);
+
+
     }
 
-    public static Intent showOpenTypeDialog(String param) {
+    public Intent showOpenTypeDialog(String param) {
         Log.e("ViChildError", "showOpenTypeDialog");
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(android.content.Intent.ACTION_VIEW);
         Uri uri = Uri.fromFile(new File(param));
         //获取文件file的MIME类型
-        // LogCp.i(LogCp.CP, FileUtil.class + "   文件名" + new File(param).getName());
+        LogCp.i(LogCp.CP, FileUtil.class + "   文件名" + new File(param));
 
         String type = getFileFormat(new File(param).getName());
-        //  type = ".pdf";
-        //LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名!" + type);
+        // type = ".pdf";
+        LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名! -- " + type);
 
-        //  intent.setDataAndType(uri, "*/*");
-        intent.setDataAndType(uri, type);
+         intent.setDataAndType(uri, "*/*");
+        //   intent.setDataAndType(uri, type);
 
 
         return intent;
