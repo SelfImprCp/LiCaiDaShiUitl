@@ -216,6 +216,19 @@
                 android:text="    富文本测试  " />
 
 
+
+
+            <TextView
+                android:id="@+id/super_textview_text"
+
+                style="@style/test_textview_style"
+                android:text="    SuperTextView 测试  " />
+
+
+
+
+
+
         </LinearLayout>
     </com.cp.mylibrary.custom.CPScrollView>
 

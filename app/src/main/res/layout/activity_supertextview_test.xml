@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.cp.mylibrary.custom.TitleBarView
+        android:id="@+id/super_textview_test_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.cp.mylibrary.custom.TitleBarView>
+
+
+    <com.cp.mylibrary.custom.CPScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sCenterBottomTextColor="@color/colorAccent"
+                stv:sCenterBottomTextString="限额说明>>"
+                stv:sCenterTopTextString=" "
+                stv:sCenterViewGravity="left_center"
+                stv:sLeftBottomTextString="招商银行（8888）"
+                stv:sLeftIconRes="@drawable/bank_zhao_shang"
+                stv:sLeftTopTextString="银行卡支付"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightCheckBoxRes="@drawable/circular_check_bg"
+                stv:sRightViewType="checkbox" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/supertextview_load_img"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sDividerLineType="both"
+                stv:sLeftIconRes="@drawable/head_default"
+                stv:sLeftTextString="帐号管理"
+                stv:sRightIconRes="@drawable/arrow_right_red" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="通知设置"
+                stv:sRightIconRes="@drawable/arrow_right_red" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="账号与安全"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sRightTextString="已保护"
+                stv:sRightTvDrawableLeft="@drawable/v1" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sDividerLineType="bottom"
+                stv:sLeftTextString="设置中心"
+                stv:sRightIconRes="@drawable/arrow_right_red" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                stv:sDividerLineType="both"
+                stv:sLeftTextString="意见反馈"
+                stv:sRightIconRes="@drawable/arrow_right_red" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sDividerLineType="both"
+                stv:sLeftTextString="关于微博"
+                stv:sRightIconRes="@drawable/arrow_right_red" />
+
+
+
+
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="收货地址"
+                stv:sLeftIconRes="@drawable/uu" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="我的收藏"
+                stv:sLeftIconRes="@drawable/uy" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="美食相册"
+                stv:sLeftIconRes="@drawable/uv" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sDividerLineType="both"
+                stv:sLeftTextString="积分商城"
+                stv:sLeftIconRes="@drawable/v0"
+                stv:sRightTextColor="@color/gray_btn"
+                stv:sRightTextSize="10sp"
+                stv:sRightTextString="8888积分" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sDividerLineType="both"
+                stv:sLeftTextString="会员中心"
+                stv:sLeftIconRes="@drawable/v1" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="加盟合作"
+                stv:sLeftIconRes="@drawable/v2" />
+
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sLeftTextString="起息时间"
+                stv:sLeftIconRes="@drawable/scatter_time"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="立即起息" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="还款方式"
+                stv:sLeftIconRes="@drawable/scatter_type"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="等额本息" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="投标截止"
+                stv:sLeftIconRes="@drawable/scatter_use"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="2016-10-19  08:00" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="提前还款费率"
+                stv:sLeftIconRes="@drawable/scatter_money"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="80%" />
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="10:20"
+                stv:sLeftTextString="188******8888"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="100元" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="10:20"
+                stv:sCenterViewGravity="center"
+                stv:sLeftTextString="188******8888"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="100元" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="10:20"
+                stv:sLeftTextString="188******8888"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="100元" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="10:20"
+                stv:sLeftTextString="188******8888"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="100元" />
+
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sLeftBottomTextString="188****8888"
+                stv:sLeftIconRes="@drawable/head_default"
+                stv:sLeftTopTextString="张三"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightTextString="已实名" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sLeftBottomTextString="188****8888"
+                stv:sLeftIconRes="@drawable/head_default"
+                stv:sLeftTopTextString="张三" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftTopTextString="迪丽热巴"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sRightTvDrawableRight="@drawable/head_default" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="下边展示使用网络图片的情况" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/super_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sLeftBottomTextString="188****8888"
+                stv:sLeftIconRes="@drawable/head_default"
+                stv:sLeftTopTextString="张三"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightTextString="已实名" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/super_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sRightBottomTextString="188****8888"
+                stv:sRightIconHeight="60dp"
+                stv:sRightIconRes="@drawable/head_default"
+                stv:sRightIconWidth="60dp"
+                stv:sRightTopTextString="张三"
+                stv:sRightViewGravity="right_center" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/super_tv3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftMaxEms="30"
+                stv:sLeftTextString="自定义sRightTvDrawableRight的宽高"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sRightTvDrawableHeight="40dp"
+                stv:sRightTvDrawableRight="@drawable/head_default"
+                stv:sRightTvDrawableWidth="40dp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/alipay_stv"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sLeftBottomTextColor="@color/gray_btn"
+                stv:sLeftBottomTextSize="15sp"
+                stv:sLeftBottomTextString="数亿用户都在用，安全可托付"
+                stv:sLeftIconRes="@drawable/alipay_icon"
+                stv:sLeftTextColor="@android:color/black"
+                stv:sLeftTextSize="20sp"
+                stv:sLeftTextString="支付宝"
+                stv:sLeftTvDrawableHeight="15dp"
+                stv:sLeftTvDrawableRight="@drawable/original_label"
+                stv:sLeftTvDrawableWidth="30dp"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightIconRes="@drawable/success_blue13" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sCenterTextString="支付宝"
+                stv:sCenterTvDrawableHeight="20dp"
+                stv:sCenterTvDrawableLeft="@drawable/uy"
+                stv:sCenterTvDrawableRight="@drawable/uy"
+                stv:sCenterTvDrawableWidth="20dp"
+                stv:sLeftTextString="支付宝"
+                stv:sLeftTvDrawableHeight="10dp"
+                stv:sLeftTvDrawableLeft="@drawable/uy"
+                stv:sLeftTvDrawableRight="@drawable/uy"
+                stv:sLeftTvDrawableWidth="10dp"
+                stv:sRightTextString="支付宝"
+                stv:sRightTvDrawableHeight="30dp"
+                stv:sRightTvDrawableLeft="@drawable/uy"
+                stv:sRightTvDrawableRight="@drawable/uy"
+                stv:sRightTvDrawableWidth="30dp"
+                stv:sTextViewDrawablePadding="3dp" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                stv:sCenterBottomTextColor="@color/colorAccent"
+                stv:sCenterBottomTextString="中下"
+                stv:sCenterTextColor="@color/colorAccent"
+                stv:sCenterTextString="中"
+                stv:sCenterTopTextColor="@color/colorAccent"
+                stv:sCenterTopTextString="中上"
+                stv:sLeftBottomTextColor="@color/colorAccent"
+                stv:sLeftBottomTextString="左下"
+                stv:sLeftTextColor="@color/colorAccent"
+                stv:sLeftTextString="左中文字"
+                stv:sLeftTopTextColor="@color/colorAccent"
+                stv:sLeftTopTextString="左上"
+                stv:sRightBottomTextColor="@color/colorAccent"
+                stv:sRightBottomTextString="右"
+                stv:sRightTextColor="@color/colorAccent"
+                stv:sRightTextString="右中"
+                stv:sRightTopTextColor="@color/colorAccent"
+                stv:sRightTopTextString="右" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sCenterBottomTextString="测试文字"
+                stv:sCenterTopTextString="测试文字"
+                stv:sCenterViewGravity="center"
+                stv:sLeftBottomTextString="18888888888"
+                stv:sLeftTopTextString="张三"
+                stv:sLeftViewGravity="left_center"
+                stv:sRightBottomTextString="15555555555"
+                stv:sRightTopTextString="李四"
+                stv:sRightViewGravity="right_center" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="张姐专业广场舞"
+                stv:sCenterViewGravity="left_center"
+                stv:sLeftTextString="领队"
+                stv:sLeftViewGravity="left_center"
+                stv:sLeftViewWidth="80dp" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="九眼龙天天广场A座"
+                stv:sCenterViewGravity="left_center"
+                stv:sLeftTextString="活动地点"
+                stv:sLeftViewGravity="left_center"
+                stv:sLeftViewWidth="80dp" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sCenterTextString="最炫民族风"
+                stv:sCenterViewGravity="left_center"
+                stv:sLeftTextString="舞动歌单"
+                stv:sLeftViewGravity="left_center"
+                stv:sLeftViewWidth="80dp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/super_tv4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="visible"
+                stv:sCenterLines="3"
+                stv:sCenterMaxEms="40"
+                stv:sCenterTextString="代码设置对齐效果代码设置对齐效果代码设置对齐效果"
+                stv:sCenterViewGravity="left_center"
+                stv:sLeftTextString="换行对齐"
+                stv:sLeftViewGravity="left_center"
+                stv:sLeftViewWidth="80dp" />
+
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sLeftTextString="声音"
+                stv:sRightViewType="switchBtn"
+                stv:sShapeCornersRadius="10dp"
+                stv:sShapeSelectorPressedColor="@color/gray"
+                stv:sShapeStrokeColor="@color/colorAccent"
+                stv:sShapeStrokeWidth="0.3dp"
+                stv:sSwitchIsChecked="true"
+                stv:sSwitchMinWidth="40dp"
+                stv:sThumbResource="@drawable/thumb"
+                stv:sTrackResource="@drawable/track"
+                stv:sUseShape="true" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sLeftTextString="账号与安全"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sRightTextString="已保护"
+                stv:sRightTvDrawableLeft="@drawable/v1"
+                stv:sShapeCornersRadius="5dp"
+                stv:sShapeSelectorPressedColor="@color/gray"
+                stv:sShapeStrokeColor="@color/colorAccent"
+                stv:sShapeStrokeWidth="0.3dp"
+                stv:sUseShape="true" />
+
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sLeftTextString="上圆角"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sShapeCornersTopLeftRadius="10dp"
+                stv:sShapeCornersTopRightRadius="10dp"
+                stv:sShapeSelectorPressedColor="@color/gray"
+                stv:sShapeStrokeColor="@color/colorAccent"
+                stv:sShapeStrokeWidth="0.2dp"
+                stv:sUseShape="true" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sLeftTextString="下圆角"
+                stv:sRightIconRes="@drawable/arrow_right_red"
+                stv:sShapeCornersBottomLeftRadius="10dp"
+                stv:sShapeCornersBottomRightRadius="10dp"
+                stv:sShapeSelectorPressedColor="@color/gray"
+                stv:sShapeStrokeColor="@color/colorAccent"
+                stv:sShapeStrokeWidth="0.2dp"
+                stv:sUseShape="true" />
+
+            <com.allen.library.SuperTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                stv:sCenterTextColor="@color/white"
+                stv:sCenterTextString="填充色"
+                stv:sShapeCornersRadius="10dp"
+                stv:sShapeSelectorNormalColor="@color/red_btn"
+                stv:sShapeSelectorPressedColor="@color/gray"
+                stv:sUseShape="true" />
+
+
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:text="圆角边框"
+                stv:sCornersRadius="5dp"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeWidth="0.2dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="圆角边框"
+                stv:sCornersRadius="5dp"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeWidth="0.2dp" />
+
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:text="圆角边框"
+                android:textColor="@color/white"
+                stv:sCornersRadius="5dp"
+                stv:sSolidColor="@color/colorAccent"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeWidth="0.2dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="圆角边框"
+                android:textColor="@color/white"
+                stv:sCornersRadius="5dp"
+                stv:sSolidColor="@color/colorAccent"
+                stv:sStrokeColor="@color/colorPrimary"
+                stv:sStrokeWidth="1dp" />
+
+
+            <com.allen.library.SuperButton
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="圆角"
+                stv:sCornersRadius="50dp"
+                stv:sStrokeColor="@color/colorPrimary"
+                stv:sStrokeDashGap="5dp"
+                stv:sStrokeDashWidth="10dp"
+                stv:sStrokeWidth="0.5dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="圆角"
+                android:textColor="@color/white"
+                stv:sCornersRadius="50dp"
+                stv:sSolidColor="@color/colorAccent"
+                stv:sStrokeColor="@color/colorPrimary" />
+
+
+            <com.allen.library.SuperButton
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:text="椭圆"
+                stv:sShapeType="oval"
+                stv:sStrokeColor="@color/colorPrimary"
+                stv:sStrokeDashGap="5dp"
+                stv:sStrokeDashWidth="10dp"
+                stv:sStrokeWidth="0.5dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:text="椭圆"
+                android:textColor="@color/white"
+                stv:sShapeType="oval"
+                stv:sSolidColor="@color/colorAccent"
+                stv:sStrokeColor="@color/colorPrimary" />
+
+
+            <com.allen.library.SuperButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="圆形"
+                stv:sShapeType="oval"
+                stv:sSolidColor="@color/colorAccent" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="圆形"
+                stv:sShapeType="oval"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeDashGap="5dp"
+                stv:sStrokeDashWidth="10dp"
+                stv:sStrokeWidth="0.5dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="圆形"
+                stv:sShapeType="oval"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeWidth="0.5dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="圆形"
+                stv:sShapeType="oval"
+                stv:sStrokeColor="@color/colorAccent"
+                stv:sStrokeWidth="3dp" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                stv:sGradientEndColor="@color/colorPrimary"
+                stv:sGradientOrientation="TOP_BOTTOM"
+                stv:sGradientStartColor="@color/colorAccent" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                stv:sGradientEndColor="@color/colorPrimary"
+                stv:sGradientOrientation="BOTTOM_TOP"
+                stv:sGradientStartColor="@color/colorAccent" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                stv:sGradientEndColor="@color/colorPrimary"
+                stv:sGradientOrientation="RIGHT_LEFT"
+                stv:sGradientStartColor="@color/colorAccent" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                stv:sGradientEndColor="@color/colorPrimary"
+                stv:sGradientOrientation="LEFT_RIGHT"
+                stv:sGradientStartColor="@color/colorAccent" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="触摸反馈"
+                android:textColor="@color/white"
+                stv:sCornersRadius="5dp"
+                stv:sSelectorNormalColor="@color/colorAccent"
+                stv:sSelectorPressedColor="@color/gray_btn"
+                stv:sUseSelector="true" />
+
+            <com.allen.library.SuperButton
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:enabled="false"
+                android:text="不可点击颜色"
+                android:textColor="@color/white"
+                stv:sCornersRadius="5dp"
+                stv:sSelectorDisableColor="@color/gray_btn"
+                stv:sSelectorNormalColor="@color/colorAccent"
+                stv:sSelectorPressedColor="@color/colorPrimary"
+                stv:sUseSelector="true" />.
+        </LinearLayout>
+
+    </com.cp.mylibrary.custom.CPScrollView>
+
+
+</LinearLayout>

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 
+import com.allen.library.SuperTextView;
+import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -41,9 +43,7 @@ public class ImageLoaderUtils {
 //    }
 
 
-
-    public static void myDisplayImageShow(String imageUrl, ImageView imageView,int defualtImgId)
-    {
+    public static void myDisplayImageShow(String imageUrl, ImageView imageView, int defualtImgId) {
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .showStubImage(defualtImgId)
@@ -54,14 +54,25 @@ public class ImageLoaderUtils {
                 .build();
 
 
-
-        ImageLoader.getInstance().displayImage(imageUrl, imageView,options);
+        ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
 
 
     }
 
 
+    public void myDisplaySuperTextViewShow(Context context, String imageUrl, int showView, int defualtImgId) {
 
+
+
+//        Glide.with(context)
+//                .load(imageUrl)
+//                .fitCenter()
+//                .placeholder(defualtImgId)
+//                .fitCenter()
+//                .into(showView);
+
+
+    }
 
 
     /**

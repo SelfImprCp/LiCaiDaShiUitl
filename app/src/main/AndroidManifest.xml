@@ -190,6 +190,11 @@
             android:windowSoftInputMode="adjustResize"></activity>
 
 
+        <activity
+            android:name=".ui.TestSuperTextView"
+
+            android:windowSoftInputMode="adjustResize"></activity>
+
 
 
 

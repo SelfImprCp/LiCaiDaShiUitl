@@ -28,6 +28,7 @@ import cn.licaidashi.main.ui.TestPickerView;
 import cn.licaidashi.main.ui.TestRecyclerRefreshActivity;
 import cn.licaidashi.main.ui.TestScreentUtils;
 import cn.licaidashi.main.ui.TestScrollViewRefreshActivity;
+import cn.licaidashi.main.ui.TestSuperTextView;
 import cn.licaidashi.main.ui.TestTwoCode;
 import cn.licaidashi.main.ui.TestWebView;
 import cn.licaidashi.main.ui.TextNetWorkUtils;
@@ -103,6 +104,13 @@ public class TestUIhelper {
     public static void showBanner(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
     }
+
+    public static void showTestSuperTextView(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,TestSuperTextView.class);
+    }
+
+
+
     /**
      * 显示
      *

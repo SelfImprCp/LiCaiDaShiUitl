@@ -145,6 +145,15 @@ public class TestActivity extends BaseActivity {
     private TextView fuwenben_text;
 
 
+
+
+    @BindView(id = R.id.super_textview_text, click = true)
+    private TextView super_textview_text;
+
+
+
+
+
     private CityPicker cityPicker1;
 
     @Override
@@ -454,6 +463,14 @@ public class TestActivity extends BaseActivity {
                 TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
 
                 break;
+
+
+            case  R.id.super_textview_text:
+
+                TestUIhelper.showTestSuperTextView(TestActivity.this);
+
+                break;
+
 
 
         }
