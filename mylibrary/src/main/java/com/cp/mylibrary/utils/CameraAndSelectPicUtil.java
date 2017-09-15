@@ -153,6 +153,11 @@ public class CameraAndSelectPicUtil {
                     .findViewById(R.id.item_popupwindows_Photo);
             Button bt3 = (Button) view
                     .findViewById(R.id.item_popupwindows_cancel);
+
+            View ll_gray_view = (View) view
+                    .findViewById(R.id.ll_gray_view);
+
+
             bt1.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
                     // 拍照，
@@ -172,6 +177,14 @@ public class CameraAndSelectPicUtil {
                 }
             });
             bt3.setOnClickListener(new OnClickListener() {
+                public void onClick(View v) {
+                    dismiss();
+                }
+            });
+
+
+            ll_gray_view.setOnClickListener(new OnClickListener() {
+                @Override
                 public void onClick(View v) {
                     dismiss();
                 }
