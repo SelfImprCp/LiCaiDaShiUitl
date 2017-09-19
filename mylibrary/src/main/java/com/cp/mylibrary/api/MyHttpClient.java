@@ -31,13 +31,11 @@ public static String Cookie = "";
 
         // 初始化网络请求
         HttpConfig httpConfig = new HttpConfig();
-        httpConfig.TIMEOUT = 5000*5;
+        httpConfig.TIMEOUT = 1000*60;
 
 
         client   = new KJHttp(  );
- client.setConfig(httpConfig);
-
-
+        client.setConfig(httpConfig);
 
     }
 

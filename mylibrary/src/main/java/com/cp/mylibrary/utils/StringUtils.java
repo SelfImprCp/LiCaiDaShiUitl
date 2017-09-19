@@ -45,7 +45,7 @@ public class StringUtils {
 //                return false;
 //            }
 //        }
-//        return true;
+//        return true;2907687480
     }
 
     /**
@@ -297,7 +297,29 @@ public class StringUtils {
         return str.substring(start, end);
     }
 
-
+    /***
+     * 截取字符串
+     *
+     * @param start 从那里开始，0算起
+     * @param num   截取多少个
+     * @param str   截取的字符串
+     * @return
+     */
+    public static String getSubString(String start, int num, String str) {
+        if (str == null) {
+            return "";
+        }
+        int leng = str.length();
+         int startInt = str.indexOf(start);
+        if (num < 0) {
+            num = 1;
+        }
+        int end = startInt + num;
+        if (end > leng) {
+            end = leng;
+        }
+        return str.substring(startInt, end);
+    }
     /**
      * 截取字符串 指定字符串
      *
