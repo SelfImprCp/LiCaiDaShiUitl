@@ -73,6 +73,9 @@ public class ActivityManagerUtil {
      * 结束指定的Activity
      */
     public void finishActivity(Activity activity) {
+
+        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity   之前  " + activity  );
+
         if (activity != null && activityStack.contains(activity)) {
 
             LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity  " + activity  );
