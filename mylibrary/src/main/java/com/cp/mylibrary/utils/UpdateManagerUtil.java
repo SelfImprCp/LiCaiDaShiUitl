@@ -256,6 +256,7 @@ public abstract class UpdateManagerUtil {
                             LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + updateRes.getForceupdate());
 
                             if (updateRes.equals("1")) {
+                                LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
 
                                 simplecDialog.dismiss();
                                 ActivityManagerUtil.getInstance().AppExit();
