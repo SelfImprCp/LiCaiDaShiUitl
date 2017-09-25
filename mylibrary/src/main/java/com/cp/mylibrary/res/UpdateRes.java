@@ -11,7 +11,7 @@ public class UpdateRes extends Response {
     private String url;
     private String desc;
     // 0非强制更新，1强制更新
-    private String forceupdate;
+    private int forceupdate;
 
     public String getError() {
         return error;
@@ -53,11 +53,11 @@ public class UpdateRes extends Response {
         this.desc = desc;
     }
 
-    public String getForceupdate() {
+    public int getForceupdate() {
         return forceupdate;
     }
 
-    public void setForceupdate(String forceupdate) {
+    public void setForceupdate(int forceupdate) {
         this.forceupdate = forceupdate;
     }
 }
