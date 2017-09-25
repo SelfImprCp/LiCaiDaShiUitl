@@ -14,6 +14,7 @@ import com.cp.mylibrary.city.CityPicker;
 import com.cp.mylibrary.city.ScrollerNumberPicker;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.dialog.DialogHelper;
+import com.cp.mylibrary.utils.ActivityManagerUtil;
 import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimePickDialogUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
@@ -467,7 +468,9 @@ public class TestActivity extends BaseActivity {
 
             case  R.id.super_textview_text:
 
-                TestUIhelper.showTestSuperTextView(TestActivity.this);
+              TestUIhelper.showTestSuperTextView(TestActivity.this);
+
+                //    ActivityManagerUtil.getInstance().AppExit();
 
                 break;
 

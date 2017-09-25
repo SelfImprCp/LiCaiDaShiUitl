@@ -120,7 +120,7 @@ public class ActivityManagerUtil {
             LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 "  );
 
             finishAllActivity();
-          System.exit(0);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
