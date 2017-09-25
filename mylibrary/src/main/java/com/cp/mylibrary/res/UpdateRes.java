@@ -10,7 +10,8 @@ public class UpdateRes extends Response {
     private String version;
     private String url;
     private String desc;
-    private boolean forceupdate;
+    // 0非强制更新，1强制更新
+    private String forceupdate;
 
     public String getError() {
         return error;
@@ -52,13 +53,11 @@ public class UpdateRes extends Response {
         this.desc = desc;
     }
 
-    public boolean isForceupdate() {
+    public String getForceupdate() {
         return forceupdate;
     }
 
-    public void setForceupdate(boolean forceupdate) {
+    public void setForceupdate(String forceupdate) {
         this.forceupdate = forceupdate;
     }
-
-
 }
