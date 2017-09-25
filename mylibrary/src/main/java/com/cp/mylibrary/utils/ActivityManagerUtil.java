@@ -117,6 +117,8 @@ public class ActivityManagerUtil {
      */
     public void AppExit() {
         try {
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 "  );
+
             finishAllActivity();
           System.exit(0);
         } catch (Exception e) {
