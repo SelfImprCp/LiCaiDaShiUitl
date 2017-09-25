@@ -234,7 +234,7 @@ public abstract class UpdateManagerUtil {
 		 */
 
 
-        simplecDialog = BasicDialog.versionDialog(mContext, "发现新版本:"+updateRes.getVersion(),
+        simplecDialog = BasicDialog.versionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
                 updateRes.getDesc(), "立即更新", "下次再说", new OnClickListener() {
 
                     @Override
@@ -251,7 +251,20 @@ public abstract class UpdateManagerUtil {
                             ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
                             simplecDialog.dismiss();
                         } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
-                            simplecDialog.dismiss();
+
+
+                            if (updateRes.isForceupdate()) {
+
+                                simplecDialog.dismiss();
+                                ActivityManagerUtil.getInstance().AppExit();
+
+                            } else {
+
+                                simplecDialog.dismiss();
+
+                            }
+
+
                         }
 
 
@@ -259,8 +272,6 @@ public abstract class UpdateManagerUtil {
                 }).getConfigDialog();
 
         simplecDialog.show();
-
-
 
 
     }
@@ -370,7 +381,7 @@ public abstract class UpdateManagerUtil {
                 binder.addCallback(callback);
                 binder.start();
 
-                LogCp.i(LogCp.CP,  "   启动下载  版本   "  );
+                LogCp.i(LogCp.CP, "   启动下载  版本   ");
 
 
             }
