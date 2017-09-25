@@ -253,6 +253,8 @@ public abstract class UpdateManagerUtil {
                         } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
 
 
+                            LogCp.i(LogCp.CP,UpdateManagerUtil.class + "是否强制更新" + updateRes.isForceupdate());
+
                             if (updateRes.isForceupdate()) {
 
                                 simplecDialog.dismiss();
