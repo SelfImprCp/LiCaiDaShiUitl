@@ -74,6 +74,10 @@ public class ActivityManagerUtil {
      */
     public void finishActivity(Activity activity) {
         if (activity != null && activityStack.contains(activity)) {
+
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity  " + activity  );
+
+
             activityStack.remove(activity);
             activity.finish();
         }
