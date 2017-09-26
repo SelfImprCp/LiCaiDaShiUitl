@@ -79,7 +79,6 @@ public class ActivityManagerUtil {
         if (activity != null && activityStack.contains(activity)) {
 
 
-
             activityStack.remove(activity);
             activity.finish();
         }
@@ -116,19 +115,12 @@ public class ActivityManagerUtil {
 
 //        for (int i = 0 ; i < activityStack.size(); i++) {
 //得到Stack中的枚举对象
-        Enumeration items=activityStack.elements();
+        Enumeration items = activityStack.elements();
         //显示枚举(stack)中的所有元素
-        while(items.hasMoreElements())
-        {
+        while (items.hasMoreElements()) {
 
             LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity   items.nextElement()   " + items.nextElement());
-        }
-
-
-        for (Activity activity : activityStack) {
-
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity     " + activity);
-
+            Activity activity = (Activity) items.nextElement();
             if (null != activity) {
 
                 finishActivity(activity);
