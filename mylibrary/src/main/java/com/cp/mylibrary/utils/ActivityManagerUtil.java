@@ -74,11 +74,11 @@ public class ActivityManagerUtil {
      */
     public void finishActivity(Activity activity) {
 
-        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity   之前  " + activity  );
+        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity   之前  " + activity);
 
         if (activity != null && activityStack.contains(activity)) {
 
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity  " + activity  );
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity  " + activity);
 
 
             activityStack.remove(activity);
@@ -113,19 +113,18 @@ public class ActivityManagerUtil {
     public void finishAllActivity() {
 
 
-        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size()  );
+        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size());
 
-        for (int i = 0, size = activityStack.size(); i < size; i++) {
+//        for (int i = 0 ; i < activityStack.size(); i++) {
 
+        for (Activity activity : activityStack) {
 
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity     " + activity);
 
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity     " + activityStack.get(i)  );
+            if (null != activity) {
 
-            if (null != activityStack.get(i)) {
+                finishActivity(activity);
 
-
-
-                finishActivity(activityStack.get(i));
             }
         }
         activityStack.clear();
@@ -136,7 +135,7 @@ public class ActivityManagerUtil {
      */
     public void AppExit() {
         try {
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 "  );
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 ");
 
             finishAllActivity();
 
