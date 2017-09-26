@@ -2,6 +2,7 @@ package com.cp.mylibrary.utils;
 
 import android.app.Activity;
 
+import java.util.Enumeration;
 import java.util.Stack;
 
 /**
@@ -74,11 +75,9 @@ public class ActivityManagerUtil {
      */
     public void finishActivity(Activity activity) {
 
-        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity   之前  " + activity);
 
         if (activity != null && activityStack.contains(activity)) {
 
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "  结束的activity  " + activity);
 
 
             activityStack.remove(activity);
@@ -116,6 +115,15 @@ public class ActivityManagerUtil {
         LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size());
 
 //        for (int i = 0 ; i < activityStack.size(); i++) {
+//得到Stack中的枚举对象
+        Enumeration items=activityStack.elements();
+        //显示枚举(stack)中的所有元素
+        while(items.hasMoreElements())
+        {
+
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity   items.nextElement()   " + items.nextElement());
+        }
+
 
         for (Activity activity : activityStack) {
 
