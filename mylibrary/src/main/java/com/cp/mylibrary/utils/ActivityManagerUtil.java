@@ -116,6 +116,11 @@ public class ActivityManagerUtil {
         LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size()  );
 
         for (int i = 0, size = activityStack.size(); i < size; i++) {
+
+
+
+            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity     " + activityStack.get(i)  );
+
             if (null != activityStack.get(i)) {
 
 
