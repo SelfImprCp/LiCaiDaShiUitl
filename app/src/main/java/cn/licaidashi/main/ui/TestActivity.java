@@ -19,6 +19,7 @@ import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimePickDialogUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.NoDoubleClickUtils;
 import com.cp.mylibrary.utils.StringUtils;
 
 
@@ -138,21 +139,12 @@ public class TestActivity extends BaseActivity {
     private TextView nest_scrollview_text;
 
 
-
-
-
-
     @BindView(id = R.id.fuwenben_text, click = true)
     private TextView fuwenben_text;
 
 
-
-
     @BindView(id = R.id.super_textview_text, click = true)
     private TextView super_textview_text;
-
-
-
 
 
     private CityPicker cityPicker1;
@@ -466,14 +458,18 @@ public class TestActivity extends BaseActivity {
                 break;
 
 
-            case  R.id.super_textview_text:
+            case R.id.super_textview_text:
 
-              TestUIhelper.showTestSuperTextView(TestActivity.this);
+              //  TestUIhelper.showTestSuperTextView(TestActivity.this);
 
+                // 退出APP
                 //    ActivityManagerUtil.getInstance().AppExit();
 
+                // 防止重复提交
+                if (!NoDoubleClickUtils.isDoubleClick()) {
+                    LogCp.i(LogCp.CP, TestActivity.class + " 重复提交");
+                }
                 break;
-
 
 
         }

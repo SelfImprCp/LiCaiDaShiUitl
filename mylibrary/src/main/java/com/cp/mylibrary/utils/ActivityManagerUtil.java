@@ -111,15 +111,15 @@ public class ActivityManagerUtil {
     public void finishAllActivity() {
 
 
-        LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size());
+        //  LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的数量   " + activityStack.size());
 
-//        for (int i = 0 ; i < activityStack.size(); i++) {
+//
 //得到Stack中的枚举对象
         Enumeration items = activityStack.elements();
         //显示枚举(stack)中的所有元素
         while (items.hasMoreElements()) {
 
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity   items.nextElement()   " + items.nextElement());
+            //   LogCp.i(LogCp.CP, ActivityManagerUtil.class + "   堆中的 Activity   items.nextElement()   " + items.nextElement());
             Activity activity = (Activity) items.nextElement();
             if (null != activity) {
 
