@@ -24,10 +24,18 @@ import com.cp.mylibrary.utils.StringUtils;
 
 
 import org.kymjs.kjframe.ui.BindView;
+import org.reactivestreams.Subscriber;
 
 import cn.licaidashi.main.R;
 import cn.licaidashi.main.TestUIhelper;
 import cn.licaidashi.main.bean.UserBean;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -453,14 +461,17 @@ public class TestActivity extends BaseActivity {
 
             case R.id.fuwenben_text:
 
-                TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
+//                TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
+
+
+                textRxJava();
 
                 break;
 
 
             case R.id.super_textview_text:
 
-              //  TestUIhelper.showTestSuperTextView(TestActivity.this);
+                //  TestUIhelper.showTestSuperTextView(TestActivity.this);
 
                 // 退出APP
                 //    ActivityManagerUtil.getInstance().AppExit();
@@ -473,6 +484,69 @@ public class TestActivity extends BaseActivity {
 
 
         }
+
+    }
+
+
+    private void textRxJava() {
+//创建被观察者
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+
+                LogCp.i(LogCp.CP,TestActivity.class + "  emit 1");
+                emitter.onNext(1);
+                LogCp.i(LogCp.CP,TestActivity.class + "  emit 2");
+
+                emitter.onNext(2);
+                LogCp.i(LogCp.CP,TestActivity.class + "   emit 3");
+
+                emitter.onNext(3);
+                LogCp.i(LogCp.CP,TestActivity.class + "  emit  onComplete");
+
+                emitter.onComplete();
+                LogCp.i(LogCp.CP,TestActivity.class + "  emit 4");
+
+                emitter.onNext(4);
+            }
+        }).subscribe(new Observer<Integer>() {
+            private Disposable mDisposable;
+            private int i;
+
+            @Override
+            public void onSubscribe(Disposable d) {
+                LogCp.i(LogCp.CP,TestActivity.class + "   onSubscribe");
+
+                mDisposable = d;
+            }
+
+            @Override
+            public void onNext(Integer value) {
+                LogCp.i(LogCp.CP,TestActivity.class + "   onNext   "  + value +" i " + i);
+
+                i++;
+                if (i == 2) {
+                    LogCp.i(LogCp.CP,TestActivity.class + "   dispose");
+
+                    mDisposable.dispose();
+
+                    LogCp.i(LogCp.CP,TestActivity.class + "   isDisposed"  + mDisposable.isDisposed());
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                LogCp.i(LogCp.CP,TestActivity.class + "   onError");
+
+            }
+
+            @Override
+            public void onComplete() {
+                LogCp.i(LogCp.CP,TestActivity.class + "   onComplete");
+
+            }
+        });
+
 
     }
 
