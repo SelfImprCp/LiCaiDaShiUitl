@@ -107,7 +107,7 @@
     <orderEntry type="library" exported="" name="play-services-appindexing-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="PowerfulViewLibrary-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="pickerview-2.0.9" level="project" />
-    <orderEntry type="library" exported="" name="autolayout-1.4.3" level="project" />
+    <orderEntry type="library" exported="" name="autolayout-1.4.5" level="project" />
     <orderEntry type="library" exported="" name="SuperTextView-2.1.4" level="project" />
     <orderEntry type="library" exported="" name="transition-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.0.1" level="project" />
@@ -139,7 +139,6 @@
     <orderEntry type="library" exported="" name="glide-4.1.1" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_Sina" level="project" />
     <orderEntry type="library" exported="" name="libapshare" level="project" />
-    <orderEntry type="library" exported="" name="core-3.2.1" level="project" />
     <orderEntry type="library" exported="" name="weiboSDKCore_3.1.4" level="project" />
     <orderEntry type="library" exported="" name="SocialSDK_WeiXin_1" level="project" />
     <orderEntry type="library" exported="" name="systembartint-1.0.3" level="project" />
