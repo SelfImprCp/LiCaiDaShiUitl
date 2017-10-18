@@ -19,6 +19,18 @@ public class ADInfo {
 	private String shareTitle;
 	private String share_url;
 
+
+	// 是否人传参数 ，0 传，1不传
+	private String parameter;
+
+	public String getParameter() {
+		return parameter;
+	}
+
+	public void setParameter(String parameter) {
+		this.parameter = parameter;
+	}
+
 	public String getShare_url() {
 		return share_url;
 	}

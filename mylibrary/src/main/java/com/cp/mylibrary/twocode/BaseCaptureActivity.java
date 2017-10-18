@@ -1,16 +1,11 @@
 package com.cp.mylibrary.twocode;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -31,8 +26,6 @@ import com.cp.mylibrary.zxing.CaptureActivityHandler;
 import com.cp.mylibrary.zxing.DecodeThread;
 import com.cp.mylibrary.zxing.InactivityTimer;
 import com.google.zxing.Result;
-
-import org.kymjs.kjframe.ui.BindView;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
