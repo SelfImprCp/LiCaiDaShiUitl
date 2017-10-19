@@ -19,6 +19,7 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 
 /**
@@ -142,10 +143,15 @@ public class ShareDialog extends CommonDialog implements
 
         UMImage image = new UMImage(mActivity, share_img_url);
 
+        UMWeb web = new UMWeb(link);
+
+        web.setTitle(title);//标题
+        web.setThumb(image);  //缩略图
+        web.setDescription(content);//描述
+
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
-                .withTitle(title)
-                .withTargetUrl(link)
+              
                 .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
@@ -160,11 +166,15 @@ public class ShareDialog extends CommonDialog implements
 
         UMImage image = new UMImage(mActivity, share_img_url);
 
+
+        UMWeb web = new UMWeb(link);
+
+        web.setTitle(title);//标题
+        web.setThumb(image);  //缩略图
+        web.setDescription(content);//描述
+
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
-                .withText(content)
-                .withTitle(title)
-                .withTargetUrl(link)
-                .withMedia(image)
+                .withMedia(web)
                 .setCallback(umShareListener)
                 .share();
 
@@ -178,8 +188,8 @@ public class ShareDialog extends CommonDialog implements
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.SINA)
                 .withText(content)
-                .withTitle(title)
-                .withTargetUrl(link)
+                //  .withTitle(title)
+                //.withTargetUrl(link)
                 .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
@@ -192,8 +202,8 @@ public class ShareDialog extends CommonDialog implements
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.QQ)
                 .withText(content)
-                .withTitle(title)
-                .withTargetUrl(link)
+                //  .withTitle(title)
+                //    .withTargetUrl(link)
                 .withMedia(image)
                 .setCallback(umShareListener)
                 .share();
@@ -201,6 +211,12 @@ public class ShareDialog extends CommonDialog implements
 
 
     private UMShareListener umShareListener = new UMShareListener() {
+
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
         @Override
         public void onResult(SHARE_MEDIA platform) {
             Log.d("plat", "platform" + platform);
@@ -208,8 +224,7 @@ public class ShareDialog extends CommonDialog implements
 //                    ,
 
 
-                Toast.makeText(context, "分享成功", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(context, "分享成功", Toast.LENGTH_SHORT).show();
 
 
         }
@@ -224,8 +239,10 @@ public class ShareDialog extends CommonDialog implements
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(context,  "分享取消了", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "分享取消了", Toast.LENGTH_SHORT).show();
         }
+
+
     };
 
 
