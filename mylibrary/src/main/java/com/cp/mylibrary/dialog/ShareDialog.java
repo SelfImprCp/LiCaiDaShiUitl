@@ -141,12 +141,11 @@ public class ShareDialog extends CommonDialog implements
         LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_url);
 
 
-        UMImage image = new UMImage(mActivity, share_img_url);
-
+        UMImage thumb = new UMImage(mActivity, R.drawable.fenxiang_logo);
         UMWeb web = new UMWeb(link);
 
         web.setTitle(title);//标题
-        web.setThumb(image);  //缩略图
+        web.setThumb(thumb);  //缩略图
         web.setDescription(content);//描述
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
@@ -163,16 +162,15 @@ public class ShareDialog extends CommonDialog implements
 
         LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
 
-        UMImage image = new UMImage(mActivity, share_img_url);
-
-
+        UMImage thumb = new UMImage(mActivity, R.drawable.fenxiang_logo);
         UMWeb web = new UMWeb(link);
 
         web.setTitle(title);//标题
-        web.setThumb(image);  //缩略图
+        web.setThumb(thumb);  //缩略图
         web.setDescription(content);//描述
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
+                .withText(content)
                 .withMedia(web)
                 .setCallback(umShareListener)
                 .share();
