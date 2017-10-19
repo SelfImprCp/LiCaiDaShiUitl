@@ -1,4 +1,4 @@
-package cn.licaidashi.main.wxapi;
+package cn.licaidashi.main.weixin.callback;
 
 
 import com.umeng.weixin.callback.WXCallbackActivity;

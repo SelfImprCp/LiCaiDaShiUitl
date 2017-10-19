@@ -200,7 +200,7 @@
 
 
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name=".weixin.callback.WXEntryActivity"
             android:screenOrientation="portrait" >
         </activity>
 

@@ -151,8 +151,7 @@ public class ShareDialog extends CommonDialog implements
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
-              
-                .withMedia(image)
+                .withMedia(web)
                 .setCallback(umShareListener)
                 .share();
 
