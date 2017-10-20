@@ -174,14 +174,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
         LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 缓存中取出，  列表 数据  " + cacheStr);
 
-
-        if (!StringUtils.isEmpty(cacheStr)) {
-
-
-            executeParserTask(cacheStr);
-
-
-        } else {
+        if (refresh) {
             if (NetWorkUtil.hasInternetConnected(getActivity())) {
 
                 requestData();
@@ -190,7 +183,24 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
                 mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
             }
+        } else {
+            if (!StringUtils.isEmpty(cacheStr)) {
 
+
+                executeParserTask(cacheStr);
+
+
+            } else {
+                if (NetWorkUtil.hasInternetConnected(getActivity())) {
+
+                    requestData();
+
+                } else {
+                    mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+                }
+
+            }
         }
 
 
@@ -253,7 +263,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
             LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "请求来的数据 " + res);
             // 保存到缓存上中
             if (!StringUtils.isEmpty(myCachePath))
-            MyCache.getMyCache(mContext).saveObject(myCachePath + mCurrentPage, res);
+                MyCache.getMyCache(mContext).saveObject(myCachePath + mCurrentPage, res);
 
             executeParserTask(res);
 
@@ -342,7 +352,6 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         @Override
         protected String doInBackground(Void... params) {
             try {
-
 
 
                 mData = parseList(reponseData);
