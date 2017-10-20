@@ -32,18 +32,15 @@ public class MyBaseFragment extends SupportFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
 
 
-
-
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
-
+       // if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        //}
 
         if (!NetWorkUtil.hasInternetConnected(getActivity())) {
 
             ShowToastUtil.showToast(getActivity(), "请检查网络");
         }
-
-
 
 
     }
@@ -121,6 +118,8 @@ public class MyBaseFragment extends SupportFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+
 
     }
 
