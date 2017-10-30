@@ -139,7 +139,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         return null;
     }
 
-    ;
+
 
     @Override
     public void onRefresh() {
