@@ -23,6 +23,17 @@ public class ADInfo {
 	// 是否人传参数 ，0 传，1不传
 	private String parameter;
 
+	private String shareType;
+
+
+	public String getShareType() {
+		return shareType;
+	}
+
+	public void setShareType(String shareType) {
+		this.shareType = shareType;
+	}
+
 	public String getParameter() {
 		return parameter;
 	}
