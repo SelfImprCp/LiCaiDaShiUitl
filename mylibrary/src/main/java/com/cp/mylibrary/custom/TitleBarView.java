@@ -162,6 +162,7 @@ public class TitleBarView extends RelativeLayout {
     }
 
     /**
+     *
      * @param resouId
      */
     public void setTitleBarMenuImg(int resouId) {

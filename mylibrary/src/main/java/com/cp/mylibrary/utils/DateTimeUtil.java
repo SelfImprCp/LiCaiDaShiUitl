@@ -338,6 +338,8 @@ public class DateTimeUtil {
         return dateString;
     }
 
+
+
     /**
      * 将长时间格式字符串转换为时间
      * yyyy-MM-dd HH:mm:ss    *    * @param strDate    * @return
