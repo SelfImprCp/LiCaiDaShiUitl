@@ -115,6 +115,7 @@ public class GsonUtil {
 
     /**
      * 判断一个对像中的属性是不是有空
+     * 返回true 说明有空值
      *
      * @param obj
      * @return
