@@ -19,88 +19,85 @@ import java.util.List;
 
 /**
  * 图片预览界面
- * 
+ *
+ * @param
+ * @param
  * @author kymjs
- * @param
- * @param
  */
 public class ImagePreviewActivity extends MyBaseActivity {
 
 
+    public static final String BUNDLE_KEY_IMAGES = "bundle_key_images";
+    private static final String BUNDLE_KEY_INDEX = "bundle_key_index";
+    private String[] mImageUrls;
+
+    private TextView mTvImgIndex;
+    private ImageView mIvMore;
+    private int mCurrentPostion = 0;
+    private GalleryViewPager mViewPager;
+
+    // //
+
+    @Override
+    public void setRootView() {
+
+        setContentView(R.layout.activity_image_preview);
+    }
 
 
-	public static final String BUNDLE_KEY_IMAGES = "bundle_key_images";
-	private static final String BUNDLE_KEY_INDEX = "bundle_key_index";
-	private String[] mImageUrls;
+    @Override
+    public void initWidget() {
 
-	private TextView mTvImgIndex;
-	private ImageView mIvMore;
-	private int mCurrentPostion = 0;
-  private GalleryViewPager mViewPager;
+        super.initWidget();
 
-	// //
+        mImageUrls = getIntent().getStringArrayExtra(BUNDLE_KEY_IMAGES);
+        int index = getIntent().getIntExtra(BUNDLE_KEY_INDEX, 0);
 
-	@Override
-	public void setRootView() {
+        mTvImgIndex = (TextView) findViewById(R.id.tv_img_index);
+        mIvMore = (ImageView) findViewById(R.id.iv_more);
+        mIvMore.setOnClickListener(this);
 
-		setContentView(R.layout.activity_image_preview);
-	}
+        List<String> items = new ArrayList<String>();
+        Collections.addAll(items, mImageUrls);
 
+        UrlPagerAdapter pagerAdapter = new UrlPagerAdapter(this, items);
 
+        pagerAdapter.setOnItemChangeListener(new BasePagerAdapter.OnItemChangeListener() {
 
-	@Override
-	public void initWidget() {
+            @Override
+            public void onItemChange(int currentPosition) {
+                mCurrentPostion = currentPosition;
+                if (mImageUrls != null && mImageUrls.length > 1) {
+                    if (mTvImgIndex != null) {
+                        mTvImgIndex.setText((mCurrentPostion + 1) + "/"
+                                + mImageUrls.length);
+                    }
+                }
+            }
+        });
 
-		super.initWidget();
+        mViewPager = (GalleryViewPager) findViewById(R.id.viewer);
+        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setCurrentItem(index);
+        mViewPager.setOnItemClickListener(new GalleryViewPager.OnItemClickListener() {
 
-		mImageUrls = getIntent().getStringArrayExtra(BUNDLE_KEY_IMAGES);
-		int index = getIntent().getIntExtra(BUNDLE_KEY_INDEX, 0);
+            @Override
+            public void onItemClicked(View view, int position) {
 
-		mTvImgIndex = (TextView) findViewById(R.id.tv_img_index);
-		mIvMore = (ImageView) findViewById(R.id.iv_more);
-		mIvMore.setOnClickListener(this);
+                finish();
+            }
+        });
 
-		List<String> items = new ArrayList<String>();
-		Collections.addAll(items, mImageUrls);
+    }
 
-  UrlPagerAdapter pagerAdapter = new UrlPagerAdapter(this, items);
+    public static void showImagePrivew(Context context, int index,
+                                       String[] images) {
+        Intent intent = new Intent(context, ImagePreviewActivity.class);
 
-		pagerAdapter.setOnItemChangeListener(new BasePagerAdapter.OnItemChangeListener() {
-
-			@Override
-			public void onItemChange(int currentPosition) {
-				mCurrentPostion = currentPosition;
-				if (mImageUrls != null && mImageUrls.length > 1) {
-					if (mTvImgIndex != null) {
-						mTvImgIndex.setText((mCurrentPostion + 1) + "/"
-								+ mImageUrls.length);
-					}
-				}
-			}
-		});
-
-		mViewPager = (GalleryViewPager) findViewById(R.id.viewer);
-		mViewPager.setOffscreenPageLimit(3);
-		mViewPager.setAdapter(pagerAdapter);
-		mViewPager.setCurrentItem(index);
-		mViewPager.setOnItemClickListener(new GalleryViewPager.OnItemClickListener() {
-
-			@Override
-			public void onItemClicked(View view, int position) {
-
- finish();
-			}
-		});
- 
-	}
-
-	public static void showImagePrivew(Context context, int index,
-									   String[] images) {
-		Intent intent = new Intent(context, ImagePreviewActivity.class);
-
-		intent.putExtra(BUNDLE_KEY_IMAGES, images);
-		intent.putExtra(BUNDLE_KEY_INDEX, index);
-		context.startActivity(intent);
-	}
+        intent.putExtra(BUNDLE_KEY_IMAGES, images);
+        intent.putExtra(BUNDLE_KEY_INDEX, index);
+        context.startActivity(intent);
+    }
 
 }

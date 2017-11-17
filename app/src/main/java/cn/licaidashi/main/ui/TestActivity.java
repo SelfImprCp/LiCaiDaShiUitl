@@ -14,6 +14,7 @@ import com.cp.mylibrary.city.ScrollerNumberPicker;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimePickDialogUtil;
+import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NoDoubleClickUtils;
@@ -23,6 +24,7 @@ import org.kymjs.kjframe.ui.BindView;
 
 import cn.licaidashi.main.R;
 import cn.licaidashi.main.TestUIhelper;
+import cn.licaidashi.main.bean.ProvinceBean;
 import cn.licaidashi.main.bean.UserBean;
 
 
@@ -452,7 +454,18 @@ public class TestActivity extends BaseActivity {
 //                TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
 
 
-            //    textRxJava();
+                //    textRxJava();
+
+
+//                ProvinceBean userBean = new ProvinceBean();
+//
+//
+//                try {
+//                    LogCp.i(LogCp.CP, TestActivity.class + " 是否为空的判断" + GsonUtil.checkObjFieldIsNull(userBean));
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                }
+
 
                 break;
 
@@ -474,6 +487,7 @@ public class TestActivity extends BaseActivity {
         }
 
     }
+
 
 //
 //    private void textRxJava() {

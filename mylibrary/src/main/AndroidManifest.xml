@@ -58,6 +58,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
@@ -114,9 +115,7 @@
             android:value="155d210ca22a64c4a61551f888d60fbf"></meta-data>
 
 
-        <!--<meta-data-->
-            <!--android:name="UMENG_CHANNEL"-->
-            <!--android:value="Umeng"></meta-data>-->
+
 
 
     </application>
