@@ -59,14 +59,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustResize"></activity>
 
-        <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false"></service>
 
 
         <activity

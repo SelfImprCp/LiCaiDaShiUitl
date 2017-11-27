@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 
 public class TitleBarView extends RelativeLayout {
 
-    private TextView titleBarTitle, titlebar_tv_menu2, titlebar_text_title_two_1, titlebar_text_title_two_2, titlebar_tv_menu_text;
+    private TextView titleBarTitle, titlebar_tv_menu2, titlebar_img_red_dian, titlebar_text_title_two_1, titlebar_text_title_two_2, titlebar_tv_menu_text;
     private ImageView titlebar_img_back;
     private ImageView titlebar_img_menu;
     private View titlebar_tv_fengexian;
@@ -67,6 +67,9 @@ public class TitleBarView extends RelativeLayout {
         titlebar_tv_menu_text = (TextView) view.findViewById(R.id.titlebar_tv_menu_text);
 
 
+        titlebar_img_red_dian = (TextView) view.findViewById(R.id.titlebar_img_red_dian);
+
+
         titlebar_tv_fengexian = (View) view.findViewById(R.id.titlebar_tv_fengexian);
 
 
@@ -77,7 +80,19 @@ public class TitleBarView extends RelativeLayout {
     }
 
 
+    public void setRedDian(String visible) {
 
+        if (!StringUtils.isEmpty(visible)) {
+
+            titlebar_img_red_dian.setText(visible);
+            titlebar_img_red_dian.setVisibility(VISIBLE);
+        } else {
+
+            titlebar_img_red_dian.setVisibility(GONE);
+        }
+
+
+    }
 
 
     public void setBgColor(int color) {
@@ -162,7 +177,6 @@ public class TitleBarView extends RelativeLayout {
     }
 
     /**
-     *
      * @param resouId
      */
     public void setTitleBarMenuImg(int resouId) {

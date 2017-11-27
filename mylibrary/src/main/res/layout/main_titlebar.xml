@@ -7,12 +7,12 @@
 
     <LinearLayout
 
-        android:layout_marginLeft="@dimen/space_35"
-        android:layout_marginRight="@dimen/space_35"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/space_35"
+        android:layout_marginRight="@dimen/space_35"
         android:orientation="vertical">
 
 
@@ -44,7 +44,7 @@
 
     <TextView
         android:id="@+id/titlebar_text_title"
-           android:layout_width="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/space_40"
@@ -58,19 +58,18 @@
         android:visibility="gone" />
 
 
-
     <ImageView
         android:id="@+id/titlebar_img_back"
         style="@style/titlebar_img"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:paddingRight="@dimen/space_15"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/space_5"
         android:clickable="true"
+        android:paddingRight="@dimen/space_15"
 
-        android:src="@drawable/return_back_black"/>
+        android:src="@drawable/return_back_black" />
 
     <ImageView
         android:id="@+id/titlebar_img_menu_col"
@@ -89,30 +88,54 @@
         android:id="@+id/titlebar_tv_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_alignRight="@+id/titlebar_img_menu"
         android:layout_centerVertical="true"
         android:layout_marginRight="40dp"
         android:clickable="true"
         android:text="完成"
-        android:layout_alignParentRight="true"
         android:textColor="#269edc"
         android:textSize="16sp"
         android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/titlebar_img_menu"
-        style="@style/titlebar_img"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="15dp"
 
-        android:clickable="true"
-        android:contentDescription="@null"
-        android:focusable="false"
-        android:src="@drawable/flash_default"
-        android:visibility="gone" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+
+        <TextView
+            android:id="@+id/titlebar_img_red_dian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_20"
+            android:background="@drawable/round_yuan_red"
+            android:padding="@dimen/space_4"
+            android:text="15"
+            android:textColor="@color/white_cp_util"
+            android:textSize="@dimen/text_size_12"
+
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/titlebar_img_menu"
+            style="@style/titlebar_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:layout_marginRight="15dp"
+
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="false"
+            android:src="@drawable/flash_default"
+            android:visibility="gone" />
+
+
+    </FrameLayout>
 
 
     <TextView
