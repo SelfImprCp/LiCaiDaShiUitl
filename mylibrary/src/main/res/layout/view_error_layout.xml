@@ -83,7 +83,28 @@
                 android:textSize="@dimen/text_size_16" />
 
 
+
         </LinearLayout>
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/error_loading_lin"
+
+
+            android:id="@+id/error_caozuo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+  android:layout_marginTop="@dimen/space_20"
+            android:background="@drawable/round_corners_lan_nei_corners_25"
+            android:paddingBottom="@dimen/space_8"
+            android:paddingLeft="@dimen/space_15"
+            android:paddingRight="@dimen/space_15"
+            android:paddingTop="@dimen/space_8"
+            android:text="定制名片"
+            android:textColor="@color/white_cp_util"
+            android:textSize="@dimen/text_size_15"
+android:visibility="gone"
+            />
+
     </RelativeLayout>
 
 </RelativeLayout>
