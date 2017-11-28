@@ -44,6 +44,7 @@ public class EmptyLayout extends LinearLayout implements
     private LinearLayout error_loading_lin;
 
     private TextView error_caozuo_button;
+    private String caoZuoTextStr = "";
 
 
     public EmptyLayout(Context context) {
@@ -187,6 +188,11 @@ public class EmptyLayout extends LinearLayout implements
                 img.setVisibility(View.GONE);
                 tv.setText(R.string.error_view_loading);
                 clickEnable = false;
+
+                if (!StringUtils.isEmpty(caoZuoTextStr))
+                {
+                    error_caozuo_button.setVisibility(GONE);
+                }
                 break;
             //没有数据 的显示
             case NODATA:
@@ -201,6 +207,14 @@ public class EmptyLayout extends LinearLayout implements
                 animProgress.setVisibility(View.GONE);
                 setTvNoDataContent();
                 clickEnable = true;
+                 if (!StringUtils.isEmpty(caoZuoTextStr))
+                 {
+                     error_caozuo_button.setVisibility(VISIBLE);
+                 }else
+                 {
+                     error_caozuo_button.setVisibility(GONE);
+                 }
+
                 break;
             case HIDE_LAYOUT:
                 setVisibility(View.GONE);
@@ -259,6 +273,7 @@ public class EmptyLayout extends LinearLayout implements
 
     public void setErrorCaoZuoButtonText(String strcontet, String textColor, Drawable drawable, OnClickListener onClickListener) {
         if (!StringUtils.isEmpty(strcontet)) {
+            caoZuoTextStr = strcontet;
             error_caozuo_button.setVisibility(VISIBLE);
             error_caozuo_button.setText(strcontet);
             error_caozuo_button.setTextColor(Color.parseColor(textColor));
