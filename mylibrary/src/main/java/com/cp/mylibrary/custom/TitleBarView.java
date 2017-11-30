@@ -82,7 +82,7 @@ public class TitleBarView extends RelativeLayout {
 
     public void setRedDian(String visible) {
 
-        if (!StringUtils.isEmpty(visible)) {
+        if (!visible.equals("0")) {
 
             titlebar_img_red_dian.setText(visible);
             titlebar_img_red_dian.setVisibility(VISIBLE);
