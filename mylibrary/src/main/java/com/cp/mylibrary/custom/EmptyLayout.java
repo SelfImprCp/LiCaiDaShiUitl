@@ -189,10 +189,9 @@ public class EmptyLayout extends LinearLayout implements
                 tv.setText(R.string.error_view_loading);
                 clickEnable = false;
 
-                if (!StringUtils.isEmpty(caoZuoTextStr))
-                {
+
                     error_caozuo_button.setVisibility(GONE);
-                }
+
                 break;
             //没有数据 的显示
             case NODATA:
