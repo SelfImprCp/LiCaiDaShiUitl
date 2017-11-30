@@ -190,7 +190,7 @@ public class EmptyLayout extends LinearLayout implements
                 clickEnable = false;
 
 
-                    error_caozuo_button.setVisibility(GONE);
+                error_caozuo_button.setVisibility(GONE);
 
                 break;
             //没有数据 的显示
@@ -206,13 +206,11 @@ public class EmptyLayout extends LinearLayout implements
                 animProgress.setVisibility(View.GONE);
                 setTvNoDataContent();
                 clickEnable = true;
-                 if (!StringUtils.isEmpty(caoZuoTextStr))
-                 {
-                     error_caozuo_button.setVisibility(VISIBLE);
-                 }else
-                 {
-                     error_caozuo_button.setVisibility(GONE);
-                 }
+                if (!StringUtils.isEmpty(caoZuoTextStr)) {
+                    error_caozuo_button.setVisibility(VISIBLE);
+                } else {
+                    error_caozuo_button.setVisibility(GONE);
+                }
 
                 break;
             case HIDE_LAYOUT:
