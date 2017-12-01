@@ -271,8 +271,7 @@ public class EmptyLayout extends LinearLayout implements
     public void setErrorCaoZuoButtonText(String strcontet, String textColor, Drawable drawable, OnClickListener onClickListener) {
         if (!StringUtils.isEmpty(strcontet)) {
             caoZuoTextStr = strcontet;
-            error_caozuo_button.setVisibility(VISIBLE);
-            error_caozuo_button.setText(strcontet);
+                    error_caozuo_button.setText(strcontet);
             error_caozuo_button.setTextColor(Color.parseColor(textColor));
             error_caozuo_button.setBackground(drawable);
             error_caozuo_button.setOnClickListener(onClickListener);
