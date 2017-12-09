@@ -15,6 +15,8 @@
         <com.cp.mylibrary.custom.ListViewForScrollView
             android:id="@+id/listview"
             android:layout_width="fill_parent"
+
+
             android:layout_height="fill_parent"
             android:dividerHeight="0px"
             android:listSelector="#00000000"
