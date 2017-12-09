@@ -88,6 +88,11 @@
             android:theme="@style/Theme.UMDefault" />
 
 
+
+        <activity
+            android:name=".activity.OneImageShowActivity"
+            android:screenOrientation="portrait"></activity>
+
         <!-- 查看大图-->
         <activity
             android:name=".activity.ImagePreviewActivity"

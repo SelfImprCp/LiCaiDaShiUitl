@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
@@ -21,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.activity.OneImageShowActivity;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -315,23 +317,38 @@ public class CameraAndSelectPicUtil {
      * @param data 原始图片
      * @param
      */
-    public void startActionCrop(Uri data) {
+    public void startActionCrop(Uri data, boolean isCrop) {
         if (data == null)
             data = origUri;
 
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(data, "image/*");
-        intent.putExtra("output", getUploadTempFile(data));
-        intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", getBILI_W());// 裁剪框比例
-        intent.putExtra("aspectY", getBILI_H());
-        intent.putExtra("outputX", getCROP_W());// 输出图片大小
-        intent.putExtra("outputY", getCROP_H());
-        intent.putExtra("scale", true);// 去黑边
-        intent.putExtra("scaleUpIfNeeded", true);// 去黑边
-        mActivity.startActivityForResult(intent,
-                ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD);
+        if (isCrop) {
+
+            Intent intent = new Intent("com.android.camera.action.CROP");
+            intent.setDataAndType(data, "image/*");
+            intent.putExtra("output", getUploadTempFile(data));
+            intent.putExtra("crop", "true");
+            intent.putExtra("aspectX", getBILI_W());// 裁剪框比例
+            intent.putExtra("aspectY", getBILI_H());
+            intent.putExtra("outputX", getCROP_W());// 输出图片大小
+            intent.putExtra("outputY", getCROP_H());
+            intent.putExtra("scale", true);// 去黑边
+            intent.putExtra("scaleUpIfNeeded", true);// 去黑边
+            mActivity.startActivityForResult(intent,
+                    ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD);
+
+
+        } else {
+            Intent intent = new Intent(mActivity, OneImageShowActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString(OneImageShowActivity.BUNDLE_KEY_IMAGES, getImageFilePath(data));
+            intent.putExtras(bundle);
+
+            mActivity.startActivityForResult(intent,
+                    ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD);
+        }
+
     }
+
 
     // 裁剪头像的绝对路径
     private Uri getUploadTempFile(Uri uri) {
@@ -364,6 +381,38 @@ public class CameraAndSelectPicUtil {
         cropUri = Uri.fromFile(protraitFile);
         return this.cropUri;
     }
+
+
+    private String getImageFilePath(Uri uri) {
+        String storageState = Environment.getExternalStorageState();
+        if (storageState.equals(Environment.MEDIA_MOUNTED)) {
+            File savedir = new File(FILE_SAVEPATH);
+            if (!savedir.exists()) {
+                savedir.mkdirs();
+            }
+        } else {
+            ShowToastUtil.showToast(mContext, "无法保存上传的头像，请检查SD卡是否挂载");
+            return null;
+        }
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
+                .format(new Date());
+        String thePath = ImageUtils.getAbsolutePathFromNoStandardUri(uri);
+
+        // 如果是标准Uri
+        if (StringUtils.isEmpty(thePath)) {
+            thePath = ImageUtils.getAbsoluteImagePath(mActivity, uri);
+        }
+//        String ext = FileUtil.getFileFormat(thePath);
+//        ext = StringUtils.isEmpty(ext) ? "jpg" : ext;
+//        // 照片命名
+//        String cropFileName = "mofox_crop_" + timeStamp + "." + ext;
+//        // 裁剪头像的绝对路径
+        protraitPath =thePath;
+
+
+        return thePath;
+    }
+
 
     public int getBILI_W() {
         return BILI_W;

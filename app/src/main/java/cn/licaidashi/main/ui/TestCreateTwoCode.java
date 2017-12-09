@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.cp.mylibrary.activity.ImagePreviewActivity;
+import com.cp.mylibrary.activity.OneImageShowActivity;
 import com.cp.mylibrary.custom.BadgeView;
 import com.cp.mylibrary.custom.CircleImageView;
 import com.cp.mylibrary.custom.TimerTextView;
@@ -16,6 +17,7 @@ import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.twocode.CreateTwoCodeUtil;
 import com.cp.mylibrary.utils.CameraAndSelectPicUtil;
 import com.cp.mylibrary.utils.ImageUtils;
+import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.ShowToastUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
@@ -45,12 +47,11 @@ public class TestCreateTwoCode extends BaseActivity {
     private Button select_photo_button;
 
 
-    @BindView(id = R.id.create_two_codes_img,click = true)
+    @BindView(id = R.id.create_two_codes_img, click = true)
     private ImageView create_two_codes_img;
 
     @BindView(id = R.id.select_photo_img)
     private ImageView select_photo_img;
-
 
 
     @BindView(id = R.id.circle_imageview)
@@ -82,8 +83,7 @@ public class TestCreateTwoCode extends BaseActivity {
         create_two_codes_test_title.setTitleStr("生成二维码");
 
 
-        ImageLoader.getInstance().displayImage("http://avatar.csdn.net/3/D/6/1_u013193363.jpg",circle_imageview);
-
+        ImageLoader.getInstance().displayImage("http://avatar.csdn.net/3/D/6/1_u013193363.jpg", circle_imageview);
 
 
         timer_text_view.setTimes(50);
@@ -96,14 +96,12 @@ public class TestCreateTwoCode extends BaseActivity {
                 TestCreateTwoCode.this, myview_user);
 
 
-
-
         // BadgeView 的用法
         BadgeView bv = new BadgeView(this, create_two_codes_img);
         bv.setText("12");
         bv.setTextColor(getResources().getColor(R.color.swiperefresh_color1));
         bv.setTextSize(12);
-        bv.setPadding(8,8,8,8);
+        bv.setPadding(8, 8, 8, 8);
 
         bv.setBadgePosition(BadgeView.POSITION_TOP_RIGHT); //默认值
         bv.show();
@@ -143,23 +141,23 @@ public class TestCreateTwoCode extends BaseActivity {
 
             case R.id.create_two_codes_img:
 
- String str [] = {"http://img5.imgtn.bdimg.com/it/u=614953024,3186504313&fm=21&gp=0.jpg"
- ,"http://pic4.nipic.com/20090727/1843533_144804089_2.jpg"
- ,"http://pic17.nipic.com/20111118/8868045_214622414000_2.jpg"
- ,"http://pic31.nipic.com/20130624/8821914_104949466000_2.jpg"
- ,"http://img5.imgtn.bdimg.com/it/u=3139005874,2415212363&fm=21&gp=0.jpg"};
+                String str[] = {"http://img5.imgtn.bdimg.com/it/u=614953024,3186504313&fm=21&gp=0.jpg"
+                        , "http://pic4.nipic.com/20090727/1843533_144804089_2.jpg"
+                        , "http://pic17.nipic.com/20111118/8868045_214622414000_2.jpg"
+                        , "http://pic31.nipic.com/20130624/8821914_104949466000_2.jpg"
+                        , "http://img5.imgtn.bdimg.com/it/u=3139005874,2415212363&fm=21&gp=0.jpg"};
 
-                 // 浏览大图
-            ImagePreviewActivity.showImagePrivew(this, 0, str);
+                // 浏览大图
+                ImagePreviewActivity.showImagePrivew(this, 0, str);
 
- break;
+                break;
 
         }
     }
 
 
     /**
-     *  选择图片 ，返回 后的处理
+     * 选择图片 ，返回 后的处理
      */
 
     protected void onActivityResult(int requestCode, int resultCode,
@@ -170,10 +168,10 @@ public class TestCreateTwoCode extends BaseActivity {
 
         switch (requestCode) {
             case ImageUtils.REQUEST_CODE_GETIMAGE_BYCAMERA:
-                cameraAndSelectPicUtil.startActionCrop(null);// 拍照后裁剪
+                cameraAndSelectPicUtil.startActionCrop(null, false);// 拍照后裁剪
                 break;
             case ImageUtils.REQUEST_CODE_GETIMAGE_BYCROP:
-                cameraAndSelectPicUtil.startActionCrop(imageReturnIntent.getData());// 选图后裁剪
+                cameraAndSelectPicUtil.startActionCrop(imageReturnIntent.getData(), false);// 选图后裁剪
                 break;
 
             case ImageUtils.REQUEST_CODE_GETIMAGE_BYSDCARD:
@@ -193,30 +191,27 @@ public class TestCreateTwoCode extends BaseActivity {
 
         // 获取头像缩略图
 
-       // if (cameraAndSelectPicUtil.getUpBitmapSetSize(200, 200) != null) {
+        // if (cameraAndSelectPicUtil.getUpBitmapSetSize(200, 200) != null) {
 
 
-            File fileImg =  cameraAndSelectPicUtil.getUpFile();
-            Bitmap bitmap =  ImageUtils.getBitmapByFile(fileImg);
+        File fileImg = cameraAndSelectPicUtil.getUpFile();
+        Bitmap bitmap = ImageUtils.getBitmapByFile(fileImg);
+
+        LogCp.i(LogCp.CP, TestCreateTwoCode.class + "  来显示图片了  " + fileImg);
 
 
-             if(null!=bitmap)
-             {
-                 select_photo_img.setImageBitmap(bitmap);
-             }else
-             {
-                 ShowToastUtil.showToast(this,"图像不存在，上传失败");
+        if (null != bitmap) {
+            select_photo_img.setImageBitmap(bitmap);
+        } else {
+            ShowToastUtil.showToast(this, "图像不存在，上传失败");
 
 
-             }
+        }
 
-      //  } else {
+        //  } else {
         //}
 
     }
-
-
-
 
 
 }
