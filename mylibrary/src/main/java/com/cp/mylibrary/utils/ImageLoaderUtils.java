@@ -90,11 +90,13 @@ public class ImageLoaderUtils {
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(defualtImgId);
+        requestOptions.error(defualtImgId);
+
         requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
         Glide.with(context)
                 .load(imageUrl)
                 .apply(requestOptions)
-
+                .thumbnail(0.5f)
                 .into(showView);
 
 
