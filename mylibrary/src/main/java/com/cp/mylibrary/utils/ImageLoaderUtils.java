@@ -28,19 +28,19 @@ import java.io.File;
 public class ImageLoaderUtils {
 
 
-//    public static ImageLoaderUtils imageLoaderUtils;
-//
-//    /**
-//     * 单一实例
-//     */
-//    public static ImageLoaderUtils getInstance() {
-//
-//        if (imageLoaderUtils == null) {
-//            imageLoaderUtils = new ImageLoaderUtils();
-//
-//        }
-//        return imageLoaderUtils;
-//    }
+    public static ImageLoaderUtils imageLoaderUtils;
+
+    /**
+     * 单一实例
+     */
+    public static ImageLoaderUtils getInstance() {
+
+        if (imageLoaderUtils == null) {
+            imageLoaderUtils = new ImageLoaderUtils();
+
+        }
+        return imageLoaderUtils;
+    }
 public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageView  ) {
 
 
