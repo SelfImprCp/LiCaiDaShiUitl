@@ -41,7 +41,15 @@ public class ImageLoaderUtils {
 //        }
 //        return imageLoaderUtils;
 //    }
+public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageView  ) {
 
+
+
+
+    ImageLoader.getInstance().displayImage(imageUrl, imageView);
+
+
+}
 
     public static void myDisplayImageShow(String imageUrl, ImageView imageView, int defualtImgId) {
 
