@@ -43,15 +43,15 @@ public class ImageLoaderUtils {
 //    }
 
 
-    public static void myDisplayImageShow(String imageUrl, ImageView imageView, int defualtImgId) {
+    public static void myDisplayImageShow(String imageUrl, ImageView imageView, DisplayImageOptions options) {
 
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showStubImage(defualtImgId)
-                .showImageForEmptyUri(defualtImgId)     //url爲空會显示该图片，自己放在drawable里面的
-                .showImageOnFail(defualtImgId)                //加载图片出现问题，会显示该图片
-                .cacheInMemory()                                               //缓存用
-                .cacheOnDisc()                                                    //缓存用
-                .build();
+//        DisplayImageOptions options = new DisplayImageOptions.Builder()
+//                .showStubImage(defualtImgId)
+//                .showImageForEmptyUri(defualtImgId)     //url爲空會显示该图片，自己放在drawable里面的
+//                .showImageOnFail(defualtImgId)                //加载图片出现问题，会显示该图片
+//                .cacheInMemory()                                               //缓存用
+//                .cacheOnDisc()                                                    //缓存用
+//                .build();
 
 
         ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
@@ -63,7 +63,6 @@ public class ImageLoaderUtils {
     public void myDisplaySuperTextViewShow(Context context, String imageUrl, int showView, int defualtImgId) {
 
 
-
 //        Glide.with(context)
 //                .load(imageUrl)
 //                .fitCenter()
@@ -72,6 +71,28 @@ public class ImageLoaderUtils {
 //                .into(showView);
 
 
+    }
+
+
+    public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg, String cachePath) {
+        // 初始化ImageLoader
+
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .showStubImage(stubImg)
+                // 设置图片下载期间显示的图片
+                .showImageForEmptyUri(emptyImg)
+                // 设置图片Uri为空或是错误的时候显示的图片
+                .showImageOnFail(failImg)
+                // 设置图片加载或解码过程中发生错误显示的图片
+                .cacheInMemory(false)
+                // 设置下载的图片是否缓存在内存中
+                .cacheOnDisc(true)
+                // 设置下载的图片是否缓存在SD卡中
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                // .displayer(new RoundedBitmapDisplayer(50)) // 设置成圆角图片
+                .build(); // 创建配置过得DisplayImageOption对象
+        return options;
     }
 
 
