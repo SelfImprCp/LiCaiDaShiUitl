@@ -82,19 +82,16 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
 
     }
 
-//
-//    public void myDisplaySuperTextViewShow(Context context, String imageUrl, int showView, int defualtImgId) {
-//
-//
-//        Glide.with(context)
-//                .load(imageUrl)
-//                .fitCenter()
-//                .placeholder(defualtImgId)
-//                .fitCenter()
-//                .into(showView);
-//
-//
-//    }
+
+    public void myDisplaySuperTextViewShow(Context context, String imageUrl, ImageView  showView, int defualtImgId) {
+
+
+        Glide.with(context)
+                .load(imageUrl)
+                .into(showView);
+
+
+    }
 
 
     public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg   ) {
