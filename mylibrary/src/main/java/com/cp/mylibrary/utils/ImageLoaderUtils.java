@@ -77,6 +77,8 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
 //                .build();
 
 
+
+
         ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
 
 
