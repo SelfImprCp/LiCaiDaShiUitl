@@ -82,19 +82,19 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
 
     }
 
-
-    public void myDisplaySuperTextViewShow(Context context, String imageUrl, int showView, int defualtImgId) {
-
-
+//
+//    public void myDisplaySuperTextViewShow(Context context, String imageUrl, int showView, int defualtImgId) {
+//
+//
 //        Glide.with(context)
 //                .load(imageUrl)
 //                .fitCenter()
 //                .placeholder(defualtImgId)
 //                .fitCenter()
 //                .into(showView);
-
-
-    }
+//
+//
+//    }
 
 
     public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg   ) {
@@ -107,7 +107,7 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
                 // 设置图片Uri为空或是错误的时候显示的图片
                 .showImageOnFail(failImg)
                 // 设置图片加载或解码过程中发生错误显示的图片
-                .cacheInMemory(false)
+                .cacheInMemory(true)
                 // 设置下载的图片是否缓存在内存中
                 .cacheOnDisc(true)
                 // 设置下载的图片是否缓存在SD卡中
