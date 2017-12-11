@@ -43,7 +43,22 @@ public class ImageLoaderUtils {
 //    }
 
 
-    public static void myDisplayImageShow(String imageUrl, ImageView imageView, DisplayImageOptions options) {
+    public static void myDisplayImageShow(String imageUrl, ImageView imageView, int defualtImgId) {
+
+        DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .showStubImage(defualtImgId)
+                .showImageForEmptyUri(defualtImgId)     //url爲空會显示该图片，自己放在drawable里面的
+                .showImageOnFail(defualtImgId)                //加载图片出现问题，会显示该图片
+                .cacheInMemory()                                               //缓存用
+                .cacheOnDisc()                                                    //缓存用
+                .build();
+
+
+        ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
+
+
+    }
+    public static void myDisplayImageShowOption(String imageUrl, ImageView imageView, DisplayImageOptions options) {
 
 //        DisplayImageOptions options = new DisplayImageOptions.Builder()
 //                .showStubImage(defualtImgId)
@@ -74,7 +89,7 @@ public class ImageLoaderUtils {
     }
 
 
-    public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg, String cachePath) {
+    public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg   ) {
         // 初始化ImageLoader
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
