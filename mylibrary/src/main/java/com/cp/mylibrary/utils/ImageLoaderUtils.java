@@ -6,6 +6,9 @@ import android.widget.ImageView;
 
 import com.allen.library.SuperTextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.cp.mylibrary.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -41,15 +44,14 @@ public class ImageLoaderUtils {
         }
         return imageLoaderUtils;
     }
-public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageView  ) {
+
+    public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageView) {
 
 
+        ImageLoader.getInstance().displayImage(imageUrl, imageView);
 
 
-    ImageLoader.getInstance().displayImage(imageUrl, imageView);
-
-
-}
+    }
 
     public static void myDisplayImageShow(String imageUrl, ImageView imageView, int defualtImgId) {
 
@@ -66,6 +68,7 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
 
 
     }
+
     public static void myDisplayImageShowOption(String imageUrl, ImageView imageView, DisplayImageOptions options) {
 
 //        DisplayImageOptions options = new DisplayImageOptions.Builder()
@@ -77,26 +80,28 @@ public static void myDisplayImageShowNoOptions(String imageUrl, ImageView imageV
 //                .build();
 
 
-
-
         ImageLoader.getInstance().displayImage(imageUrl, imageView, options);
 
 
     }
 
 
-    public void myDisplaySuperTextViewShow(Context context, String imageUrl, ImageView  showView, int defualtImgId) {
+    public void myDisplaySuperTextViewShow(Context context, String imageUrl, ImageView showView, int defualtImgId) {
 
-
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(defualtImgId);
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
         Glide.with(context)
                 .load(imageUrl)
+                .apply(requestOptions)
+
                 .into(showView);
 
 
     }
 
 
-    public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg   ) {
+    public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg) {
         // 初始化ImageLoader
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
