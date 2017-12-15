@@ -10,6 +10,7 @@ import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.cp.mylibrary.R;
@@ -37,6 +38,9 @@ public class ShareDialog extends CommonDialog implements
     private String link;
     // 分享中显示 的图片
     private String share_img_url;
+
+
+    private LinearLayout ly_share_weichat_circle;
 
 
 //    private ShareListener shareListenr;
@@ -73,6 +77,11 @@ public class ShareDialog extends CommonDialog implements
         shareView.findViewById(R.id.ly_share_weichat).setOnClickListener(this);
         shareView.findViewById(R.id.ly_share_weichat_circle)
                 .setOnClickListener(this);
+
+
+        ly_share_weichat_circle = (LinearLayout) shareView.findViewById(R.id.ly_share_weichat_circle);
+
+
         setContent(shareView, 0);
     }
 
@@ -100,6 +109,14 @@ public class ShareDialog extends CommonDialog implements
         this.link = link;
         this.share_img_url = share_img_url;
     }
+
+
+    // 设置需要分享的内容
+    public void setWeichatCircleGone(int gone) {
+        ly_share_weichat_circle.setVisibility(gone);
+
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -162,7 +179,7 @@ public class ShareDialog extends CommonDialog implements
 
         LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
 
-        UMImage thumb = new UMImage(mActivity,share_img_url);
+        UMImage thumb = new UMImage(mActivity, share_img_url);
         UMWeb web = new UMWeb(link);
 
         web.setTitle(title);//标题
