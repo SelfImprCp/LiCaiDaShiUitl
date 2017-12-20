@@ -150,6 +150,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
 
             mListView.addHeaderView(view);
+
         }
 
 
@@ -228,6 +229,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         if (NetWorkUtil.hasInternetConnected(this)) {
             requestData();
         } else {
+
             mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
         }
@@ -287,6 +289,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
             executeParserTask(res);
             // refreshLoadMoreFinish();
+
+            onDataSuccessAfter();
         }
 
         @Override
@@ -300,6 +304,16 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
         }
     };
+
+
+    /**
+     * 数据请求成功 后，调用 的方法，
+     * 比如列表中加了头部或是底部，先把列表 请求完了，再请求底部或头部的数据 。
+     */
+    public void onDataSuccessAfter() {
+
+
+    }
 
 
     private void executeParserTask(String data) {
