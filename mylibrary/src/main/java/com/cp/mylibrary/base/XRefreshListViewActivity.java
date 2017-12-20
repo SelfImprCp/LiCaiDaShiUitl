@@ -115,7 +115,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         mListView.setOnScrollListener(this);
 
 
-        LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？ mErrorLayout" + mErrorLayout);
+//        LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？ mErrorLayout" + mErrorLayout);
 
 
 
@@ -301,7 +301,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         @Override
         public void dataSuccess(String res) {
 
-            LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
+//            LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
 
             executeParserTask(res);
             // refreshLoadMoreFinish();
@@ -397,8 +397,8 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         protected String doInBackground(Void... params) {
             try {
                 currentList = parseList(reponseData);
-                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "解析 出来的数据 的，值 ，，"
-                        + currentList);
+//                LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "解析 出来的数据 的，值 ，，"
+//                        + currentList);
 
 
             } catch (Exception e) {

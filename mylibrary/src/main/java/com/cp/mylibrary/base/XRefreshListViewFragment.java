@@ -172,7 +172,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
         }
 
-        LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 缓存中取出，  列表 数据  " + cacheStr);
+//        LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 缓存中取出，  列表 数据  " + cacheStr);
 
         if (refresh) {
             if (NetWorkUtil.hasInternetConnected(getActivity())) {
@@ -260,7 +260,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         @Override
         public void dataSuccess(String res) {
 
-            LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "请求来的数据 " + res);
+        //    LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "请求来的数据 " + res);
             // 保存到缓存上中
             if (!StringUtils.isEmpty(myCachePath))
                 MyCache.getMyCache(mContext).saveObject(myCachePath + mCurrentPage, res);
@@ -355,8 +355,8 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
 
 
                 mData = parseList(reponseData);
-                LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "解析 出来的数据 的，值 ，，"
-                        + mData);
+//                LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "解析 出来的数据 的，值 ，，"
+//                        + mData);
 
 
             } catch (Exception e) {
