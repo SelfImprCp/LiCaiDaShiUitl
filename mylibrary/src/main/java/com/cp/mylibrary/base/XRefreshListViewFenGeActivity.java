@@ -138,30 +138,29 @@ public class XRefreshListViewFenGeActivity<T extends MyEntity> extends MyBaseAct
 
     }
 
+
     /**
-     *
      * @param
      */
-     private  void addHeadView()
-     {
+    private void addHeadView() {
+        View view = getHeadView();
+
+        if (view != null) {
 
 
-          if(getHeadView()!=null)
-          {
-              mListView.addHeaderView(getHeadView());
-          }
+            mListView.addHeaderView(view);
+        }
 
 
-     }
+    }
+
     /**
-     *
      * @param
      */
-    private  void addFooterView(   )
-    {
-        if(getFooterView()!=null)
-        {
-            mListView.addFooterView(getFooterView());
+    private void addFooterView() {
+        View view = getFooterView();
+        if (view != null) {
+            mListView.addFooterView(view);
         }
 
 
@@ -240,7 +239,6 @@ public class XRefreshListViewFenGeActivity<T extends MyEntity> extends MyBaseAct
             mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
         }
-
 
 
 

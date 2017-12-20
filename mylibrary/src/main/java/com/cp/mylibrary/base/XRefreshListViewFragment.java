@@ -447,14 +447,17 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
     }
 
 
+
     /**
      * @param
      */
     private void addHeadView() {
+        View view = getHeadView();
+
+        if (view != null) {
 
 
-        if (getHeadView() != null) {
-            mListView.addHeaderView(getHeadView());
+            mListView.addHeaderView(view);
         }
 
 
@@ -464,12 +467,14 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
      * @param
      */
     private void addFooterView() {
-        if (getFooterView() != null) {
-            mListView.addFooterView(getFooterView());
+        View view = getFooterView();
+        if (view != null) {
+            mListView.addFooterView(view);
         }
 
 
     }
+
 
     /**
      * @return

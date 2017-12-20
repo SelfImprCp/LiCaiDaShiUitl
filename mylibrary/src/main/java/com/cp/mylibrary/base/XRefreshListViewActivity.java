@@ -67,7 +67,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState  );
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         addFooterView();
 
 
-         LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？" + mSwipeRefreshLayout);
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + " 为空吗？" + mSwipeRefreshLayout);
 
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(
@@ -118,8 +118,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 //        LogCp.i(LogCp.CP,XRefreshListViewActivity.class + " 为空吗？ mErrorLayout" + mErrorLayout);
 
 
-
-
         if (mAdapter != null) {
             mListView.setAdapter(mAdapter);
             mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
@@ -143,52 +141,46 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     }
 
     /**
-     *
      * @param
      */
-     private  void addHeadView()
-     {
+    private void addHeadView() {
+        View view = getHeadView();
+
+        if (view != null) {
 
 
-          if(getHeadView()!=null)
-          {
-              mListView.addHeaderView(getHeadView());
-          }
-
-
-     }
-    /**
-     *
-     * @param
-     */
-    private  void addFooterView(   )
-    {
-        if(getFooterView()!=null)
-        {
-            mListView.addFooterView(getFooterView());
+            mListView.addHeaderView(view);
         }
 
 
     }
 
     /**
-     *
-     * @return
+     * @param
      */
-     public View getHeadView()
-     {
+    private void addFooterView() {
+        View view = getFooterView();
+        if (view != null) {
+            mListView.addFooterView(view);
+        }
 
-         return  null;
-     }
+
+    }
 
     /**
-     *
      * @return
      */
-    public View getFooterView()
-    {
+    public View getHeadView() {
 
-        return  null;
+        return null;
+    }
+
+    /**
+     * @return
+     */
+    public View getFooterView() {
+
+        return null;
     }
 
 
@@ -204,7 +196,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     }
 
 
-
     @Override
     public void onRefresh() {
         if (mState == STATE_REFRESH) {
@@ -217,7 +208,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         mState = STATE_REFRESH;
         sendRequestData(true);
     }
-
 
 
     /***
@@ -235,12 +225,9 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
         // 取新的数据
 
 
-
-        if (NetWorkUtil.hasInternetConnected(this))
-        {
+        if (NetWorkUtil.hasInternetConnected(this)) {
             requestData();
-        }else
-        {
+        } else {
             mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
 
         }
@@ -257,8 +244,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected boolean requestDataIfViewCreated() {
         return true;
     }
-
-
 
 
     // 完成刷新
@@ -289,9 +274,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     }
 
 
-
-
-
     /**
      * 所有的子类的请求响应
      */
@@ -320,9 +302,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     };
 
 
-
-
-
     private void executeParserTask(String data) {
         cancelParserTask();
         mParserTask = new ParserTask(data);
@@ -340,7 +319,6 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
     }
-
 
 
     @Override
@@ -444,11 +422,9 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     protected void executeOnLoadDataSuccess(List<T> data) {
 
 
-
         if (data == null) {
             data = new ArrayList<T>();
         }
-
 
 
         mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
