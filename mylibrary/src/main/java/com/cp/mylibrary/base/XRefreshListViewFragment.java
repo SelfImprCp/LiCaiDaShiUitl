@@ -140,7 +140,6 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
     }
 
 
-
     @Override
     public void onRefresh() {
         if (mState == STATE_REFRESH) {
@@ -260,7 +259,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         @Override
         public void dataSuccess(String res) {
 
-        //    LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "请求来的数据 " + res);
+            //    LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "请求来的数据 " + res);
             // 保存到缓存上中
             if (!StringUtils.isEmpty(myCachePath))
                 MyCache.getMyCache(mContext).saveObject(myCachePath + mCurrentPage, res);
@@ -447,7 +446,6 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
     }
 
 
-
     /**
      * @param
      */
@@ -471,7 +469,6 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         if (view != null) {
             mListView.addFooterView(view);
         }
-
 
     }
 

@@ -18,8 +18,10 @@ import com.cp.mylibrary.app.Config;
 import com.cp.mylibrary.bean.MyEntity;
 import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.utils.LogCp;
+import com.cp.mylibrary.utils.MyCache;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
+import com.cp.mylibrary.utils.StringUtils;
 
 
 import java.util.ArrayList;
@@ -63,6 +65,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
     public ListView mListView;
 
     protected int mStoreEmptyState = -1;
+    public String myCachePath = "";
 
 
     @Override
@@ -219,23 +222,45 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
      * @author 火蚁 2015-2-9 下午3:16:12
      */
     protected void sendRequestData(boolean refresh) {
-//        String key = getCacheKey();
-//        if (isReadCacheData(refresh)) {
-//            readCacheData(key);
-//        } else {
-        // 取新的数据
+        LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "  设置缓存的ke   " + myCachePath);
 
-
-        if (NetWorkUtil.hasInternetConnected(this)) {
-            requestData();
-        } else {
-
-            mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+        String cacheStr = "";
+        if (!StringUtils.isEmpty(myCachePath)) {
+            cacheStr = (String) MyCache.getMyCache(this).readObject(myCachePath + mCurrentPage);
 
         }
 
+//        LogCp.i(LogCp.CP, XRefreshListViewFragment.class + " 缓存中取出，  列表 数据  " + cacheStr);
 
-        // }
+        if (refresh) {
+            if (NetWorkUtil.hasInternetConnected(this)) {
+
+                requestData();
+
+            } else {
+                mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+            }
+        } else {
+            if (!StringUtils.isEmpty(cacheStr)) {
+
+
+                executeParserTask(cacheStr);
+
+
+            } else {
+                if (NetWorkUtil.hasInternetConnected(this)) {
+
+                    requestData();
+
+                } else {
+                    mErrorLayout.setErrorType(EmptyLayout.NETWORK_ERROR);
+
+                }
+
+            }
+        }
+
     }
 
 
@@ -288,7 +313,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
 //            LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "请求来的数据 " + res);
 
             executeParserTask(res);
-            // refreshLoadMoreFinish();
+            //  refreshLoadMoreFinish();
 
             onDataSuccessAfter();
         }
