@@ -222,7 +222,7 @@ public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity
      * @author 火蚁 2015-2-9 下午3:16:12
      */
     protected void sendRequestData(boolean refresh) {
-        LogCp.i(LogCp.CP, XRefreshListViewFragment.class + "  设置缓存的ke   " + myCachePath);
+        LogCp.i(LogCp.CP, XRefreshListViewActivity.class + "  设置缓存的ke   " + myCachePath);
 
         String cacheStr = "";
         if (!StringUtils.isEmpty(myCachePath)) {
