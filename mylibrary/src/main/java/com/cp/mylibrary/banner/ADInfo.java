@@ -26,6 +26,42 @@ public class ADInfo {
 	private String shareType;
 
 
+
+
+	// 消息跳转需要的参数
+
+	private String gotoType;
+
+
+	private String courseId;
+
+	private String courseSubjectsId;
+
+
+	public String getGotoType() {
+		return gotoType;
+	}
+
+	public void setGotoType(String gotoType) {
+		this.gotoType = gotoType;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
+	public String getCourseSubjectsId() {
+		return courseSubjectsId;
+	}
+
+	public void setCourseSubjectsId(String courseSubjectsId) {
+		this.courseSubjectsId = courseSubjectsId;
+	}
+
 	public String getShareType() {
 		return shareType;
 	}
