@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.allen.library.SuperTextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.cp.mylibrary.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
@@ -96,11 +97,38 @@ public class ImageLoaderUtils {
         Glide.with(context)
                 .load(imageUrl)
                 .apply(requestOptions)
+                .transition(new DrawableTransitionOptions().crossFade(1000))
+                .thumbnail(0.5f)
+                .into(showView)
+
+
+        ;
+
+
+    }
+
+
+    public void myDisplaySuperTextViewShow2(Context context, String imageUrl, ImageView showView, int defualtImgId,int roundTrans) {
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(defualtImgId);
+        requestOptions.error(defualtImgId);
+
+        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+        requestOptions.transform(new GlideRoundTransform(roundTrans));
+
+        Glide.with(context)
+
+                .load(imageUrl)
+                .apply(requestOptions)
+                .transition(new DrawableTransitionOptions().crossFade(1000))
                 .thumbnail(0.5f)
                 .into(showView);
 
 
+
     }
+
+
 
 
     public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg) {
