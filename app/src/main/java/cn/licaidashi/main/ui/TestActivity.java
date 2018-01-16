@@ -2,6 +2,7 @@ package cn.licaidashi.main.ui;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -11,13 +12,16 @@ import android.widget.TextView;
 
 import com.cp.mylibrary.city.CityPicker;
 import com.cp.mylibrary.city.ScrollerNumberPicker;
+import com.cp.mylibrary.custom.CPScrollView;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimePickDialogUtil;
 import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
+import com.cp.mylibrary.utils.ImageUtils;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NoDoubleClickUtils;
+import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.StringUtils;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -143,6 +147,14 @@ public class TestActivity extends BaseActivity {
 
     @BindView(id = R.id.super_textview_text, click = true)
     private TextView super_textview_text;
+
+
+    @BindView(id = R.id.screen_shot_textview_text, click = true)
+    private TextView screen_shot_textview_text;
+
+
+    @BindView(id = R.id.test_cp_scrollview)
+    private CPScrollView test_cp_scrollview;
 
 
     private CityPicker cityPicker1;
@@ -481,6 +493,20 @@ public class TestActivity extends BaseActivity {
                 if (!NoDoubleClickUtils.isDoubleClick()) {
                     LogCp.i(LogCp.CP, TestActivity.class + " 重复提交");
                 }
+                break;
+
+
+            case R.id.screen_shot_textview_text:
+
+                ScreenUtils screenUtils = new ScreenUtils();
+
+
+                Bitmap bitmap = screenUtils.snapShotWithoutStatusBar(TestActivity.this);
+
+                String path = ImageUtils.saveBitmapToSDCard(bitmap, "anyin1_screen_shot");
+
+                LogCp.i(LogCp.CP, TestActivity.class + " 保存的图片的地址:" + path);
+
                 break;
 
 

@@ -22,6 +22,8 @@ import android.provider.MediaStore;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -29,19 +31,27 @@ import java.io.InputStream;
  */
 public class ImageUtils {
 
-    /** 请求相册 */
+    /**
+     * 请求相册
+     */
     public static final int REQUEST_CODE_GETIMAGE_BYSDCARD = 0;
-    /** 请求相机 */
+    /**
+     * 请求相机
+     */
     public static final int REQUEST_CODE_GETIMAGE_BYCAMERA = 1;
-    /** 请求裁剪 */
+    /**
+     * 请求裁剪
+     */
     public static final int REQUEST_CODE_GETIMAGE_BYCROP = 2;
 
     public final static String SDCARD_MNT = "/mnt/sdcard";
     public final static String SDCARD = "/sdcard";
+
     /**
-     *  pass
+     * pass
+     * <p>
+     * 通过资源id 取得图片， bitmap
      *
-     *  通过资源id 取得图片， bitmap
      * @param context
      * @param resourceID
      * @return
@@ -59,8 +69,7 @@ public class ImageUtils {
      * 获得圆角图片的方法
      *
      * @param bitmap
-     * @param roundPx
-     *            一般设成14
+     * @param roundPx 一般设成14
      * @return
      */
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, float roundPx) {
@@ -84,9 +93,6 @@ public class ImageUtils {
 
         return output;
     }
-
-
-
 
 
     /**
@@ -134,10 +140,8 @@ public class ImageUtils {
      * 通过 文件路径返回Bitmap ,
      *
      * @param filePath
-     * @param w
-     *            指定宽， 如果为0，返回原尺寸
-     * @param h
-     *            指定高， 如果为0，返回原尺寸
+     * @param w        指定宽， 如果为0，返回原尺寸
+     * @param h        指定高， 如果为0，返回原尺寸
      * @return
      */
     public static Bitmap loadImgThumbnail(String filePath, int w, int h) {
@@ -229,6 +233,7 @@ public class ImageUtils {
         }
         return bitmap;
     }
+
     /**
      * 判断当前Url是否标准的content://样式，如果不是，则返回绝对路径
      *
@@ -263,7 +268,7 @@ public class ImageUtils {
     @SuppressWarnings("deprecation")
     public static String getAbsoluteImagePath(Activity context, Uri uri) {
         String imagePath = "";
-        String[] proj = { MediaStore.Images.Media.DATA };
+        String[] proj = {MediaStore.Images.Media.DATA};
         Cursor cursor = context.managedQuery(uri, proj, // Which columns to
                 // return
                 null, // WHERE clause; which rows to return (all rows)
@@ -280,5 +285,71 @@ public class ImageUtils {
 
         return imagePath;
     }
+
+
+
+
+    /**
+     * 保存bitmap到SD卡
+     *
+     * @param bitName 保存的名字
+     * @param mBitmap 图片对像
+     *                return 生成压缩图片后的图片路径
+     */
+    public static String saveMyBitmap(String bitName, Bitmap mBitmap) {
+        File f = new File(SDCardUtils.getSDCardPath() + bitName + ".png");
+        try {
+            f.createNewFile();
+        } catch (IOException e) {
+            System.out.println("在保存图片时出错：" + e.toString());
+        }
+        FileOutputStream fOut = null;
+        try {
+            fOut = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            mBitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+        } catch (Exception e) {
+            return "create_bitmap_error";
+        }
+        try {
+            fOut.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "/sdcard/" + bitName + ".png";
+    }
+
+    /**
+     * 保存bitmap到SD卡
+     *
+     * @param bitmap
+     * @param imagename
+     */
+    public static String saveBitmapToSDCard(Bitmap bitmap, String imagename) {
+        String path = SDCardUtils.getSDCardPath() + "img-" + imagename + ".jpg";
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(path);
+            if (fos != null) {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fos);
+                fos.close();
+            }
+
+            return path;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

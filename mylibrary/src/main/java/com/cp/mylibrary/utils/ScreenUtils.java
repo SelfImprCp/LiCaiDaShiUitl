@@ -3,10 +3,15 @@ package com.cp.mylibrary.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Picture;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebView;
+import android.widget.ScrollView;
 
 /**
  * Created by Jerry on 2016/7/5.
@@ -15,11 +20,7 @@ import android.view.WindowManager;
  */
 public class ScreenUtils {
 
-    private ScreenUtils()
-    {
-        /* cannot be instantiated */
-        throw new UnsupportedOperationException("cannot be instantiated");
-    }
+
     /**
      * 获取屏幕分辨率
      *
@@ -133,7 +134,8 @@ public class ScreenUtils {
         Bitmap bmp = view.getDrawingCache();
         Rect frame = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
-        int statusBarHeight = frame.top;
+      //  int statusBarHeight = frame.top;
+        int statusBarHeight =200;
 
         int width = getScreenWidth(activity);
         int height = getScreenHeight(activity);
@@ -144,6 +146,82 @@ public class ScreenUtils {
         return bp;
 
     }
+
+
+
+    /**
+     * 截取webView快照(webView加载的整个内容的大小)
+     *
+     * @param webView
+     * @return
+     */
+    private Bitmap captureWebView(WebView webView) {
+        Picture snapShot = webView.capturePicture();
+
+        Bitmap bmp = Bitmap.createBitmap(snapShot.getWidth(), snapShot.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp);
+        snapShot.draw(canvas);
+        return bmp;
+    }
+
+    /**
+     * 这个看好与上一个是不同的，他是截取webView的整个页面，未显示的也会被截取。
+     * 截屏
+     *
+     * @param context
+     * @return
+     */
+    public Bitmap captureScreen(Activity context) {
+        View cv = context.getWindow().getDecorView();
+        Bitmap bmp = Bitmap.createBitmap(cv.getWidth(), cv.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp);
+        cv.draw(canvas);
+        return bmp;
+
+
+    }
+
+
+    /**
+     * 截取webView可视区域的截图
+     *
+     * @param webView 前提：WebView要设置webView.setDrawingCacheEnabled(true);
+     * @return
+     */
+    private Bitmap captureWebViewVisibleSize(WebView webView) {
+        Bitmap bmp = webView.getDrawingCache();
+        return bmp;
+    }
+
+
+
+    /**
+     * 截取scrollview的屏幕
+     * @param scrollView
+     * @return
+     */
+    public static Bitmap getBitmapByScrollView(ScrollView scrollView) {
+        int h = 0;
+        Bitmap bitmap = null;
+        // 获取scrollview实际高度
+        for (int i = 0; i < scrollView.getChildCount(); i ++ ) {
+            h  = scrollView.getChildAt(i).getHeight();
+            scrollView.getChildAt(i).setBackgroundColor(
+                    Color.parseColor("#ffffff"));
+        }
+        // 创建对应大小的bitmap
+        bitmap = Bitmap.createBitmap(scrollView.getWidth(), h,
+                Bitmap.Config.RGB_565);
+        final Canvas canvas = new Canvas(bitmap);
+        scrollView.draw(canvas);
+        return bitmap;
+    }
+
+
+
+
+
+
 
 
     ////////////////////////////////设置，取消全屏/////////////////////////////////////////////

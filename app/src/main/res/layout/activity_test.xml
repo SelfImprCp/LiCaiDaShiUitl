@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"></com.cp.mylibrary.custom.TitleBarView>
 
     <com.cp.mylibrary.custom.CPScrollView
+
+        android:id="@+id/test_cp_scrollview"
         android:layout_width="match_parent"
 
         android:layout_height="match_parent">
@@ -224,6 +226,12 @@
                 style="@style/test_textview_style"
                 android:text="    SuperTextView 测试  " />
 
+
+            <TextView
+                android:id="@+id/screen_shot_textview_text"
+
+                style="@style/test_textview_style"
+                android:text="      测试  截个图 然后保存下来 " />
 
 
 

@@ -1,7 +1,12 @@
 package com.cp.mylibrary.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Picture;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.allen.library.SuperTextView;
@@ -108,7 +113,7 @@ public class ImageLoaderUtils {
     }
 
 
-    public void myDisplaySuperTextViewShow2(Context context, String imageUrl, ImageView showView, int defualtImgId,int roundTrans) {
+    public void myDisplaySuperTextViewShow2(Context context, String imageUrl, ImageView showView, int defualtImgId, int roundTrans) {
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(defualtImgId);
         requestOptions.error(defualtImgId);
@@ -125,10 +130,7 @@ public class ImageLoaderUtils {
                 .into(showView);
 
 
-
     }
-
-
 
 
     public static DisplayImageOptions getDisplayImageOptions(Context context, int stubImg, int emptyImg, int failImg) {
@@ -201,6 +203,9 @@ public class ImageLoaderUtils {
                 .tasksProcessingOrder(QueueProcessingType.LIFO).build();
         ImageLoader.getInstance().init(config);
     }
+
+
+
 
 
 }
