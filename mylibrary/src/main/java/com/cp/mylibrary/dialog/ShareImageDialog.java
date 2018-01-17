@@ -3,7 +3,6 @@ package com.cp.mylibrary.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -26,11 +25,13 @@ import java.io.File;
 
 
 /**
- * 分享界面dialog
+ * 分享界面
+ *  图片用的
+ * dialog
  *
  * @author kymjs
  */
-public class ShareDialog extends CommonDialog implements
+public class ShareImageDialog extends CommonDialog implements
         View.OnClickListener {
     private Context context;
 
@@ -39,7 +40,7 @@ public class ShareDialog extends CommonDialog implements
     private String content;
     private String link;
     // 分享中显示 的图片
-    private String share_img_url;
+    private File share_img_file;
 
 
     private LinearLayout ly_share_weichat_circle;
@@ -48,12 +49,12 @@ public class ShareDialog extends CommonDialog implements
 //    private ShareListener shareListenr;
 
 
-    private ShareDialog(Context context, boolean flag, DialogInterface.OnCancelListener listener) {
+    private ShareImageDialog(Context context, boolean flag, OnCancelListener listener) {
         super(context, flag, listener);
         this.context = context;
     }
 
-    public ShareDialog(Context context, Activity activity) {
+    public ShareImageDialog(Context context, Activity activity) {
         this(context);
 
         this.context = context;
@@ -64,7 +65,7 @@ public class ShareDialog extends CommonDialog implements
 
 
     @SuppressLint("InflateParams")
-    private ShareDialog(Context context, int defStyle) {
+    private ShareImageDialog(Context context, int defStyle) {
         super(context, defStyle);
         this.context = context;
         View shareView = getLayoutInflater().inflate(
@@ -87,7 +88,7 @@ public class ShareDialog extends CommonDialog implements
         setContent(shareView, 0);
     }
 
-    public ShareDialog(Context context) {
+    public ShareImageDialog(Context context) {
         this(context, R.style.dialog_bottom);
     }
 
@@ -105,11 +106,11 @@ public class ShareDialog extends CommonDialog implements
     }
 
     // 设置需要分享的内容
-    public void setShareInfo(String title, String content, String link, String share_img_url) {
+    public void setShareInfo(String title, String content, String link, File share_img_url) {
         this.title = title;
         this.content = content;
         this.link = link;
-        this.share_img_url = share_img_url;
+        this.share_img_file = share_img_url;
     }
 
 
@@ -130,14 +131,14 @@ public class ShareDialog extends CommonDialog implements
 
         if (v.getId() == R.id.ly_share_weichat_circle) {
 
-            shareToWeiChatCircle();
+            shareToWeiChatCircleImage();
+
         }
 
         if (v.getId() == R.id.ly_share_weichat) {
 
 
-
-          shareToWeiChat();
+          shareToWeiChatImage();
 
 
         }
@@ -159,51 +160,49 @@ public class ShareDialog extends CommonDialog implements
 
 
     @SuppressWarnings("deprecation")
-    private void shareToWeiChatCircle() {
+    private void shareToWeiChatCircleImage() {
 
-        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_url);
+        LogCp.i(LogCp.CP, ShareImageDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_file);
 
 
-        UMImage thumb = new UMImage(mActivity, share_img_url);
+        UMImage thumb = new UMImage(mActivity, share_img_file);
 
-        UMWeb web = new UMWeb(link);
 
-        web.setTitle(title);//标题
-        web.setThumb(thumb);  //缩略图
-        web.setDescription(content);//描述
+        thumb.setTitle(title);//标题
+        thumb.setThumb(thumb);  //缩略图
+        thumb.setDescription(content);//描述
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
-                .withMedia(web)
+                .withMedia(thumb)
                 .setCallback(umShareListener)
                 .share();
 
 
     }
 
-    @SuppressWarnings("deprecation")
-    private void shareToWeiChat() {
 
-        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
 
-        UMImage thumb = new UMImage(mActivity, share_img_url);
-        UMWeb web = new UMWeb(link);
 
-        web.setTitle(title);//标题
-        web.setThumb(thumb);  //缩略图
-        web.setDescription(content);//描述
+
+    private void shareToWeiChatImage(   ) {
+
+        LogCp.i(LogCp.CP, ShareImageDialog.class + " 来分享到weChat  " + title + content + link + share_img_file);
+
+        UMImage thumb = new UMImage(mActivity,share_img_file);
+
+        thumb.setTitle(title);//标题
+        thumb.setThumb(thumb);  //缩略图
+        thumb.setDescription(content);//描述
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
                 .withText(content)
-                .withMedia(web)
+                .withMedia(thumb)
                 .setCallback(umShareListener)
                 .share();
 
 
     }
-
-
-
 
 
 
@@ -216,7 +215,7 @@ public class ShareDialog extends CommonDialog implements
     private void shareToSinaWeibo() {
 
 
-        UMImage image = new UMImage(mActivity, share_img_url);
+        UMImage image = new UMImage(mActivity, share_img_file);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.SINA)
                 .withText(content)
@@ -230,7 +229,7 @@ public class ShareDialog extends CommonDialog implements
     }
 
     private void shareToQQ() {
-        UMImage image = new UMImage(mActivity, share_img_url);
+        UMImage image = new UMImage(mActivity, share_img_file);
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.QQ)
                 .withText(content)
@@ -284,11 +283,11 @@ public class ShareDialog extends CommonDialog implements
     }
 
     private UMImage getShareImg() {
-        LogCp.i(LogCp.CP, ShareDialog.class + " 分享的图片：  " + share_img_url);
+        LogCp.i(LogCp.CP, ShareImageDialog.class + " 分享的图片：  " + share_img_file);
 
         UMImage img;
-        if (!StringUtils.isEmpty(share_img_url)) {
-            img = new UMImage(context, share_img_url);
+        if (share_img_file!=null) {
+            img = new UMImage(context, share_img_file);
         } else {
 
             img = new UMImage(context, R.drawable.ic_launcher);
