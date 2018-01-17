@@ -133,7 +133,12 @@ public class ShareDialog extends CommonDialog implements
 
         if (v.getId() == R.id.ly_share_weichat) {
 
-            shareToWeiChat();
+
+            shareToWeiChatImage();
+
+        //    shareToWeiChat();
+
+
         }
 
         if (v.getId() == R.id.ly_share_sina_weibo) {
@@ -159,6 +164,7 @@ public class ShareDialog extends CommonDialog implements
 
 
         UMImage thumb = new UMImage(mActivity, share_img_url);
+
         UMWeb web = new UMWeb(link);
 
         web.setTitle(title);//标题
@@ -194,6 +200,36 @@ public class ShareDialog extends CommonDialog implements
 
 
     }
+
+
+
+    private void shareToWeiChatImage() {
+
+        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
+
+        UMImage thumb = new UMImage(mActivity, R.drawable.ic_launcher);
+     //   UMWeb web = new UMWeb(link);
+
+        thumb.setTitle(title);//标题
+        thumb.setThumb(thumb);  //缩略图
+        thumb.setDescription(content);//描述
+
+        new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
+                .withText(content)
+                .withMedia(thumb)
+                .setCallback(umShareListener)
+                .share();
+
+
+    }
+
+
+
+
+
+
+
+
 
     private void shareToSinaWeibo() {
 

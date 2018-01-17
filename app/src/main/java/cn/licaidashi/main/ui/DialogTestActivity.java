@@ -182,29 +182,29 @@ public class DialogTestActivity extends BaseActivity {
             case R.id.dialog_share:
 
 
-                final TimePickerDialog timePickerDialog = new TimePickerDialog(DialogTestActivity.this);
-                timePickerDialog.showDatePickerDialog();
-
-                TimePickerDialog.TimePickerDialogInterface timePickerDialogInterface = new TimePickerDialog.TimePickerDialogInterface() {
-                    @Override
-                    public void positiveListener() {
-
-
-                        LogCp.i(LogCp.CP, "取到的日期" + timePickerDialog.getYear() + "-" + timePickerDialog.getMonth());
-
-                    }
-
-                    @Override
-                    public void negativeListener() {
-
-                    }
-                };
-                timePickerDialog.setAlertDialogListener(timePickerDialogInterface);
+//                final TimePickerDialog timePickerDialog = new TimePickerDialog(DialogTestActivity.this);
+//                timePickerDialog.showDatePickerDialog();
+//
+//                TimePickerDialog.TimePickerDialogInterface timePickerDialogInterface = new TimePickerDialog.TimePickerDialogInterface() {
+//                    @Override
+//                    public void positiveListener() {
+//
+//
+//                        LogCp.i(LogCp.CP, "取到的日期" + timePickerDialog.getYear() + "-" + timePickerDialog.getMonth());
+//
+//                    }
+//
+//                    @Override
+//                    public void negativeListener() {
+//
+//                    }
+//                };
+//                timePickerDialog.setAlertDialogListener(timePickerDialogInterface);
 
 
 //                if (mDialog == null)
 //                    mDialog = new ShareDialog(this  ,this);
-//                mDialog.setShareInfo("标题","内容","www.baidu.com","http://img0.imgtn.bdimg.com/it/u=1126541908,2603454962&fm=21&gp=0.jpg");
+//                mDialog.setShareInfo("标题","内容","http://www.baidu.com","https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=468645589,1337744426&fm=173&s=5EAFB0441763BB5B1CD0AD830300A08F&w=302&h=187&img.JPEG");
 //                mDialog.setCancelable(true);
 //                mDialog.setCanceledOnTouchOutside(true);
 //                mDialog.setTitle(R.string.share_to);
