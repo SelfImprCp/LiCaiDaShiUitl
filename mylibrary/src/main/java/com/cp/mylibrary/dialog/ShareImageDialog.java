@@ -178,6 +178,7 @@ public class ShareImageDialog extends CommonDialog implements
                 .withText(content)
                 .withMedia(thumb)
                 .withSubject(" what are you dong? moment ")
+                .withFollow(" 是这个吗？ 不是")
                 .setCallback(umShareListener)
                 .share();
 
@@ -204,6 +205,8 @@ public class ShareImageDialog extends CommonDialog implements
                 .withText(content)
                 .withSubject("你想说个屁")
                 .withMedia(thumb)
+                .withFollow(" 是这个吗？")
+
                 .setCallback(umShareListener)
                 .share();
 
