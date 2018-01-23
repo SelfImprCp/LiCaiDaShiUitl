@@ -196,6 +196,7 @@ public class ShareImageDialog extends CommonDialog implements
         thumb.setDescription(content);//描述
         thumb.mText = "6541565";
 
+
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
                 .withText(content)
                 .withMedia(thumb)
