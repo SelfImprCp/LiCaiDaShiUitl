@@ -11,7 +11,7 @@
  university;
  college;
  instance;
- transaction;
+ transaction,action;
  plan;
  project;
  programme;
@@ -36,7 +36,7 @@
  record;
  stack;
  manager;
- dispatch;
+ dispatch,patch;
  message;
  crash;
  begin;
@@ -49,7 +49,31 @@
  explore,explain,experience,expect,express,expert,experiment,expense,expired;
  gene,general,generate,generation,generous;
  distant,distance,distance learning;
-
+ miss,mist,missile,mission;
+ support,suppose,supply,supplement;
+ soil,oil;
+ step,steep,sleep;
+ rude,rush;
+ goat,goal;
+ art,artist,article;
+ plat,platform,plain,plan,place,plant,planet,plane;
+ mark,market,march;
+ pan,panel,panic;
+ hang,hand,handle;
+ television,telephone,telegram;
+ breakfast,lunch,supper,dinner;
+ super;
+ traveller,tourist,trip,tour;
+ fond,find,found;
+ age,edge,eggplant,egg;
+ cheer,cheese,cheek,cheerful,check;
+ jam,jaw;
+ side,inside,outside,beside,besides;
+ spit,spirit;
+ bath,both;
+ fight,right,light;
+ shout,shut;
+ ruin,rain;
 
 
 

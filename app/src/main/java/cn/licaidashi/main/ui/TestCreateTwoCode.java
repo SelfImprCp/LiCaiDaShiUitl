@@ -122,13 +122,14 @@ public class TestCreateTwoCode extends BaseActivity {
 
                 String contents = " 生成个二维码，来试试，";
                 Bitmap logo = ImageUtils.getBitmapById(this, R.drawable.ic_launcher);
-                try {
-                    Bitmap bm = createTwoCodeUtil.createCode(contents, logo, BarcodeFormat.QR_CODE);
-                    create_two_codes_img.setImageBitmap(bm);
+                Bitmap bm = null;
+                //
+                bm = createTwoCodeUtil.createQRImageNoLogo(contents, 400, 400);
 
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
+
+                if (bm != null)
+
+                    create_two_codes_img.setImageBitmap(bm);
 
                 break;
 
