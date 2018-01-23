@@ -16,6 +16,7 @@ import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.StringUtils;
 import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.ShareContent;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
@@ -165,17 +166,25 @@ public class ShareImageDialog extends CommonDialog implements
         LogCp.i(LogCp.CP, ShareImageDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_file);
 
 
-        UMImage thumb = new UMImage(mActivity, share_img_file);
+//        UMImage thumb = new UMImage(mActivity, share_img_file);
+//
+//
+//        thumb.setTitle(title);//标题
+//        thumb.setThumb(thumb);  //缩略图
+//        thumb.setDescription(content);//描述
+//        thumb.mText = " 来试试";
+
+        UMWeb  thumb = new UMWeb("http://dev.umeng.com/social/android/quick-integration#umweb");
+        thumb.setTitle("This is music title");//标题
+     //   thumb.setThumb(thumb);  //缩略图
+        thumb.setDescription("my description");//描述
 
 
-        thumb.setTitle(title);//标题
-        thumb.setThumb(thumb);  //缩略图
-        thumb.setDescription(content);//描述
-        thumb.mText = " 来试试";
+
 
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
-                .withText(content)
+                .withText("内容，，")
                 .withMedia(thumb)
                 .withSubject(" what are you dong? moment ")
                 .withFollow(" 是这个吗？ 不是")
@@ -200,9 +209,10 @@ public class ShareImageDialog extends CommonDialog implements
         thumb.setDescription(content);//描述
         thumb.mText = "6541565";
 
+        ShareContent shareContent = new ShareContent();
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
-                .withText(content)
+                .withText("内容，，")
                 .withSubject("你想说个屁")
                 .withMedia(thumb)
                 .withFollow(" 是这个吗？")
