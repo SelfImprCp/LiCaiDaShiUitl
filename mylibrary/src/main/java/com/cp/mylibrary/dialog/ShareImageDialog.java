@@ -171,6 +171,8 @@ public class ShareImageDialog extends CommonDialog implements
         thumb.setTitle(title);//标题
         thumb.setThumb(thumb);  //缩略图
         thumb.setDescription(content);//描述
+        thumb.mText = " 来试试";
+
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
