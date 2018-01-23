@@ -177,6 +177,7 @@ public class ShareImageDialog extends CommonDialog implements
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withText(content)
                 .withMedia(thumb)
+                .withSubject(" what are you dong? moment ")
                 .setCallback(umShareListener)
                 .share();
 
@@ -201,6 +202,7 @@ public class ShareImageDialog extends CommonDialog implements
 
         new ShareAction(mActivity).setPlatform(SHARE_MEDIA.WEIXIN)
                 .withText(content)
+                .withSubject("你想说个屁")
                 .withMedia(thumb)
                 .setCallback(umShareListener)
                 .share();
