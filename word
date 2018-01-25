@@ -8,7 +8,7 @@
  gravity;
  parent;
  weight;
- university;
+ university,universe,universal;
  college;
  instance;
  transaction,action;
@@ -37,7 +37,7 @@
  stack;
  manager;
  dispatch,patch;
- message;
+ message,massage;
  crash;
  begin;
  banner;
@@ -46,7 +46,7 @@
  tuition;
  little,kettle;
  steak,tea;
- explore,explain,experience,expect,express,expert,experiment,expense,expired;
+ explore,explain,experience,expect,except,express,expert,experiment,expense,expired;
  gene,general,generate,generation,generous;
  distant,distance,distance learning;
  miss,mist,missile,mission;
@@ -65,20 +65,51 @@
  super;
  traveller,tourist,trip,tour;
  fond,find,found;
- age,edge,eggplant,egg;
+ age,engage,edge,eggplant,egg;
  cheer,cheese,cheek,cheerful,check;
  jam,jaw;
  side,inside,outside,beside,besides;
  spit,spirit;
  bath,both;
- fight,right,light;
- shout,shut;
+ fight,fright,right,night,flight,light;
+ shout,shut,short;
  ruin,rain;
-
-
-
-
-
+ fry,cry,try;
+ interrupt,interpreter;
+ liberal,library;
+ place,palace;
+ reasonable,reason;
+ literature;
+ show,shower,showcase;
+ rail,railway,expressway,freeway,sub,subway;
+ eat,wheat,crop,flour,harvest;
+ read,spread;
+ tape,type;
+ send,sand;
+ silk,milk;
+ cinema,theater;
+ beach,reach;
+ launch,lunch;
+ idiom,phrase;
+ exact,act,active,action;
+ bit,bitter;
+ driver,river;
+ popcorn,corn,corner;
+ quiet,quite;
+ queen,queue;
+ course,courage;
+ must,muster,mustache,
+ equip,equipment;
+ nose,noise;
+ screen,scream;
+ spot,sport;
+ pace,face;
+ map,camp,lamp;
+ toothpaste,toothache,toothbrush,toothpick;
+ dig,digital;
+ pack,package;
+ stranger,strength;
+ tame,time;
 
 
 

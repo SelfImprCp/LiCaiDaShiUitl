@@ -174,11 +174,6 @@ public class ShareImageDialog extends CommonDialog implements
         thumb.setDescription(content);//描述
         thumb.mText = " 来试试";
 
-//        UMWeb  thumb = new UMWeb("http://dev.umeng.com/social/android/quick-integration#umweb");
-//        thumb.setTitle("This is music title");//标题
-//     //   thumb.setThumb(thumb);  //缩略图
-//        thumb.setDescription("my description");//描述
-//
 
 
 
