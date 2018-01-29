@@ -42,6 +42,8 @@ public class BaseActivity extends MyBaseActivity {
         super.onCreate(savedInstanceState);
 
 
+
+
 //        initView();
 //
 //        initData();
