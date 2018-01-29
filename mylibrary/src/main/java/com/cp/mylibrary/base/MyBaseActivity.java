@@ -37,8 +37,8 @@ public class MyBaseActivity extends KJActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ActivityManagerUtil.getInstance().pushActivty(this);
 
