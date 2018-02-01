@@ -385,6 +385,8 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
 
 
+
+
         boolean handled = super.dispatchTouchEvent(ev);
         handled |= mGesture.onTouchEvent(ev);
         return handled;
