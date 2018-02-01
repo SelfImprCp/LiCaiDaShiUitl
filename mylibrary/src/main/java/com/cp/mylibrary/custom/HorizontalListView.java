@@ -267,12 +267,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         requestLayout();
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean handled = super.dispatchTouchEvent(ev);
-        handled |= mGesture.onTouchEvent(ev);
-        return handled;
-    }
+
 
     protected boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                               float velocityY) {
@@ -361,5 +356,41 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     };
 
 
+    private int mLastX;
+    private int mLastY;
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                getParent().requestDisallowInterceptTouchEvent(true);
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+
+                int xDiff = Math.abs(x - mLastX);
+                int yDiff = Math.abs(y - mLastY);
+
+                if (xDiff < yDiff) {
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                } else {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                break;
+        }
+        mLastX = x;
+        mLastY = y;
+        return super.dispatchTouchEvent(ev);
+    }
+
+
+//    @Override
+//    public boolean dispatchTouchEvent(MotionEvent ev) {
+//        boolean handled = super.dispatchTouchEvent(ev);
+//        handled |= mGesture.onTouchEvent(ev);
+//        return handled;
+//    }
 
 }
