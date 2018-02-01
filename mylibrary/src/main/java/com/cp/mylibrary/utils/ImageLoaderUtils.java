@@ -1,20 +1,12 @@
 package com.cp.mylibrary.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Picture;
-import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageView;
 
-import com.allen.library.SuperTextView;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-import com.bumptech.glide.request.RequestOptions;
-import com.cp.mylibrary.R;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -93,18 +85,38 @@ public class ImageLoaderUtils {
 
 
     public void myDisplaySuperTextViewShow(Context context, String imageUrl, ImageView showView, int defualtImgId) {
-
-        RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(defualtImgId);
-        requestOptions.error(defualtImgId);
-
-        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+//
+//        RequestOptions requestOptions = new RequestOptions();
+//        requestOptions.placeholder(defualtImgId);
+//        requestOptions.error(defualtImgId);
+//
+//        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+//
         Glide.with(context)
                 .load(imageUrl)
-                .apply(requestOptions)
-                .transition(new DrawableTransitionOptions().crossFade(1000))
-                .thumbnail(0.5f)
-                .into(showView)
+                .asBitmap()
+                .placeholder( defualtImgId)
+                .error( defualtImgId)
+                .listener(new RequestListener<String, Bitmap>() {
+                    @Override
+                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
+
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        return false;
+                    }
+                })
+                .into(showView);
+
+//        Glide.with(context)
+//                .load(imageUrl)
+//                .apply(requestOptions)
+//                .transition(new DrawableTransitionOptions().crossFade(1000))
+//                .thumbnail(0.5f)
+//                .into(showView)
 
 
         ;
@@ -114,20 +126,22 @@ public class ImageLoaderUtils {
 
 
     public void myDisplaySuperTextViewShow2(Context context, String imageUrl, ImageView showView, int defualtImgId, int roundTrans) {
-        RequestOptions requestOptions = new RequestOptions();
-        requestOptions.placeholder(defualtImgId);
-        requestOptions.error(defualtImgId);
+//        RequestOptions requestOptions = new RequestOptions();
+//        requestOptions.placeholder(defualtImgId);
+//        requestOptions.error(defualtImgId);
+//
+//        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
+//        requestOptions.transform(new GlideRoundTransform(roundTrans));
+//
+//        Glide.with(context)
+//
+//                .load(imageUrl)
+//                .apply(requestOptions)
+//                .transition(new DrawableTransitionOptions().crossFade(1000))
+//                .thumbnail(0.5f)
+//                .into(showView);
 
-        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
-        requestOptions.transform(new GlideRoundTransform(roundTrans));
 
-        Glide.with(context)
-
-                .load(imageUrl)
-                .apply(requestOptions)
-                .transition(new DrawableTransitionOptions().crossFade(1000))
-                .thumbnail(0.5f)
-                .into(showView);
 
 
     }
