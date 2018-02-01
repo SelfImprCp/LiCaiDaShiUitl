@@ -382,7 +382,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
         mLastX = x;
         mLastY = y;
-        return super.dispatchTouchEvent(ev);
+
+
+
+        boolean handled = super.dispatchTouchEvent(ev);
+        handled |= mGesture.onTouchEvent(ev);
+        return handled;
+
+    //    return super.dispatchTouchEvent(ev);
     }
 
 
