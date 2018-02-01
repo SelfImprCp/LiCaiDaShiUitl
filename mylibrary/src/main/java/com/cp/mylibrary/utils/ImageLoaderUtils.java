@@ -92,24 +92,24 @@ public class ImageLoaderUtils {
 //
 //        requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
 //
-        Glide.with(context)
-                .load(imageUrl)
-                .asBitmap()
-                .placeholder( defualtImgId)
-                .error( defualtImgId)
-                .listener(new RequestListener<String, Bitmap>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
-
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        return false;
-                    }
-                })
-                .into(showView);
+//        Glide.with(context)
+//                .load(imageUrl)
+//                .asBitmap()
+//                .placeholder( defualtImgId)
+//                .error( defualtImgId)
+//                .listener(new RequestListener<String, Bitmap>() {
+//                    @Override
+//                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
+//
+//                        return true;
+//                    }
+//
+//                    @Override
+//                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
+//                        return false;
+//                    }
+//                })
+//                .into(showView);
 
 //        Glide.with(context)
 //                .load(imageUrl)
