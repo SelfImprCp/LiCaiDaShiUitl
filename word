@@ -52,7 +52,7 @@
 
 
  distant,distance,distance learning;
- miss,mist,missile,mission;
+ dismiss,miss,mist,missile,mission;
  support,suppose,supply,supplement;
  soil,oil;
  step,steep,sleep;
@@ -63,7 +63,7 @@
  mark,market,march;
  pan,panel,panic;
  hang,hand,handle;
- television,telephone,telegram;
+ television,telephone,telegram，telescope;
  breakfast,lunch,supper,dinner;
  super;
  traveller,tourist,trip,tour;
@@ -86,7 +86,7 @@
 
 
 
- rail,railway,expressway,freeway,sub,subway;
+ rail,railway,expressway,freeway,sub,subway,runway,runway light;
  eat,wheat,crop,flour,harvest;
  read,spread;
  tape,type;
@@ -142,5 +142,16 @@
 
  loan,loanword;
  duck,suck,sick;
-
+ lorry,truck;
+ price,rice;
+ raise,rise,risk;
+ claw,clap;
+ wood,wool;
+ appoint,disappointed;
+ cheat,chat,chant;
+ fat,fit;
+ steal,steel;
+ disk,dish;
+ dust,dustbin;
+ hill,hall,hell;
 
