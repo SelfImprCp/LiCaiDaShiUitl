@@ -54,7 +54,7 @@
  distant,distance,distance learning;
  dismiss,miss,mist,missile,mission;
  support,suppose,supply,supplement;
- soil,oil;
+ boil,soil,oil;
  step,steep,sleep;
  rude,rush;
  goat,goal;
@@ -95,6 +95,9 @@
  cinema,theater;
  beach,reach;
  launch,lunch;
+
+
+
  idiom,phrase;
  exact,act,active,action;
  bit,bitter;
@@ -133,7 +136,7 @@
  voice,video;
  fair,fire;
  little,litter,letter;
- cigarette,tobacco;
+ cigar,cigarette,tobacco;
  lamp,lamb;
  skin,sink;
  found,round,ground,sound;
@@ -154,4 +157,12 @@
  disk,dish;
  dust,dustbin;
  hill,hall,hell;
+ swan,swam;
+ depend,defend;
+ butter,butterfly;
+ mist,fog,foggy;
+ pipe,pipette,pipeline;
+ adjust,adjustment,adjustable;
 
+ devote,devotion;
+ distinct,distinction,distinctive;
