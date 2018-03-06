@@ -21,6 +21,8 @@ import android.widget.ScrollView;
 public class ScreenUtils {
 
 
+
+
     /**
      * 获取屏幕分辨率
      *

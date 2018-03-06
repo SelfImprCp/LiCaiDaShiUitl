@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import cn.licaidashi.main.R;
 import cn.licaidashi.main.TestUIhelper;
 import cn.licaidashi.main.bean.ProvinceBean;
 import cn.licaidashi.main.bean.UserBean;
+import cn.licaidashi.main.music.PlayFragment;
 
 
 /**
@@ -153,11 +155,21 @@ public class TestActivity extends BaseActivity {
     private TextView screen_shot_textview_text;
 
 
+    @BindView(id = R.id.music_play_textview_text, click = true)
+    private TextView music_play_textview_text;
+
+
+
+
     @BindView(id = R.id.test_cp_scrollview)
     private CPScrollView test_cp_scrollview;
 
 
     private CityPicker cityPicker1;
+    private PlayFragment mPlayFragment;
+
+    private boolean isPlayFragmentShow;
+
 
     @Override
     public void setRootView() {
@@ -509,11 +521,36 @@ public class TestActivity extends BaseActivity {
 
                 break;
 
+            case R.id.music_play_textview_text:
+
+
+
+                showPlayingFragment();
+
+
+
+                break;
+
 
         }
 
     }
+    private void showPlayingFragment() {
+        if (isPlayFragmentShow) {
+            return;
+        }
 
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setCustomAnimations(R.anim.fragment_slide_up, 0);
+        if (mPlayFragment == null) {
+            mPlayFragment = new PlayFragment();
+            ft.replace(android.R.id.content, mPlayFragment);
+        } else {
+            ft.show(mPlayFragment);
+        }
+        ft.commitAllowingStateLoss();
+        isPlayFragmentShow = true;
+    }
 
 //
 //    private void textRxJava() {

@@ -233,6 +233,11 @@
                 style="@style/test_textview_style"
                 android:text="      测试  截个图 然后保存下来 " />
 
+            <TextView
+                android:id="@+id/music_play_textview_text"
+
+                style="@style/test_textview_style"
+                android:text="      音乐播放器 " />
 
 
 
