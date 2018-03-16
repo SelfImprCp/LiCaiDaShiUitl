@@ -33,7 +33,8 @@
 
 
     <declare-styleable name="NumberPicker">
-        <attr name="normalTextColor" format="color" />
+
+          <attr name="normalTextColor" format="color" />
         <attr name="normalTextSize" format="dimension" />
         <attr name="selecredTextColor" format="color" />
         <attr name="selecredTextSize" format="dimension" />

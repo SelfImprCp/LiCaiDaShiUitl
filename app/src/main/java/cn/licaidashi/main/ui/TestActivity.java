@@ -552,6 +552,7 @@ public class TestActivity extends BaseActivity {
         isPlayFragmentShow = true;
     }
 
+
 //
 //    private void textRxJava() {
 ////创建被观察者

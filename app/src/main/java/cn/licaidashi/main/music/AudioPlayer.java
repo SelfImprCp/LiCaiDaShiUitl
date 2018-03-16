@@ -90,15 +90,15 @@ public class AudioPlayer {
         listeners.remove(listener);
     }
 
-    public void addAndPlay(Music music) {
-        int position = musicList.indexOf(music);
-        if (position < 0) {
-            musicList.add(music);
-            DBManager.get().getMusicDao().insert(music);
-            position = musicList.size() - 1;
-        }
-        play(position);
-    }
+//    public void addAndPlay(Music music) {
+//        int position = musicList.indexOf(music);
+//        if (position < 0) {
+//            musicList.add(music);
+//            DBManager.get().getMusicDao().insert(music);
+//            position = musicList.size() - 1;
+//        }
+//        play(position);
+//    }
 
     public void play(int position) {
         if (musicList.isEmpty()) {
@@ -135,22 +135,22 @@ public class AudioPlayer {
     }
 
     public void delete(int position) {
-        int playPosition = getPlayPosition();
-        Music music = musicList.remove(position);
-        DBManager.get().getMusicDao().delete(music);
-        if (playPosition > position) {
-            setPlayPosition(playPosition - 1);
-        } else if (playPosition == position) {
-            if (isPlaying() || isPreparing()) {
-                setPlayPosition(playPosition - 1);
-                next();
-            } else {
-                stopPlayer();
-                for (OnPlayerEventListener listener : listeners) {
-                    listener.onChange(getPlayMusic());
-                }
-            }
-        }
+//        int playPosition = getPlayPosition();
+//        Music music = musicList.remove(position);
+//        DBManager.get().getMusicDao().delete(music);
+//        if (playPosition > position) {
+//            setPlayPosition(playPosition - 1);
+//        } else if (playPosition == position) {
+//            if (isPlaying() || isPreparing()) {
+//                setPlayPosition(playPosition - 1);
+//                next();
+//            } else {
+//                stopPlayer();
+//                for (OnPlayerEventListener listener : listeners) {
+//                    listener.onChange(getPlayMusic());
+//                }
+//            }
+//        }
     }
 
     public void playPause() {

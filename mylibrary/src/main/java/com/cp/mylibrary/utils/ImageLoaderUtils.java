@@ -28,7 +28,6 @@ import java.io.File;
  */
 public class ImageLoaderUtils {
 
-
     public static ImageLoaderUtils imageLoaderUtils;
 
     /**

@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.utils.ImageLoaderUtils;
 
-import cn.licaidashi.main.music.DBManager;
+
 import cn.licaidashi.main.music.PlayService;
 import cn.licaidashi.main.music.Preferences;
 
@@ -31,7 +31,7 @@ public class AppApplication extends MyBaseApp {
 //        MyHttpClient.initHttp(AppConfig.HOST,AppConfig.SUFFIX);
 //        MyHttpClient.Cookie = "我的cookie ";
 //
-        DBManager.get().init(this);
+//        DBManager.get().init(this);
 
 
         Preferences.init(this);

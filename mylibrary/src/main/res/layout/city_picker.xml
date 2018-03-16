@@ -4,13 +4,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="horizontal" >
+    android:orientation="horizontal">
 
     <com.cp.mylibrary.city.ScrollerNumberPicker
         android:id="@+id/province"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
+
+         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
         android:layout_weight="1"
         su:itemNumber="3"
@@ -39,6 +40,5 @@
         su:selecredTextColor="#ff000000"
         su:selecredTextSize="13sp"
         su:unitHight="50dp" />
-
 
 </LinearLayout>
