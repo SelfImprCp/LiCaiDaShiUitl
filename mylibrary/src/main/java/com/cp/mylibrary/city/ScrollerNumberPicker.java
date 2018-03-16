@@ -577,6 +577,17 @@ public class ScrollerNumberPicker extends View {
         LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制线条");
 
 
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+
+
+        if (currentapiVersion > 26 || currentapiVersion == 26) {
+
+            //  float xM = 100;
+
+            controlWidth = 489;
+        }
+
+
         canvas.drawLine(0, controlHeight / 2 - unitHeight / 2 + 2,
                 controlWidth, controlHeight / 2 - unitHeight / 2 + 2, linePaint);
         canvas.drawLine(0, controlHeight / 2 + unitHeight / 2 - 2,
@@ -864,16 +875,20 @@ public class ScrollerNumberPicker extends View {
                 return;
 
 
-            LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字" + x +" c:" + controlWidth + " text:" +textRect.width());
+            LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字" + x + " c:" + controlWidth + " text:" + textRect.width());
 
 
             int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 
 
-            if (currentapiVersion > 26 || currentapiVersion == 26)
-            {
-                float xM = 100;
-                float yM = y + move + unitHeight/2 + textRect.height() / 2;
+            if (currentapiVersion > 26 || currentapiVersion == 26) {
+
+                //  float xM = 100;
+
+                controlWidth = 489;
+                float xM = x + controlWidth / 2 - textRect.width()
+                        / 2;
+                float yM = y + move + unitHeight / 2 + textRect.height() / 2;
 
                 LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字 xm :" + xM + " ym:" + yM);
 
