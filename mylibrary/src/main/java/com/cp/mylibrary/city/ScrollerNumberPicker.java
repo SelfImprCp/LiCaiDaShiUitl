@@ -574,7 +574,7 @@ public class ScrollerNumberPicker extends View {
         }
 
 
-        LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制线条");
+//        LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制线条");
 
 
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
@@ -626,7 +626,7 @@ public class ScrollerNumberPicker extends View {
                 R.styleable.NumberPicker);
 
 
-        LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 设置属性");
+//        LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 设置属性");
 
         unitHeight = (int) attribute.getDimension(
                 R.styleable.NumberPicker_unitHight, 32);
@@ -875,8 +875,8 @@ public class ScrollerNumberPicker extends View {
                 return;
 
 
-            LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字" + x + " c:" + controlWidth + " text:" + textRect.width());
-
+//            LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字" + x + " c:" + controlWidth + " text:" + textRect.width());
+//
 
             int currentapiVersion = android.os.Build.VERSION.SDK_INT;
 
@@ -890,7 +890,7 @@ public class ScrollerNumberPicker extends View {
                         / 2;
                 float yM = y + move + unitHeight / 2 + textRect.height() / 2;
 
-                LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字 xm :" + xM + " ym:" + yM);
+//                LogCp.i(LogCp.CP, ScrollerNumberPicker.class + " 绘制 文字 xm :" + xM + " ym:" + yM);
 
                 canvas.drawText(itemText, xM, yM,
                         textPaint);
