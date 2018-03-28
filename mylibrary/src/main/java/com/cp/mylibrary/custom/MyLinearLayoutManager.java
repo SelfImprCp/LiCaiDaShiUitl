@@ -15,12 +15,7 @@ import android.view.ViewGroup;
  */
 
 
-
-
-
 public class MyLinearLayoutManager extends LinearLayoutManager {
-
-
 
 
     private static final String TAG = MyLinearLayoutManager.class.getSimpleName();
