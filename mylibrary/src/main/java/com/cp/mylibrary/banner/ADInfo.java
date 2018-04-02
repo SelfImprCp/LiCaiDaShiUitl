@@ -26,6 +26,7 @@ public class ADInfo {
 	private String shareType;
 
 
+	private String eventPlanningType;
 
 
 	// 消息跳转需要的参数
@@ -37,6 +38,14 @@ public class ADInfo {
 
 	private String courseSubjectsId;
 
+
+	public String getEventPlanningType() {
+		return eventPlanningType;
+	}
+
+	public void setEventPlanningType(String eventPlanningType) {
+		this.eventPlanningType = eventPlanningType;
+	}
 
 	public String getGotoType() {
 		return gotoType;

@@ -51,6 +51,7 @@ public class BaseActivity extends MyBaseActivity {
 
 
 
+
     @Override
     public void initWidget() {
         super.initWidget();
