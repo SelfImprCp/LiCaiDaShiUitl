@@ -790,42 +790,149 @@ public class FileUtil {
      */
 
     public void showSelectOpenType(Context context, String filesPath) {
-        Intent intent = showOpenTypeDialog(filesPath);
+//        Intent intent = showOpenTypeDialog(filesPath);
+//
+//
+//        LogCp.i(LogCp.CP, FileUtil.class + "    有没有的响应 " + intent.resolveActivity(context.getPackageManager()) );
+//        //   if (context.getPackageManager().resolveActivity(intent,
+//        //        PackageManager.MATCH_DEFAULT_ONLY) != null)
+//         if (intent.resolveActivity(context.getPackageManager()) != null)
+//
+//        {
+//
+//            context.startActivity(intent);
+//        }
+//        //  context.startActivityForResult(intent, 0);
+//
 
 
-        LogCp.i(LogCp.CP, FileUtil.class + "    有没有的响应 " + intent.resolveActivity(context.getPackageManager()) );
-        //   if (context.getPackageManager().resolveActivity(intent,
-        //        PackageManager.MATCH_DEFAULT_ONLY) != null)
-         if (intent.resolveActivity(context.getPackageManager()) != null)
 
-        {
-
-            context.startActivity(intent);
-        }
-        //  context.startActivityForResult(intent, 0);
-
-
-    }
-
-    public Intent showOpenTypeDialog(String param) {
-        Log.e("ViChildError", "showOpenTypeDialog");
+        if(context==null||filesPath==null)
+            return;
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setAction(android.content.Intent.ACTION_VIEW);
-        Uri uri = Uri.fromFile(new File(param));
-        //获取文件file的MIME类型
-        LogCp.i(LogCp.CP, FileUtil.class + "   文件名" + new File(param));
+        //设置intent的Action属性
+        intent.setAction(Intent.ACTION_VIEW);
+        //文件的类型
+        String type = "";
+        for(int i =0;i<MATCH_ARRAY.length;i++){
+            //判断文件的格式
+            if(filesPath.toString().contains(MATCH_ARRAY[i][0].toString())){
+                type = MATCH_ARRAY[i][1];
+                break;
+            }
+        }
+        try {
+            //设置intent的data和Type属性
+            intent.setDataAndType(Uri.fromFile(new File(filesPath)), type);
+            //跳转
+            context.startActivity(intent);
+        } catch (Exception e) { //当系统没有携带文件打开软件，提示
+            ShowToastUtil.showToast(context,"无法打开该格式文件!");
+            e.printStackTrace();
+        }
 
-        String type = getFileFormat(new File(param).getName());
-        // type = ".pdf";
-        LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名! -- " + type);
-
-        // intent.setDataAndType(uri, "*/*");
-          intent.setDataAndType(uri, type);
 
 
-        return intent;
+
+
+
     }
+
+
+
+
+    //建立一个文件类型与文件后缀名的匹配表
+    public static final String[][] MATCH_ARRAY={
+            //{后缀名，    文件类型}
+            {".3gp",    "video/3gpp"},
+            {".apk",    "application/vnd.android.package-archive"},
+            {".asf",    "video/x-ms-asf"},
+            {".avi",    "video/x-msvideo"},
+            {".bin",    "application/octet-stream"},
+            {".bmp",      "image/bmp"},
+            {".c",        "text/plain"},
+            {".class",    "application/octet-stream"},
+            {".conf",    "text/plain"},
+            {".cpp",    "text/plain"},
+            {".doc",    "application/msword"},
+            {".exe",    "application/octet-stream"},
+            {".gif",    "image/gif"},
+            {".gtar",    "application/x-gtar"},
+            {".gz",        "application/x-gzip"},
+            {".h",        "text/plain"},
+            {".htm",    "text/html"},
+            {".html",    "text/html"},
+            {".jar",    "application/java-archive"},
+            {".java",    "text/plain"},
+            {".jpeg",    "image/jpeg"},
+            {".jpg",    "image/jpeg"},
+            {".js",        "application/x-javascript"},
+            {".log",    "text/plain"},
+            {".m3u",    "audio/x-mpegurl"},
+            {".m4a",    "audio/mp4a-latm"},
+            {".m4b",    "audio/mp4a-latm"},
+            {".m4p",    "audio/mp4a-latm"},
+            {".m4u",    "video/vnd.mpegurl"},
+            {".m4v",    "video/x-m4v"},
+            {".mov",    "video/quicktime"},
+            {".mp2",    "audio/x-mpeg"},
+            {".mp3",    "audio/x-mpeg"},
+            {".mp4",    "video/mp4"},
+            {".mpc",    "application/vnd.mpohun.certificate"},
+            {".mpe",    "video/mpeg"},
+            {".mpeg",    "video/mpeg"},
+            {".mpg",    "video/mpeg"},
+            {".mpg4",    "video/mp4"},
+            {".mpga",    "audio/mpeg"},
+            {".msg",    "application/vnd.ms-outlook"},
+            {".ogg",    "audio/ogg"},
+            {".pdf",    "application/pdf"},
+            {".png",    "image/png"},
+            {".pps",    "application/vnd.ms-powerpoint"},
+            {".ppt",    "application/vnd.ms-powerpoint"},
+            {".prop",    "text/plain"},
+            {".rar",    "application/x-rar-compressed"},
+            {".rc",        "text/plain"},
+            {".rmvb",    "audio/x-pn-realaudio"},
+            {".rtf",    "application/rtf"},
+            {".sh",        "text/plain"},
+            {".tar",    "application/x-tar"},
+            {".tgz",    "application/x-compressed"},
+            {".txt",    "text/plain"},
+            {".wav",    "audio/x-wav"},
+            {".wma",    "audio/x-ms-wma"},
+            {".wmv",    "audio/x-ms-wmv"},
+            {".wps",    "application/vnd.ms-works"},
+            {".xml",    "text/plain"},
+            {".z",        "application/x-compress"},
+            {".zip",    "application/zip"},
+            {"pptx",        "application/vnd.ms-powerpoint"},
+            {"docx",        "application/msword"},
+            {"xlsx",        "application/vnd.ms-works"}
+    };
+
+
+
+//    public Intent showOpenTypeDialog(String param) {
+//        Log.e("ViChildError", "showOpenTypeDialog");
+//        Intent intent = new Intent();
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.setAction(android.content.Intent.ACTION_VIEW);
+//        Uri uri = Uri.fromFile(new File(param));
+//        //获取文件file的MIME类型
+//        LogCp.i(LogCp.CP, FileUtil.class + "   文件名" + new File(param));
+//
+//        String type = getFileFormat(new File(param).getName());
+//        // type = ".pdf";
+//        LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名! -- " + type);
+//
+//         intent.setDataAndType(uri, "*/*");
+//        // intent.setDataAndType(uri, type);
+//
+//
+//        return intent;
+//    }
 
 
     /**
