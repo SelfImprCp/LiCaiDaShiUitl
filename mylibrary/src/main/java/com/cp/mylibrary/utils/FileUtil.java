@@ -820,8 +820,8 @@ public class FileUtil {
         // type = ".pdf";
         LogCp.i(LogCp.CP, FileUtil.class + "  取得文件的后缀名! -- " + type);
 
-         intent.setDataAndType(uri, "*/*");
-        //   intent.setDataAndType(uri, type);
+        // intent.setDataAndType(uri, "*/*");
+          intent.setDataAndType(uri, type);
 
 
         return intent;
