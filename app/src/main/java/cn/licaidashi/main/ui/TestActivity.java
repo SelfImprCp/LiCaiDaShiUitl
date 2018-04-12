@@ -1,7 +1,6 @@
 package cn.licaidashi.main.ui;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
@@ -15,21 +14,20 @@ import com.cp.mylibrary.city.CityPicker;
 import com.cp.mylibrary.city.ScrollerNumberPicker;
 import com.cp.mylibrary.custom.CPScrollView;
 import com.cp.mylibrary.custom.TitleBarView;
+import com.cp.mylibrary.datechoosewell.DateChooseWheelViewDialog;
 import com.cp.mylibrary.utils.AreaParserUitl;
-import com.cp.mylibrary.utils.DateTimePickDialogUtil;
-import com.cp.mylibrary.utils.GsonUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
 import com.cp.mylibrary.utils.ImageUtils;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NoDoubleClickUtils;
 import com.cp.mylibrary.utils.ScreenUtils;
+import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.StringUtils;
 
 import org.kymjs.kjframe.ui.BindView;
 
 import cn.licaidashi.main.R;
 import cn.licaidashi.main.TestUIhelper;
-import cn.licaidashi.main.bean.ProvinceBean;
 import cn.licaidashi.main.bean.UserBean;
 import cn.licaidashi.main.music.PlayFragment;
 
@@ -159,8 +157,6 @@ public class TestActivity extends BaseActivity {
     private TextView music_play_textview_text;
 
 
-
-
     @BindView(id = R.id.test_cp_scrollview)
     private CPScrollView test_cp_scrollview;
 
@@ -175,6 +171,7 @@ public class TestActivity extends BaseActivity {
     public void setRootView() {
 
         setContentView(R.layout.activity_test);
+
     }
 
 
@@ -183,7 +180,6 @@ public class TestActivity extends BaseActivity {
         super.initView();
 
         text_title.setTitleStr("我的测试标题");
-
 
         IDCardUitl idCardUitl = new IDCardUitl();
         LogCp.i(LogCp.CP, TestActivity.class + "测试性别 ： " + idCardUitl.getSexForID("140202199410223078"));
@@ -369,25 +365,38 @@ public class TestActivity extends BaseActivity {
 
 
             case R.id.date_select_test:
-                String initStartDateTime = "2013-09-03"; // 初始化开始时间
-                String initEndDateTime = "2014-08-23"; // 初始化结束时间
-                final DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
-                        TestActivity.this, initEndDateTime, "选择时间");
-                dateTimePicKDialog.dateTimePicKDialog(initStartDateTime, initEndDateTime, "确认", "取消", new DialogInterface.OnClickListener() {
+//                String initStartDateTime = "2013-09-03"; // 初始化开始时间
+//                String initEndDateTime = "2014-08-23"; // 初始化结束时间
+//                final DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
+//                        TestActivity.this, initEndDateTime, "选择时间");
+//                dateTimePicKDialog.dateTimePicKDialog(initStartDateTime, initEndDateTime, "确认", "取消", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                        String str = dateTimePicKDialog.getSelectDate();
+//
+//                        LogCp.i(LogCp.CP, TestActivity.class + "选择的日期 " + str);
+//
+//                    }
+//                }, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                });
+
+
+                DateChooseWheelViewDialog startDateChooseDialog =
+                        new DateChooseWheelViewDialog(TestActivity.this,
+                                new DateChooseWheelViewDialog.DateChooseInterface() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void getDateTime(String time, boolean longTimeChecked) {
 
-                        String str = dateTimePicKDialog.getSelectDate();
-
-                        LogCp.i(LogCp.CP, TestActivity.class + "选择的日期 " + str);
-
-                    }
-                }, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
+                         ShowToastUtil.showToast(TestActivity.this,"选择的时间 " + time);
                     }
                 });
+                startDateChooseDialog.setDateDialogTitle("开始时间");
+                startDateChooseDialog.showDateChooseDialog();
 
 
                 break;
@@ -524,9 +533,7 @@ public class TestActivity extends BaseActivity {
             case R.id.music_play_textview_text:
 
 
-
                 showPlayingFragment();
-
 
 
                 break;
@@ -535,6 +542,7 @@ public class TestActivity extends BaseActivity {
         }
 
     }
+
     private void showPlayingFragment() {
         if (isPlayFragmentShow) {
             return;
