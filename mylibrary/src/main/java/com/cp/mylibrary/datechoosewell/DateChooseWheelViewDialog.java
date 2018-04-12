@@ -198,15 +198,15 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
         Calendar nowCalendar = Calendar.getInstance();
         int nowMinite = nowCalendar.get(Calendar.MINUTE);
         arry_minute.clear();
-//        for (int i = 0; i <= 59; i++) {
-//            arry_minute.add(i + "");
-//            if (nowMinite == i) {
-//                nowMinuteId = arry_minute.size() - 1;
-//            }
-//        }
+        for (int i = 0; i <= 59; i++) {
+            arry_minute.add(i + "");
+            if (nowMinite == i) {
+                nowMinuteId = arry_minute.size() - 1;
+            }
+        }
 //
-        arry_minute.add("00");
-        arry_minute.add("30");
+//        arry_minute.add("00");
+//        arry_minute.add("30");
 
 
 //            if (nowMinite == i) {
@@ -230,30 +230,30 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
         Calendar nowCalendar = Calendar.getInstance();
         int nowHour = nowCalendar.get(Calendar.HOUR_OF_DAY);
         arry_hour.clear();
-//        for (int i = 0; i <= 23; i++) {
-//            arry_hour.add(i + "");
-//            if (nowHour == i) {
-//                nowHourId = arry_hour.size() - 1;
-//            }
-//        }
+        for (int i = 0; i <= 23; i++) {
+            arry_hour.add(i + "");
+            if (nowHour == i) {
+                nowHourId = arry_hour.size() - 1;
+            }
+        }
 //
 
 
-        arry_hour.add("08");
-        arry_hour.add("09");
-        arry_hour.add("10");
-        arry_hour.add("11");
-        arry_hour.add("12");
-        arry_hour.add("13");
-        arry_hour.add("14");
-        arry_hour.add("15");
-        arry_hour.add("16");
-        arry_hour.add("17");
-        arry_hour.add("18");
-        arry_hour.add("19");
-        arry_hour.add("20");
-        arry_hour.add("21");
-        arry_hour.add("22");
+//        arry_hour.add("08");
+//        arry_hour.add("09");
+//        arry_hour.add("10");
+//        arry_hour.add("11");
+//        arry_hour.add("12");
+//        arry_hour.add("13");
+//        arry_hour.add("14");
+//        arry_hour.add("15");
+//        arry_hour.add("16");
+//        arry_hour.add("17");
+//        arry_hour.add("18");
+//        arry_hour.add("19");
+//        arry_hour.add("20");
+//        arry_hour.add("21");
+//        arry_hour.add("22");
 
 
         mHourAdapter = new CalendarTextAdapter(mContext, arry_hour, nowHourId, MAX_TEXT_SIZE, MIN_TEXT_SIZE);
