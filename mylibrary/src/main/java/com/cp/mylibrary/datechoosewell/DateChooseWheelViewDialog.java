@@ -464,7 +464,7 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
             }
             dismissDialog();
 
-        } else if (i == R.id.date_choose_close_btn) {
+        } else if (i == R.id.cancel_btn) {
             dismissDialog();
 
         } else if (i == R.id.long_term_tv) {
