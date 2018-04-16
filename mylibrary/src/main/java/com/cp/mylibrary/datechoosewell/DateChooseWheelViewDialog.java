@@ -294,7 +294,7 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
         mMinuteWheelView = (WheelView) view.findViewById(R.id.minute_wv);
         mTitleTextView = (TextView) view.findViewById(R.id.title_tv);
         mSureButton = (Button) view.findViewById(R.id.sure_btn);
-        mCloseDialog = (Button) view.findViewById(R.id.date_choose_close_btn);
+        mCloseDialog = (Button) view.findViewById(R.id.cancel_btn);
         mLongTermLayout = (LinearLayout) view.findViewById(R.id.long_term_layout);
         mLongTermTextView = (TextView) view.findViewById(R.id.long_term_tv);
 

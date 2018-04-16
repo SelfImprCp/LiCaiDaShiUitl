@@ -30,17 +30,7 @@
                 android:textSize="18dp" />
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
 
-            <Button
-                android:id="@+id/date_choose_close_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/circle_close" />
-        </FrameLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -138,25 +128,39 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@color/white"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/line" />
+
 
         <Button
             android:id="@+id/sure_btn"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
+            android:layout_weight="1"
             android:background="@color/topbar_3"
             android:gravity="center"
             android:text="确定"
             android:textColor="@color/white"
             android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/gray_cp_util"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
     </LinearLayout>
 </LinearLayout>
