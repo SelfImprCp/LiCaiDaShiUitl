@@ -136,8 +136,7 @@ public class ShareDialog extends CommonDialog implements
         if (v.getId() == R.id.ly_share_weichat) {
 
 
-
-          shareToWeiChat();
+            shareToWeiChat();
 
 
         }
@@ -201,16 +200,6 @@ public class ShareDialog extends CommonDialog implements
 
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
     private void shareToSinaWeibo() {

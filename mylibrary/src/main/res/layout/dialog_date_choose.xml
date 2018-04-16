@@ -62,8 +62,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
-            android:visibility="gone"
-            android:layout_weight="1.5" />
+            android:layout_weight="1.5"
+            android:visibility="gone" />
 
         <com.cp.mylibrary.datechoosewell.WheelView
             android:id="@+id/date_wv"
