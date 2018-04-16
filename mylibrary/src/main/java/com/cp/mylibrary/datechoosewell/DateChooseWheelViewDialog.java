@@ -549,7 +549,9 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
 
     private String strTimeToDateFormat(String yearStr, String dateStr) {
 
-        return yearStr.replace("年", "-") + dateStr.replace("月", "-").replace("日", "");
+        return  dateStr.replace("月", "月").replace("日", "日");
+
+     //   return yearStr.replace("年", "-") + dateStr.replace("月", "-").replace("日", "");
     }
 
     /**
