@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 
 import com.cp.mylibrary.R;
+import com.cp.mylibrary.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -543,6 +544,16 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
      */
     private String strTimeToDateFormat(String yearStr, String dateStr, String hourStr, String minuteStr) {
 
+
+
+         if (StringUtils.toInt(hourStr)<10)
+         {
+             hourStr =  "0"+hourStr;
+         }
+        if (StringUtils.toInt(minuteStr)<10)
+        {
+            minuteStr =  "0"+minuteStr;
+        }
         return  dateStr.replace("月", "月").replace("日", "日")+ hourStr + ":" + minuteStr;
 //        return yearStr.replace("年", "-") + dateStr.replace("月", "-").replace("日", " ")
 //                + hourStr + ":" + minuteStr;
