@@ -459,9 +459,9 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
         int i = v.getId();
         if (i == R.id.sure_btn) {
             if (mBlnTimePickerGone) {
-                dateChooseInterface.getDateTime(strTimeToDateFormat(mYearStr, mDateStr), mBlnBeLongTerm);
+                dateChooseInterface.getDateTime(strTimeToDateFormat(mYearStr, mDateStr), "", mBlnBeLongTerm);
             } else {
-                dateChooseInterface.getDateTime(strTimeToDateFormat(mYearStr, mDateStr, mHourStr, mMinuteStr), mBlnBeLongTerm);
+                dateChooseInterface.getDateTime(strTimeToDateFormat(mYearStr, mDateStr), strTimeToDateFormat2(mHourStr, mMinuteStr), mBlnBeLongTerm);
             }
             dismissDialog();
 
@@ -538,23 +538,9 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
      *
      * @param yearStr
      * @param dateStr
-     * @param hourStr
-     * @param minuteStr
      * @return
      */
-    private String strTimeToDateFormat(String yearStr, String dateStr, String hourStr, String minuteStr) {
 
-
-        if (StringUtils.toInt(hourStr) < 10) {
-            hourStr = "0" + hourStr;
-        }
-        if (StringUtils.toInt(minuteStr) < 10) {
-            minuteStr = "0" + minuteStr;
-        }
-        return dateStr.replace("月", "月").replace("日", "日") + hourStr + ":" + minuteStr;
-//        return yearStr.replace("年", "-") + dateStr.replace("月", "-").replace("日", " ")
-//                + hourStr + ":" + minuteStr;
-    }
 
     private String strTimeToDateFormat(String yearStr, String dateStr) {
 
@@ -562,6 +548,22 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
 
         //   return yearStr.replace("年", "-") + dateStr.replace("月", "-").replace("日", "");
     }
+
+
+    private String strTimeToDateFormat2(String hourStr, String minuteStr) {
+
+        if (StringUtils.toInt(hourStr) < 10) {
+            hourStr = "0" + hourStr;
+        }
+        if (StringUtils.toInt(minuteStr) < 10) {
+            minuteStr = "0" + minuteStr;
+        }
+
+        return hourStr + ":" + minuteStr;
+
+
+    }
+
 
     /**
      * 滚轮的adapter
@@ -596,7 +598,7 @@ public class DateChooseWheelViewDialog extends Dialog implements View.OnClickLis
      * 回调选中的时间（默认时间格式"yyyy-MM-dd HH:mm:ss"）
      */
     public interface DateChooseInterface {
-        void getDateTime(String time, boolean longTimeChecked);
+        void getDateTime(String date, String time, boolean longTimeChecked);
     }
 
 }

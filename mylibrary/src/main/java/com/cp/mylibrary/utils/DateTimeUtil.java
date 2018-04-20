@@ -329,10 +329,6 @@ public class DateTimeUtil {
     }
 
 
-
-
-
-
     /**
      * 获取时间 小时:分;秒 HH:mm:ss    *    * @return
      */
@@ -342,7 +338,6 @@ public class DateTimeUtil {
         String dateString = formatter.format(currentTime);
         return dateString;
     }
-
 
 
     /**
@@ -384,6 +379,20 @@ public class DateTimeUtil {
         Date strtodate = formatter.parse(strDate, pos);
         return strtodate;
     }
+
+
+    /**
+     *
+     * @return
+     */
+    public static String getCurrentYear( ) {
+        Calendar date = Calendar.getInstance();
+        String year = String.valueOf(date.get(Calendar.YEAR));
+        return year;
+    }
+
+
+
 
     /**
      * 得到现在时间    *    * @return
@@ -526,7 +535,7 @@ public class DateTimeUtil {
         if (type.equals("年")) {
             calendar.add(Calendar.YEAR, sum);
         } else if (type.equals("月")) {
-            calendar.add(Calendar.MONTH, sum+1);
+            calendar.add(Calendar.MONTH, sum + 1);
         } else if (type.equals("日")) {
             calendar.add(Calendar.DATE, sum);
         }
@@ -618,5 +627,32 @@ public class DateTimeUtil {
         }
         return str;
     }
+
+
+    /**
+     * 获取两个时间的时间查 如1天2小时30分钟
+     */
+    public static String getDatePoor(Date endDate, Date nowDate) {
+
+        long nd = 1000 * 24 * 60 * 60;
+        long nh = 1000 * 60 * 60;
+        long nm = 1000 * 60;
+        // long ns = 1000;
+        // 获得两个时间的毫秒时间差异
+
+        long diff = endDate.getTime() - nowDate.getTime();
+        // 计算差多少天
+        long day = diff / nd;
+        // 计算差多少小时
+        long hour = diff % nd / nh;
+        // 计算差多少分钟
+        long min = diff % nd % nh / nm;
+        // 计算差多少秒//输出结果
+        // long sec = diff % nd % nh % nm / ns;
+        //  return day + "天" + hour + "小时" + min + "分钟";
+
+        return min + "";
+    }
+
 
 }

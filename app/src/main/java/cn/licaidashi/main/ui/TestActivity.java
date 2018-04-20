@@ -16,6 +16,7 @@ import com.cp.mylibrary.custom.CPScrollView;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.datechoosewell.DateChooseWheelViewDialog;
 import com.cp.mylibrary.utils.AreaParserUitl;
+import com.cp.mylibrary.utils.DateTimeUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
 import com.cp.mylibrary.utils.ImageUtils;
 import com.cp.mylibrary.utils.LogCp;
@@ -25,6 +26,9 @@ import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.StringUtils;
 
 import org.kymjs.kjframe.ui.BindView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import cn.licaidashi.main.R;
 import cn.licaidashi.main.TestUIhelper;
@@ -390,9 +394,29 @@ public class TestActivity extends BaseActivity {
                         new DateChooseWheelViewDialog(TestActivity.this,
                                 new DateChooseWheelViewDialog.DateChooseInterface() {
                     @Override
-                    public void getDateTime(String time, boolean longTimeChecked) {
+                    public void getDateTime(String date,String time, boolean longTimeChecked) {
 
-                         ShowToastUtil.showToast(TestActivity.this,"选择的时间 " + time);
+
+
+
+                        date =   date.replace("月","-");
+                        date =  date.replace("日","");
+
+
+                        String currentTime = DateTimeUtil.getCurrentYear() + "-" + date + " " +time +":00";
+                        LogCp.i(LogCp.CP,TestActivity.class + "选择的时间 "  + currentTime);
+
+                        Date date1 = DateTimeUtil.strToDateLong(currentTime)
+                        ;
+                        Date date2 = DateTimeUtil.strToDateLong("2018-4-20 16:01:00")
+                                ;
+
+
+                        LogCp.i(LogCp.CP,TestActivity.class + "两个小时差" +
+                                DateTimeUtil.getDatePoor(date1,date2));
+
+
+
                     }
                 });
                 startDateChooseDialog.setDateDialogTitle("开始时间");
@@ -542,6 +566,11 @@ public class TestActivity extends BaseActivity {
         }
 
     }
+
+
+
+
+
 
     private void showPlayingFragment() {
         if (isPlayFragmentShow) {
