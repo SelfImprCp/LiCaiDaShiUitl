@@ -22,12 +22,10 @@ import com.cp.mylibrary.utils.ImageUtils;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NoDoubleClickUtils;
 import com.cp.mylibrary.utils.ScreenUtils;
-import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.StringUtils;
 
 import org.kymjs.kjframe.ui.BindView;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cn.licaidashi.main.R;
