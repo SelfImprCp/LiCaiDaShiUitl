@@ -56,23 +56,19 @@ public class AppUtils {
         // 读取sdcard 权限
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
-            LogCp.i(LogCp.CP, " 已经有了读取sdcard 的权限!");
+            LogCp.i(LogCp.CP,  AppUtils.class + " 已经有了读取sdcard 的权限!");
         } else {
             //do not have permission
-            LogCp.i(LogCp.CP, "  没有 读取sdcard 的权限!");
+            LogCp.i(LogCp.CP,  AppUtils.class +"  没有 读取sdcard 的权限!");
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(context,
-                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
-
-
-
-            } else {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(context,
+//                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+//            } else {
 
                 ActivityCompat.requestPermissions(context,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-            }
+          //  }
         }
 
 
@@ -80,16 +76,16 @@ public class AppUtils {
         // 写入sdcard 权限
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-            LogCp.i(LogCp.CP, " 已经有了写入sdcard 的权限!");
+            LogCp.i(LogCp.CP, AppUtils.class + " 已经有了写入sdcard 的权限!");
         } else {
             //do not have permission
-            LogCp.i(LogCp.CP, "  没有 写入sdcard 的权限!");
+            LogCp.i(LogCp.CP, AppUtils.class + "  没有 写入sdcard 的权限!");
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(context,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            //    if (ActivityCompat.shouldShowRequestPermissionRationale(context,
+            //           Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
 
-            } else {
+            //    } else {
 
 
                 ActivityCompat.requestPermissions(context,
@@ -98,7 +94,7 @@ public class AppUtils {
 
 
 
-            }
+            //   }
         }
 
 
@@ -106,16 +102,16 @@ public class AppUtils {
         //  使用相机的权限
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)) {
 
-            LogCp.i(LogCp.CP, " 已经有了  使用相机  的权限!");
+            LogCp.i(LogCp.CP,  AppUtils.class +" 已经有了  使用相机  的权限!");
         } else {
             //do not have permission
-            LogCp.i(LogCp.CP, "  没有  使用相机  的权限!");
+            LogCp.i(LogCp.CP,  AppUtils.class +"  没有  使用相机  的权限!");
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(context,
-                    Manifest.permission.CAMERA)) {
+            //     if (ActivityCompat.shouldShowRequestPermissionRationale(context,
+            //            Manifest.permission.CAMERA)) {
 
 
-            } else {
+            //   } else {
 
 
                 ActivityCompat.requestPermissions(context,
@@ -124,7 +120,7 @@ public class AppUtils {
 
 
 
-            }
+            //  }
         }
 
 
