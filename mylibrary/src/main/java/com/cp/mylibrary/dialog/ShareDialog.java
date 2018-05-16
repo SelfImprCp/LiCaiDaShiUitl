@@ -160,7 +160,7 @@ public class ShareDialog extends CommonDialog implements
     @SuppressWarnings("deprecation")
     private void shareToWeiChatCircle() {
 
-        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + content + link + share_img_url);
+        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat 朋友圈" + title + " ：内容 ：" + content + " ：链接 ：" + link + " ：图片 ：" + share_img_url);
 
 
         UMImage thumb = new UMImage(mActivity, share_img_url);
@@ -183,7 +183,7 @@ public class ShareDialog extends CommonDialog implements
     @SuppressWarnings("deprecation")
     private void shareToWeiChat() {
 
-        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + content + link + share_img_url);
+        LogCp.i(LogCp.CP, ShareDialog.class + " 来分享到weChat  " + title + " ：内容 ：" + content + " ：链接 ：" + link + " ：图片 ：" + share_img_url);
 
         UMImage thumb = new UMImage(mActivity, share_img_url);
         UMWeb web = new UMWeb(link);

@@ -15,10 +15,14 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -453,5 +457,29 @@ public class ImageUtils {
 
 
     //***************************图片压缩机制*********************************//
+
+
+
+
+    /**
+     * 回收ImageView占用的图像内存;
+     * @param view
+     */
+    public static void recycleImageView(View view){
+        if(view==null) return;
+        if(view instanceof ImageView){
+            Drawable drawable=((ImageView) view).getDrawable();
+            if(drawable instanceof BitmapDrawable){
+                Bitmap bmp = ((BitmapDrawable)drawable).getBitmap();
+                if (bmp != null && !bmp.isRecycled()){
+                    ((ImageView) view).setImageBitmap(null);
+                    bmp.recycle();
+                    bmp=null;
+                }
+            }
+        }
+    }
+
+
 
 }

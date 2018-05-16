@@ -1,6 +1,6 @@
 package com.cp.mylibrary.utils;
 
- 
+
 import android.util.Log;
 
 
@@ -25,8 +25,11 @@ public class LogCp {
    }
 
 
+    public static void setIsDebug(boolean isDebug) {
+        LogCp.isDebug = isDebug;
+    }
 
-   public static void w(int msg){
+    public static void w(int msg){
        w(msg+"");
    }
 
