@@ -192,7 +192,7 @@ public class SpannableStringUitl {
     /**
      * 小数点后，只允许输入两位
      */
-    public static void dianNotInputTwo(EditText editText) {
+    public static void radixPointNoInputTwo(EditText editText) {
         editText.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable edt) {
                 String temp = edt.toString();
