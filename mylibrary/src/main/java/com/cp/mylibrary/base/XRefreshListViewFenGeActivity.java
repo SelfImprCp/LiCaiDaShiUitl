@@ -97,6 +97,7 @@ public class XRefreshListViewFenGeActivity<T extends MyEntity> extends MyBaseAct
 
         mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View v) {
                 mCurrentPage = 0;

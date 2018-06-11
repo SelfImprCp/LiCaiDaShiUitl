@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.utils.StringUtils;
 
-import org.w3c.dom.Text;
-
 
 /**
  * 标题

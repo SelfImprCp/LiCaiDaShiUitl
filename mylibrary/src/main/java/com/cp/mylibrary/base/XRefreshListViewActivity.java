@@ -1,15 +1,12 @@
 package com.cp.mylibrary.base;
 
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.adapter.ListBaseAdapter;
@@ -20,9 +17,7 @@ import com.cp.mylibrary.custom.EmptyLayout;
 import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.MyCache;
 import com.cp.mylibrary.utils.NetWorkUtil;
-import com.cp.mylibrary.utils.ShowToastUtil;
 import com.cp.mylibrary.utils.StringUtils;
-
 
 import java.util.ArrayList;
 import java.util.List;
