@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.provider.Browser;
+import android.text.Editable;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ClickableSpan;
@@ -19,6 +21,7 @@ import android.text.style.StrikethroughSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -33,7 +36,7 @@ public class SpannableStringUitl {
     /**
      * 超链接
      */
-    public void addUrlSpan(TextView tv,String httpUrl) {
+    public void addUrlSpan(TextView tv, String httpUrl) {
         SpannableString spanString = new SpannableString("超链接");
         URLSpan span = new URLSpan(httpUrl);
         spanString.setSpan(span, 0, 0, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -120,12 +123,10 @@ public class SpannableStringUitl {
     }
 
 
-
-
     /**
      * 文字背景颜色
      */
-    public static void addBackColorSpan(TextView textView,int color) {
+    public static void addBackColorSpan(TextView textView, int color) {
         SpannableString spanString = new SpannableString(textView.getText().toString());
 
         BackgroundColorSpan span = new BackgroundColorSpan(color);
@@ -137,10 +138,10 @@ public class SpannableStringUitl {
     /**
      * 文字颜色
      */
-    public static  void addForeColorSpan(TextView textView,int color) {
+    public static void addForeColorSpan(TextView textView, int color) {
         SpannableString spanString = new SpannableString(textView.getText().toString());
         ForegroundColorSpan span = new ForegroundColorSpan(color);
-        spanString.setSpan(span, 0,  textView.getText().toString().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spanString.setSpan(span, 0, textView.getText().toString().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(spanString);
     }
 
@@ -167,6 +168,7 @@ public class SpannableStringUitl {
 //    }
 //
 //
+
     /**
      * 删除线
      */
@@ -187,6 +189,27 @@ public class SpannableStringUitl {
         textView.setText(spanString);
     }
 
+    /**
+     * 小数点后，只允许输入两位
+     */
+    public static void dianNotInputTwo(EditText editText) {
+        editText.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable edt) {
+                String temp = edt.toString();
+                int posDot = temp.indexOf(".");
+                if (posDot <= 0) return;
+                if (temp.length() - posDot - 1 > 2) {
+                    edt.delete(posDot + 3, posDot + 4);
+                }
+            }
+
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+            }
+
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+            }
+        });
+    }
 
 
     /**
@@ -220,7 +243,6 @@ public class SpannableStringUitl {
 
         textView.setText(builder);
     }
-
 
 
 //

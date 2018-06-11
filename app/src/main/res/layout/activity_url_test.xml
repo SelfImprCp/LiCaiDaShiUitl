@@ -32,6 +32,8 @@
                    android:id="@+id/url_test_backcolor"
                    android:layout_width="wrap_content"
                    android:layout_margin="@dimen/space_15"
+                   android:textColor="@color/red"
+
                    android:layout_height="wrap_content" />
 
 
