@@ -218,8 +218,6 @@
                 android:text="    富文本测试  " />
 
 
-
-
             <TextView
                 android:id="@+id/super_textview_text"
 
@@ -240,6 +238,11 @@
                 android:text="      音乐播放器 " />
 
 
+            <com.cp.mylibrary.custom.RadixPointLimitTwoEditText
+                android:id="@+id/radix_point_limit"
+
+                style="@style/test_textview_style"
+                android:text="      音乐播放器 " />
 
 
         </LinearLayout>
