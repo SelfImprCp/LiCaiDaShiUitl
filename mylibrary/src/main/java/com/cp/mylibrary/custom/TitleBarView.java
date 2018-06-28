@@ -251,6 +251,11 @@ public class TitleBarView extends RelativeLayout {
 
     }
 
+
+
+
+
+
     public void setTitleBarMenuImgGone( ) {
         titlebar_img_menu.setVisibility(View.GONE);
 
