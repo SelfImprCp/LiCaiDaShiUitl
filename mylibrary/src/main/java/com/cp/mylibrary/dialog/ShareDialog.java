@@ -242,7 +242,7 @@ public class ShareDialog extends CommonDialog implements
         public void onResult(SHARE_MEDIA platform) {
             Log.d("plat", "platform" + platform);
 //            ,
-//                    ,
+
 
 
             Toast.makeText(context, "分享成功", Toast.LENGTH_SHORT).show();

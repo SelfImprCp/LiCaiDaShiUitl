@@ -392,6 +392,27 @@ public class DateTimeUtil {
     }
 
 
+    /**
+     *
+     * @return
+     */
+    public static String getCurrentMoth( ) {
+        Calendar date = Calendar.getInstance();
+        String month = String.valueOf(date.get(Calendar.MONTH));
+        int monthInt =  StringUtils.toInt(month) + 1;
+
+
+        String monthStr = monthInt + "";
+
+        if (monthInt<10)
+        {
+            monthStr =  "0"+ monthStr  ;
+        }
+
+
+        return monthStr;
+
+    }
 
 
     /**
