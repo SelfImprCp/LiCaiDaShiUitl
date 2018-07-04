@@ -47,6 +47,8 @@ public class EmptyLayout extends LinearLayout implements
     private String caoZuoTextStr = "";
 
 
+    private View noDateView;
+
     public EmptyLayout(Context context) {
         super(context);
         this.context = context;
@@ -60,12 +62,10 @@ public class EmptyLayout extends LinearLayout implements
     }
 
     public void setNodataView(View view) {
-
+        noDateView = view;
         error_load_fail_lin.addView(view);
 
-        img.setVisibility(GONE);
 
-        tv.setVisibility(GONE);
 
     }
 
@@ -213,7 +213,20 @@ public class EmptyLayout extends LinearLayout implements
                 mErrorState = NODATA;
                 // img.setBackgroundDrawable(SkinsUtil.getDrawable(context,"page_icon_empty"));
                 //img.setBackgroundResource(R.drawable.page_icon_empty);
-                img.setVisibility(View.VISIBLE);
+              if (noDateView!=null)
+              {
+                  img.setVisibility(GONE);
+
+                  tv.setVisibility(GONE);
+              }else
+              {
+                  img.setVisibility(View.VISIBLE);
+
+              }
+
+
+
+
                 animProgress.setVisibility(View.GONE);
                 setTvNoDataContent();
                 clickEnable = true;
