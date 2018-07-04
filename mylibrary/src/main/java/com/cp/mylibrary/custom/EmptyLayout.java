@@ -59,6 +59,17 @@ public class EmptyLayout extends LinearLayout implements
         init();
     }
 
+    public void setNodataView(View view) {
+
+        error_load_fail_lin.addView(view);
+
+        img.setVisibility(GONE);
+
+        tv.setVisibility(GONE);
+
+    }
+
+
     private void init() {
         View view = View.inflate(context, R.layout.view_error_layout, null);
         img = (ImageView) view.findViewById(R.id.img_error_layout);
@@ -271,7 +282,7 @@ public class EmptyLayout extends LinearLayout implements
     public void setErrorCaoZuoButtonText(String strcontet, String textColor, Drawable drawable, OnClickListener onClickListener) {
         if (!StringUtils.isEmpty(strcontet)) {
             caoZuoTextStr = strcontet;
-                    error_caozuo_button.setText(strcontet);
+            error_caozuo_button.setText(strcontet);
             error_caozuo_button.setTextColor(Color.parseColor(textColor));
             error_caozuo_button.setBackground(drawable);
             error_caozuo_button.setOnClickListener(onClickListener);

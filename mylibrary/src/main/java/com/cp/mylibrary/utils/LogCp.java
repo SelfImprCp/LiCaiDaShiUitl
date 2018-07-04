@@ -82,6 +82,24 @@ public class LogCp {
 
     }
 
+    /**
+     * d显示购买课程
+     */
+
+    public static void showLongLog(String xml) {
+
+
+        if (xml.length() > 4000) {
+            for (int i = 0; i < xml.length(); i += 4000) {
+                if (i + 4000 < xml.length())
+                    Log.i("rescounter" + i, xml.substring(i, i + 4000));
+                else
+                    Log.i("rescounter" + i, xml.substring(i, xml.length()));
+            }
+        } else
+            Log.i("resinfo", xml);
+    }
+
     public static void i(String tag, String msg, Throwable t) {
         if (isDebug)
             Log.i(tag, msg, t);
