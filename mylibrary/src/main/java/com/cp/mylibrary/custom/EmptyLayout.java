@@ -63,8 +63,9 @@ public class EmptyLayout extends LinearLayout implements
 
     public void setNodataView(View view) {
         noDateView = view;
+        error_load_fail_lin.removeView(img);
+        error_load_fail_lin.removeView(tv);
         error_load_fail_lin.addView(view);
-
 
 
     }
@@ -213,18 +214,16 @@ public class EmptyLayout extends LinearLayout implements
                 mErrorState = NODATA;
                 // img.setBackgroundDrawable(SkinsUtil.getDrawable(context,"page_icon_empty"));
                 //img.setBackgroundResource(R.drawable.page_icon_empty);
-              if (noDateView!=null)
-              {
-                  img.setVisibility(GONE);
+                if (noDateView != null)
 
-                  tv.setVisibility(GONE);
-              }else
-              {
-                  img.setVisibility(View.VISIBLE);
+                {
+                    img.setVisibility(GONE);
 
-              }
+                    tv.setVisibility(GONE);
+                } else {
+                    img.setVisibility(View.VISIBLE);
 
-
+                }
 
 
                 animProgress.setVisibility(View.GONE);
