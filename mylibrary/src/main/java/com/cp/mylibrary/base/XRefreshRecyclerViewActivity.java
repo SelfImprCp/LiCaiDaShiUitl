@@ -230,10 +230,10 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
         private final String reponseData;
         private boolean parserError;
 
-         private Response response;
+//         private Response response;
 
-//        private List<T>
-//                currentList = new ArrayList<T>();
+        private List<T>
+                currentList = new ArrayList<T>();
 
         public ParserTask(String data) {
             this.reponseData = data;
@@ -242,9 +242,9 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
         @Override
         protected String doInBackground(Void... params) {
             try {
-                response = parseList(reponseData);
+                currentList = parseList(reponseData);
                 LogCp.i(LogCp.CP, XRefreshRecyclerViewActivity.class + "解析 出来的数据 的，值 ，，"
-                        + response);
+                        + currentList);
 
 
             } catch (Exception e) {
@@ -266,7 +266,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
 
             } else {
 
-                executeOnLoadDataSuccess(response);
+                executeOnLoadDataSuccess(currentList);
 
             }
         }
@@ -277,7 +277,7 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
         return Config.PAGE_SIXE;
     }
 
-    protected Response parseList(String is) {
+    protected List<T> parseList(String is) {
 
 
         return null;
@@ -287,13 +287,13 @@ public class XRefreshRecyclerViewActivity<T extends MyEntity>  extends  MyBaseAc
      * 解析出来的数据
      * @param
      */
-    protected void executeOnLoadDataSuccess(Response response) {
+    protected void executeOnLoadDataSuccess(List<T> response) {
 
 
 
 
-//        mAdapter.addData(data);
-//
+        mAdapter.addData(response);
+
 
     }
 

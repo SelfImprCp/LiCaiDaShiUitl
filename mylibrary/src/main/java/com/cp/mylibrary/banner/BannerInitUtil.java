@@ -27,7 +27,12 @@ public class BannerInitUtil {
      * @param cycleViewPager
      * @param mAdCycleViewListener
      */
- public void initBannerViewPager(Context context,boolean isWheel,int time, List<ADInfo> infos,CycleViewPager cycleViewPager, CycleViewPager.ImageCycleViewListener mAdCycleViewListener)
+ public void initBannerViewPager(Context context,
+                                 boolean isWheel,
+                                 int time,
+                                 List<ADInfo> infos,
+                                 CycleViewPager cycleViewPager,
+                                 CycleViewPager.ImageCycleViewListener mAdCycleViewListener)
  {
 
      // 将最后一个ImageView添加进来
