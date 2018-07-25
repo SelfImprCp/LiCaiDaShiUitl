@@ -25,9 +25,9 @@ import cn.licaidashi.main.ui.TestImageLoad;
 import cn.licaidashi.main.ui.TestKeyBoardUtils;
 import cn.licaidashi.main.ui.TestObjectUtils;
 import cn.licaidashi.main.ui.TestPickerView;
-import cn.licaidashi.main.ui.TestRecyclerRefreshActivity;
+
 import cn.licaidashi.main.ui.TestScreentUtils;
-import cn.licaidashi.main.ui.TestScrollViewRefreshActivity;
+
 import cn.licaidashi.main.ui.TestSuperTextView;
 import cn.licaidashi.main.ui.TestTwoCode;
 import cn.licaidashi.main.ui.TestWebView;
@@ -152,15 +152,10 @@ public class TestUIhelper {
         OpenActivityUtil.getInstance().openActivity(context,TestPickerView.class);
     }
 
-    public static void showTestScrollViewRefreshActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestScrollViewRefreshActivity.class);
-    }
 
 
-    public static void showXRefreshListViewActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    TestRecyclerRefreshActivity
-                .class);
-    }
+
+
 
 
     public static void showGestureLockActivity(Context context) {

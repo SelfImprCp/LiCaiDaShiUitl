@@ -348,14 +348,13 @@ public class TestActivity extends BaseActivity {
 
             case R.id.xrefreshview_scrollview_test:
 
-                TestUIhelper.showTestScrollViewRefreshActivity(this);
+
                 break;
 
 
             case R.id.xrefreshview_receylie_test:
 
-                TestUIhelper.showXRefreshListViewActivity(this);
-                break;
+                 break;
 
 
             case R.id.guestture_test:

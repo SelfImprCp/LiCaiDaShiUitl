@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.cp.mylibrary.adapter.CommonAdapter;
 import com.cp.mylibrary.adapter.ViewHolder;
-import com.cp.mylibrary.pullto.recyclerview.BaseRecyclerAdapter;
+
 
 import java.util.List;
 

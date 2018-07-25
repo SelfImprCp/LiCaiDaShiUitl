@@ -27,7 +27,11 @@ import java.util.List;
  * @param <T>
  */
 
-public class XRefreshListViewActivity<T extends MyEntity> extends MyBaseActivity implements SwipeRefreshLayout.OnRefreshListener, AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
+public class XRefreshListViewActivity<T extends MyEntity>
+        extends MyBaseActivity
+        implements SwipeRefreshLayout.OnRefreshListener,
+        AdapterView.OnItemClickListener,
+        AbsListView.OnScrollListener {
 
 
     public static final int STATE_NONE = 0;
