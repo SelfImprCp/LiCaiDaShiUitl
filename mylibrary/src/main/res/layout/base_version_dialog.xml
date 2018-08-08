@@ -71,7 +71,7 @@
 
 
     <ImageView
-        android:id="@+id/popuwindows_new_use_close"
+        android:id="@+id/base_version_dialog_cannel_btn"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
