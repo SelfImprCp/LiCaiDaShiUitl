@@ -21,8 +21,7 @@ import java.util.List;
 
 
 /**
- * Created by huanghaibin_dev
- * on 16-6-23.
+ * Created by huanghaibin_devon 16-6-23.
  */
 public abstract class BaseRecyclerViewFragment<T> extends MyBaseFragment implements
         BaseRecyclerAdapter.OnItemClickListener,

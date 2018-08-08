@@ -6,9 +6,9 @@ import android.widget.ListView;
 
 /**
  * 自定义适应ScrollView的ListView
- * 
+ *
  * @author Administrator
- * 
+ *
  */
 public class ListViewForScrollView extends ListView {
 
