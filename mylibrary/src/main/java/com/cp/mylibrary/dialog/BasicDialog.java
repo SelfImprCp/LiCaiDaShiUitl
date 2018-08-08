@@ -142,18 +142,15 @@ public class BasicDialog {
 				.findViewById(R.id.base_version_dialog_txt);
 		msg_tv.setVisibility(View.VISIBLE);
 		msg_tv.setText(msg);
-		Button cancelbtn = (Button) dialogLayout
-				.findViewById(R.id.base_version_dialog_cannel_btn);
-		if (leftStr != null) {
-			cancelbtn.setText(leftStr);
-		}
+
+
 		Button delbtn = (Button) dialogLayout
 				.findViewById(R.id.base_version_dialog_sure_btn);
 		if (rightStr != null) {
 			delbtn.setText(rightStr);
 		}
 		delbtn.setOnClickListener(itemsOnClick);
-		cancelbtn.setOnClickListener(itemsOnClick);
+
 		cd.show();
 
 		cd.setContentView(dialogLayout);
