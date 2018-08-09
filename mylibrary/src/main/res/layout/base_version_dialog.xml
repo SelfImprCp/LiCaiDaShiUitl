@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_popup_p"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="312dp"
+    android:layout_height="500dp"
     android:layout_gravity="center"
 
-
+    android:background="@color/transparent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="312dp"
+        android:layout_height="433dp"
         android:background="@drawable/update_dialog">
 
 
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space_10"
+                 android:layout_marginRight="@dimen/space_20"
                 android:layout_marginLeft="@dimen/space_8"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
@@ -41,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
 
                 android:text="内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内容提示内 "
@@ -73,9 +75,10 @@
     <ImageView
         android:id="@+id/base_version_dialog_cannel_btn"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:src="@drawable/close_icon" />
+        android:layout_marginTop="@dimen/space_15"
+        android:src="@drawable/tankuang_cha" />
 
 </LinearLayout>

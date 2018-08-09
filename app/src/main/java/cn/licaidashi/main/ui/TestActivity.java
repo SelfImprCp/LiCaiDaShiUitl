@@ -15,6 +15,7 @@ import com.cp.mylibrary.city.ScrollerNumberPicker;
 import com.cp.mylibrary.custom.CPScrollView;
 import com.cp.mylibrary.custom.TitleBarView;
 import com.cp.mylibrary.datechoosewell.DateChooseWheelViewDialog;
+import com.cp.mylibrary.res.UpdateRes;
 import com.cp.mylibrary.utils.AreaParserUitl;
 import com.cp.mylibrary.utils.DateTimeUtil;
 import com.cp.mylibrary.utils.IDCardUitl;
@@ -23,6 +24,7 @@ import com.cp.mylibrary.utils.LogCp;
 import com.cp.mylibrary.utils.NoDoubleClickUtils;
 import com.cp.mylibrary.utils.ScreenUtils;
 import com.cp.mylibrary.utils.StringUtils;
+import com.cp.mylibrary.utils.UpdateManagerUtil;
 
 import org.kymjs.kjframe.ui.BindView;
 
@@ -505,6 +507,30 @@ public class TestActivity extends BaseActivity {
 
             case R.id.fuwenben_text:
 
+
+
+
+
+
+                UpdateRes updateRes = new UpdateRes();
+                updateRes.setVersion("123.3");
+                updateRes.setUrl("");
+                updateRes.setDesc("新版本，新版本，新手");
+
+//                LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新 :" + versionBean.getCompellent());
+
+                updateRes.setForceupdate(0);
+
+
+                String strVersion = UpdateManagerUtil.getVersionNameAndVersionCode(TestActivity.this);
+
+                updateManagerUtilS.onFinshCheck(updateRes, strVersion, true);
+
+
+
+
+
+
 //                TestUIhelper.showTestFuWenBenUtil(TestActivity.this);
 
 
@@ -564,7 +590,14 @@ public class TestActivity extends BaseActivity {
 
     }
 
+    // 检查版本
 
+    private UpdateManagerUtil updateManagerUtilS = new UpdateManagerUtil(TestActivity.this) {
+        @Override
+        public void getServerUpdate() {
+
+        }
+    };
 
 
 

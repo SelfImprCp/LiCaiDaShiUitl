@@ -23,6 +23,7 @@ import com.cp.mylibrary.R;
 import com.cp.mylibrary.api.MyResponseHandler;
 import com.cp.mylibrary.dialog.BasicDialog;
 import com.cp.mylibrary.dialog.DialogHelper;
+import com.cp.mylibrary.dialog.VersionDialog;
 import com.cp.mylibrary.dialog.WaitDialog;
 import com.cp.mylibrary.interf.ICallbackResult;
 import com.cp.mylibrary.res.UpdateRes;
@@ -234,47 +235,93 @@ public abstract class UpdateManagerUtil {
 		 */
 
 
-        simplecDialog = BasicDialog.versionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
+//        simplecDialog = BasicDialog.versionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
+//                updateRes.getDesc(), "立即更新", "下次再说", new OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View arg0) {
+//
+//
+//                        if (arg0.getId() == R.id.base_version_dialog_sure_btn)
+//
+//                        {
+//                            // 启动下载新版本的服务
+//                            openDownLoadService(mContext, updateRes.getUrl(),
+//                                    updateRes.getVersion());
+//
+//                            ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+//                            simplecDialog.dismiss();
+//                        } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
+//
+//
+//                            LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + ( updateRes.getForceupdate() ==1));
+//
+//                            if (updateRes.getForceupdate() ==1) {
+//                                LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
+//
+//                                simplecDialog.dismiss();
+//                                ActivityManagerUtil.getInstance().AppExit();
+//
+//                            } else {
+//
+//                                simplecDialog.dismiss();
+//
+//                            }
+//
+//
+//                        }
+//
+//
+//                    }
+//                }).getConfigDialog();
+
+
+
+
+        VersionDialog versionDialog = new VersionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
                 updateRes.getDesc(), "立即更新", "下次再说", new OnClickListener() {
 
-                    @Override
-                    public void onClick(View arg0) {
+            @Override
+            public void onClick(View arg0) {
 
 
-                        if (arg0.getId() == R.id.base_version_dialog_sure_btn)
+                if (arg0.getId() == R.id.base_version_dialog_sure_btn)
 
-                        {
-                            // 启动下载新版本的服务
-                            openDownLoadService(mContext, updateRes.getUrl(),
-                                    updateRes.getVersion());
+                {
+                    // 启动下载新版本的服务
+                    openDownLoadService(mContext, updateRes.getUrl(),
+                            updateRes.getVersion());
 
-                            ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
-                            simplecDialog.dismiss();
-                        } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
-
-
-                            LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + ( updateRes.getForceupdate() ==1));
-
-                            if (updateRes.getForceupdate() ==1) {
-                                LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
-
-                                simplecDialog.dismiss();
-                                ActivityManagerUtil.getInstance().AppExit();
-
-                            } else {
-
-                                simplecDialog.dismiss();
-
-                            }
+                    ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+                    simplecDialog.dismiss();
+                } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
 
 
-                        }
+                    LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + ( updateRes.getForceupdate() ==1));
 
+                    if (updateRes.getForceupdate() ==1) {
+                        LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
+
+                        simplecDialog.dismiss();
+                        ActivityManagerUtil.getInstance().AppExit();
+
+                    } else {
+
+                        simplecDialog.dismiss();
 
                     }
-                }).getConfigDialog();
 
-        simplecDialog.show();
+
+                }
+
+
+            }
+        });
+
+        versionDialog.show();
+
+
+//        simplecDialog.show();
 
 
     }
