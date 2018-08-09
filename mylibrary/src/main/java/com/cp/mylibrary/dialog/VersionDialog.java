@@ -100,7 +100,6 @@ public class VersionDialog extends Dialog {
         });
 
 
-        String str = "";
 
 
 
