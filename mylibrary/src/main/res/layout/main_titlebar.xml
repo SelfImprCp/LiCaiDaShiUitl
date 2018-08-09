@@ -53,8 +53,7 @@
 
         android:text="标题 "
 
-        android:textColor="#646464"
-
+        android:textColor="#333333"
         android:textSize="18sp"
         android:visibility="gone" />
 
