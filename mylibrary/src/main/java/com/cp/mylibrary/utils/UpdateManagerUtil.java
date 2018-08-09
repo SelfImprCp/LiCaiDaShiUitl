@@ -51,7 +51,7 @@ public abstract class UpdateManagerUtil {
 //    private boolean isShowTT = false;
 
     private WaitDialog _waitDialog;
-    private Dialog simplecDialog;
+
     public Class mActivity;
 
     /**
@@ -215,108 +215,18 @@ public abstract class UpdateManagerUtil {
      * @param updateRes
      */
 
+    private VersionDialog versionDialog;
+    private UpdateRes mUpdateRes;
+
     private void showUpdateInfoDialog(final UpdateRes updateRes) {
         if (updateRes == null) {
             return;
         }
-        /*
-         * CommonDialog dialog = DialogHelper
-		 * .getPinterestDialogCancelable(mContext); dialog.setTitle("");
-		 * dialog.setMessage(mUpdate.getDesc()); dialog.setNegativeButton("取消",
-		 * null); dialog.setPositiveButton("更新版本", new
-		 * DialogInterface.OnClickListener() {
-		 * 
-		 * @Override public void onClick(DialogInterface dialog, int which) {
-		 * 
-		 * UIHelper.openDownLoadService(mContext, mUpdate.getUrl(),
-		 * mUpdate.getVersion()); dialog.dismiss();
-		 * 
-		 * } }); dialog.show();
-		 */
 
+        this.mUpdateRes = updateRes;
 
-//        simplecDialog = BasicDialog.versionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
-//                updateRes.getDesc(), "立即更新", "下次再说", new OnClickListener() {
-//
-//                    @Override
-//                    public void onClick(View arg0) {
-//
-//
-//                        if (arg0.getId() == R.id.base_version_dialog_sure_btn)
-//
-//                        {
-//                            // 启动下载新版本的服务
-//                            openDownLoadService(mContext, updateRes.getUrl(),
-//                                    updateRes.getVersion());
-//
-//                            ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
-//                            simplecDialog.dismiss();
-//                        } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
-//
-//
-//                            LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + ( updateRes.getForceupdate() ==1));
-//
-//                            if (updateRes.getForceupdate() ==1) {
-//                                LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
-//
-//                                simplecDialog.dismiss();
-//                                ActivityManagerUtil.getInstance().AppExit();
-//
-//                            } else {
-//
-//                                simplecDialog.dismiss();
-//
-//                            }
-//
-//
-//                        }
-//
-//
-//                    }
-//                }).getConfigDialog();
-
-
-
-
-        VersionDialog versionDialog = new VersionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
-                updateRes.getDesc(), "立即更新", "下次再说", new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-
-                if (arg0.getId() == R.id.base_version_dialog_sure_btn)
-
-                {
-                    // 启动下载新版本的服务
-                    openDownLoadService(mContext, updateRes.getUrl(),
-                            updateRes.getVersion());
-
-                    ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
-                    simplecDialog.dismiss();
-                } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
-
-
-                    LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + ( updateRes.getForceupdate() ==1));
-
-                    if (updateRes.getForceupdate() ==1) {
-                        LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + updateRes.getForceupdate());
-
-                        simplecDialog.dismiss();
-                        ActivityManagerUtil.getInstance().AppExit();
-
-                    } else {
-
-                        simplecDialog.dismiss();
-
-                    }
-
-
-                }
-
-
-            }
-        });
+        versionDialog = new VersionDialog(mContext, "发现新版本:" + updateRes.getVersion(),
+                updateRes.getDesc(), "立即更新", "下次再说", onClickListener);
 
         versionDialog.show();
 
@@ -325,6 +235,42 @@ public abstract class UpdateManagerUtil {
 
 
     }
+
+    private View.OnClickListener onClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View arg0) {
+            if (arg0.getId() == R.id.base_version_dialog_sure_btn)
+
+            {
+                // 启动下载新版本的服务
+                openDownLoadService(mContext, mUpdateRes.getUrl(),
+                        mUpdateRes.getVersion());
+
+                ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+                versionDialog.dismiss();
+            } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
+
+
+                LogCp.i(LogCp.CP, UpdateManagerUtil.class + "是否强制更新" + (mUpdateRes.getForceupdate() == 1));
+
+                if (mUpdateRes.getForceupdate() == 1) {
+                    LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + mUpdateRes.getForceupdate());
+
+                    versionDialog.dismiss();
+                    ActivityManagerUtil.getInstance().AppExit();
+
+                } else {
+
+                    versionDialog.dismiss();
+
+                }
+
+
+            }
+
+        }
+    };
+
 
     /**
      * 已经 是最新版本了
