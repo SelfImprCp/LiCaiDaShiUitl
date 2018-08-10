@@ -51,13 +51,7 @@ public class MyBaseFragment extends SupportFragment {
         this.mInflater = inflater;
 
         mContext = MyBaseApp.getInstance();
-//
-//        if (view == null) {
-//
-//
-//
-//
-//        }
+
 
 
         view = inflaterView(inflater, container, savedInstanceState);

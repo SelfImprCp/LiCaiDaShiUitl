@@ -85,9 +85,15 @@ public abstract class BaseRecyclerViewFragment<T> extends MyBaseFragment impleme
                 R.color.swiperefresh_color3, R.color.swiperefresh_color4);
 
 
-        requestData();
+
     }
 
+    @Override
+    public void initData() {
+        super.initData();
+
+        requestData();
+    }
 
     public MyResponseHandler mHandler = new MyResponseHandler() {
         @Override
