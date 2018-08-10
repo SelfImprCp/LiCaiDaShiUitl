@@ -152,8 +152,8 @@ public abstract class BaseRecyclerViewFragment<T> extends MyBaseFragment impleme
 
 
                 currentList = parseList(reponseData);
-                LogCp.i(LogCp.CP, BaseRecyclerViewFragment.class + "解析 出来的数据 的，值 ，，"
-                        + currentList);
+//                LogCp.i(LogCp.CP, BaseRecyclerViewFragment.class + "解析 出来的数据 的，值 ，，"
+//                        + currentList);
 
 
             } catch (Exception e) {
