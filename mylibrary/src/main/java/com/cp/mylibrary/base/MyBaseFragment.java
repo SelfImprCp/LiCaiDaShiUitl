@@ -48,6 +48,7 @@ public class MyBaseFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
         this.mInflater = inflater;
 
         mContext = MyBaseApp.getInstance();
