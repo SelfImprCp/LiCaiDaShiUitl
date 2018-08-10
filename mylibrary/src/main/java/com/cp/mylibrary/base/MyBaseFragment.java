@@ -48,7 +48,6 @@ public class MyBaseFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
         this.mInflater = inflater;
 
         mContext = MyBaseApp.getInstance();
@@ -60,6 +59,8 @@ public class MyBaseFragment extends SupportFragment {
 
         //加载界面
         initView(view);
+        // 处理数据
+        myInitData();
 
 
         //http://blog.csdn.net/hack8/article/details/25432503
@@ -88,6 +89,9 @@ public class MyBaseFragment extends SupportFragment {
 
     }
 
+    public void myInitData(   ) {
+
+    }
 
     /**
      * 子类复写这个方法,设置当前界面的布局
@@ -99,13 +103,6 @@ public class MyBaseFragment extends SupportFragment {
         return null;
     }
 
-    /**
-     * 子类直接复写这个方法,view, 对当前界面的数据进行处理
-     */
-    @Override
-    public void initData() {
-
-    }
 
 
     @Override
