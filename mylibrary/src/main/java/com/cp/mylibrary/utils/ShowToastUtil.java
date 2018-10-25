@@ -29,7 +29,7 @@ public class ShowToastUtil {
     }
 
     public static void showToast(Context context,String message) {
-        showToast(context,message, Toast.LENGTH_LONG, 0, Gravity.BOTTOM);
+        showToast(context,message, Toast.LENGTH_LONG, 0, Gravity.CENTER);
     }
 
     public static void showToast(Context context,int message, int icon) {
@@ -37,7 +37,7 @@ public class ShowToastUtil {
     }
 
     public static void showToast(Context context,String message, int icon) {
-        showToast(context,message, Toast.LENGTH_LONG, icon, Gravity.BOTTOM);
+        showToast(context,message, Toast.LENGTH_LONG, icon, Gravity.CENTER);
     }
 
     public static void showToastShort(Context context,int message) {
@@ -45,15 +45,15 @@ public class ShowToastUtil {
     }
 
     public static void showToastShort(Context context,String message) {
-        showToast(context,message, Toast.LENGTH_SHORT, 0, Gravity.BOTTOM);
+        showToast(context,message, Toast.LENGTH_SHORT, 0, Gravity.CENTER);
     }
 
     public static void showToastShort(Context context,int message, Object... args) {
-        showToast(context,message, Toast.LENGTH_SHORT, 0, Gravity.BOTTOM, args);
+        showToast(context,message, Toast.LENGTH_SHORT, 0, Gravity.CENTER, args);
     }
 
     public static void showToast(Context context,int message, int duration, int icon) {
-        showToast(context,message, duration, icon, Gravity.BOTTOM);
+        showToast(context,message, duration, icon, Gravity.CENTER);
     }
 
     public static void showToast(Context context,int message, int duration, int icon,
