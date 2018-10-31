@@ -23,6 +23,9 @@ public class AppUtils {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA =3;
 
+    private static final int MY_PERMISSIONS_READ_PHONE_STATE =4;
+
+
 
     /**
      *
@@ -125,6 +128,30 @@ public class AppUtils {
 
 
 
+
+        //
+        if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE)) {
+
+            LogCp.i(LogCp.CP,  AppUtils.class +" 已经有了  读取手机状态   的权限!");
+        } else {
+            //do not have permission
+            LogCp.i(LogCp.CP,  AppUtils.class +"  没有 读取手机状态  的权限!");
+            // Should we show an explanation?
+            //     if (ActivityCompat.shouldShowRequestPermissionRationale(context,
+            //            Manifest.permission.CAMERA)) {
+
+
+            //   } else {
+
+
+            ActivityCompat.requestPermissions(context,
+                    new String[]{Manifest.permission.READ_PHONE_STATE},
+                    MY_PERMISSIONS_READ_PHONE_STATE);
+
+
+
+            //  }
+        }
 
 
 
