@@ -61,11 +61,6 @@ public class OpenActivityUtil {
     }
 
 
-
-
-
-
-
     // ===============================以下代码勿改动======================================//
 
     /**
@@ -89,12 +84,18 @@ public class OpenActivityUtil {
      */
     public static void openActivity(Context context, Class<?> pClass,
                                     Bundle pBundle) {
-        Intent intent = new Intent(context, pClass);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (pBundle != null) {
-            intent.putExtras(pBundle);
+
+
+        if (NetWorkUtil.yesNext(context)) {
+
+
+            Intent intent = new Intent(context, pClass);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            if (pBundle != null) {
+                intent.putExtras(pBundle);
+            }
+            context.startActivity(intent);
         }
-        context.startActivity(intent);
     }
 
     /**
@@ -119,10 +120,6 @@ public class OpenActivityUtil {
         }
         cotnext.startActivity(intent);
     }
-
-
-
-
 
 
 }

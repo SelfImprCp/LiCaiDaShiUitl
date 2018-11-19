@@ -17,13 +17,13 @@ public class AppUtils {
 
 
 
-    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
+    public static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
 
-    private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE =2;
+    public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE =2;
 
-    private static final int MY_PERMISSIONS_REQUEST_CAMERA =3;
+    public static final int MY_PERMISSIONS_REQUEST_CAMERA =3;
 
-    private static final int MY_PERMISSIONS_READ_PHONE_STATE =4;
+    public static final int MY_PERMISSIONS_READ_PHONE_STATE =4;
 
 
 
@@ -80,6 +80,7 @@ public class AppUtils {
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
             LogCp.i(LogCp.CP, AppUtils.class + " 已经有了写入sdcard 的权限!");
+
         } else {
             //do not have permission
             LogCp.i(LogCp.CP, AppUtils.class + "  没有 写入sdcard 的权限!");
@@ -162,3 +163,5 @@ public class AppUtils {
 
 
 }
+
+
