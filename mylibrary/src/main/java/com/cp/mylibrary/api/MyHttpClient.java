@@ -210,6 +210,45 @@ public static String Cookie = "";
 
     }
 
+    /**
+     * post 向服务器提交 json
+     *
+     * @param url
+     * @param jsonStr
+     * @param responseHandler
+     */
+    public static void postJsonUpServerBody(String url,
+                                        String jsonStr, MyResponseHandler responseHandler) {
+
+
+        MyHttpParams params = new MyHttpParams();
+
+
+        //这里传递json字符串，(JSONObject可以调用toString方法转换)
+        LogCp.i(LogCp.CP, MyHttpClient.class + "上传的 json :" + jsonStr);
+        params.putJsonParams(jsonStr);
+
+
+        client.jsonPost(getAbsoluteApiUrl(url), params, responseHandler);
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求参数 ："
+                + params.getUrlParams().toString()
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
+                +  params.getHeaders()
+
+        );
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(url)
+
+        );
+
+    }
+
 
     /**
      * post 向服务器提交 json
