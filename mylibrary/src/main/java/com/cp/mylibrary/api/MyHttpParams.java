@@ -7,4 +7,6 @@ import org.kymjs.kjframe.http.HttpParams;
  *  http 请求参数
  */
 public class MyHttpParams extends HttpParams {
+
+
 }
