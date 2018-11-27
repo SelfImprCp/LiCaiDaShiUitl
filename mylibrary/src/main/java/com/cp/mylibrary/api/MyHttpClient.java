@@ -156,7 +156,7 @@ public static String Cookie = "";
 
 
         LogCp.d(LogCp.CP, MyHttpClient.class + " 请求 json 参数 ："
-                + params.getJsonParams().toString()
+                + params.getUrlParams().toString()
 
         );
 
@@ -232,6 +232,21 @@ public static String Cookie = "";
 
         client.jsonPost(url, params, responseHandler);
 
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求方式：POST"
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求参数 ："
+                + params.getUrlParams().toString()
+
+        );
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求头  ："
+                +  params.getHeaders()
+
+        );
+
+        LogCp.d(LogCp.CP, MyHttpClient.class + " 请求URL：" + getAbsoluteApiUrl(url)
+
+        );
 
     }
 
