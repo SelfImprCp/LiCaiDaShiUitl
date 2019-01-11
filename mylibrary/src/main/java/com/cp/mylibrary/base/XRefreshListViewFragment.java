@@ -121,6 +121,8 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         if (mStoreEmptyState != -1) {
             mErrorLayout.setErrorType(mStoreEmptyState);
         }
+
+
     }
 
     @Override
