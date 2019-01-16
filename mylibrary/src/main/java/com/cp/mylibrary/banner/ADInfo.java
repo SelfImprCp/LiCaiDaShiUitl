@@ -39,17 +39,6 @@ public class ADInfo {
 	private String courseSubjectsId;
 
 
-//	 RIFA 课程是不是已经买过了，
-	private String isBuy;
-
-
-	public String getIsBuy() {
-		return isBuy;
-	}
-
-	public void setIsBuy(String isBuy) {
-		this.isBuy = isBuy;
-	}
 
 	public String getEventPlanningType() {
 		return eventPlanningType;
