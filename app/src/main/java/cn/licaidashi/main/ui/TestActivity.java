@@ -524,6 +524,9 @@ public class TestActivity extends BaseActivity {
 
                 String strVersion = UpdateManagerUtil.getVersionNameAndVersionCode(TestActivity.this);
 
+
+
+
                 updateManagerUtilS.onFinshCheck(updateRes, strVersion, true);
 
 

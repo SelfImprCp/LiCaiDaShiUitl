@@ -171,11 +171,20 @@ public abstract class UpdateManagerUtil {
 //
 
 
-        LogCp.i(LogCp.CP, UpdateManagerUtil.class + "取得的版本，" + currentVersion + " 传来的版本" + updateRes.getVersion());
+        LogCp.i(LogCp.CP, UpdateManagerUtil.class + "取得的版本，" + currentVersion + "  线上的版本" + updateRes.getVersion());
 
-        if (!currentVersion.equals(updateRes.getVersion())) {
+        int currentVint = StringUtils.toInt(currentVersion);
+        int lineInt = StringUtils.toInt(updateRes.getVersion());
+
+
+//        if (!currentVersion.equals(updateRes.getVersion())) {
+//            haveNew = true;
+//        }
+
+        if (currentVint < lineInt){
             haveNew = true;
         }
+
 
         return haveNew;
     }
@@ -264,8 +273,6 @@ public abstract class UpdateManagerUtil {
                     versionDialog.dismiss();
 
                 }
-
-
 
 
             }
