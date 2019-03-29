@@ -81,7 +81,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.google.zxing:core:3.2.1'
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
+    compile 'com.github.ybq:Android-SpinKit:1.2.0'
     compile 'com.github.chaychan:PowerfulViewLibrary:1.1.0'
 
     compile 'com.github.lygttpod:SuperTextView:2.1.4'
