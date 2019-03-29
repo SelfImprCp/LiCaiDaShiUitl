@@ -54,6 +54,9 @@ public abstract class UpdateManagerUtil {
 
     public Class mActivity;
 
+
+
+
     /**
      * @param context
      * @param
