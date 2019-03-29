@@ -219,6 +219,8 @@ public class DownloadService extends Service {
             return;
         }
 
+        LogCp.i(LogCp.CP, DownloadService.this + "  手机  android 版本 :   " + Build.VERSION.SDK_INT);
+
 
         if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
             TDevice.install(mContext, apkfile);
