@@ -13,6 +13,16 @@ public class UpdateRes extends Response {
     // 0非强制更新，1强制更新
     private int forceupdate;
 
+    private String versionCode;
+
+    public String getVersionCode() {
+        return versionCode;
+    }
+
+    public void setVersionCode(String versionCode) {
+        this.versionCode = versionCode;
+    }
+
     public String getError() {
         return error;
     }

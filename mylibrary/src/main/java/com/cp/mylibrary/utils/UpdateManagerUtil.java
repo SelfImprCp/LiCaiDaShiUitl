@@ -177,7 +177,7 @@ public abstract class UpdateManagerUtil {
         LogCp.i(LogCp.CP, UpdateManagerUtil.class + "取得的版本，" + currentVersion + "  线上的版本" + updateRes.getVersion());
 
         int currentVint = StringUtils.toInt(currentVersion);
-        int lineInt = StringUtils.toInt(updateRes.getVersion());
+        int lineInt = StringUtils.toInt(updateRes.getVersionCode());
 
 
 //        if (!currentVersion.equals(updateRes.getVersion())) {
@@ -306,14 +306,17 @@ public abstract class UpdateManagerUtil {
     /**
      * 取得 当前应用版本号
      *
-     * @param packageName
-     * @return
+      * @return
      */
-    public static int getVersionCode(Context context, String packageName) {
+    public static int getVersionCode(Context context   ) {
         int versionCode = 0;
         try {
-            versionCode = context.getPackageManager()
-                    .getPackageInfo(packageName, 0).versionCode;
+
+
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(
+                    context.getPackageName(), 0);
+            versionCode = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException ex) {
             versionCode = 0;
         }

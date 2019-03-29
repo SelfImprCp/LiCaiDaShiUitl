@@ -97,6 +97,7 @@
     <orderEntry type="library" exported="" name="PowerfulViewLibrary-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="pickerview-2.0.9" level="project" />
     <orderEntry type="library" exported="" name="autolayout-1.4.5" level="project" />
+    <orderEntry type="library" exported="" name="Android-SpinKit-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="SuperTextView-2.1.4" level="project" />
     <orderEntry type="library" exported="" name="transition-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.0.1" level="project" />
@@ -105,7 +106,6 @@
     <orderEntry type="library" exported="" name="play-services-basement-8.1.0" level="project" />
     <orderEntry type="library" exported="" name="kjframe-2.6" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Android-SpinKit-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.0.1" level="project" />
