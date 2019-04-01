@@ -55,8 +55,6 @@ public abstract class UpdateManagerUtil {
     public Class mActivity;
 
 
-
-
     /**
      * @param context
      * @param
@@ -184,7 +182,7 @@ public abstract class UpdateManagerUtil {
 //            haveNew = true;
 //        }
 
-        if (currentVint < lineInt){
+        if (currentVint < lineInt) {
             haveNew = true;
         }
 
@@ -269,6 +267,8 @@ public abstract class UpdateManagerUtil {
                     LogCp.i(LogCp.CP, UpdateManagerUtil.class + " 去强制更新了  " + mUpdateRes.getForceupdate());
 
                     versionDialog.dismiss();
+
+
                     ActivityManagerUtil.getInstance().AppExit();
 
                 } else {
@@ -306,9 +306,9 @@ public abstract class UpdateManagerUtil {
     /**
      * 取得 当前应用版本号
      *
-      * @return
+     * @return
      */
-    public static int getVersionCode(Context context   ) {
+    public static int getVersionCode(Context context) {
         int versionCode = 0;
         try {
 

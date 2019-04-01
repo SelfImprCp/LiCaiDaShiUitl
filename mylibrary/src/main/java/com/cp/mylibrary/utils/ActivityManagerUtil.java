@@ -134,13 +134,19 @@ public class ActivityManagerUtil {
      * 退出应用程序
      */
     public void AppExit() {
+        LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 ");
         try {
-            LogCp.i(LogCp.CP, ActivityManagerUtil.class + " 退出程序 ");
+            //结束所有页面
 
+
+            // context.finish();
             finishAllActivity();
-
+            // 杀死该应用进程
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
         } catch (Exception e) {
-            e.printStackTrace();
         }
+        
+
     }
 }
