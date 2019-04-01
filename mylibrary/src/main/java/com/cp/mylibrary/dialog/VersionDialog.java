@@ -80,12 +80,16 @@ public class VersionDialog extends Dialog {
             delbtn.setText(rightStr);
         }
         delbtn.setOnClickListener((View.OnClickListener) itemsOnClick);
-        cancelbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+
+        cancelbtn.setOnClickListener((View.OnClickListener) itemsOnClick);
+
+//
+//        cancelbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dismiss();
+//            }
+//        });
 
 
 

@@ -114,9 +114,6 @@ public class DoubleClickExitHelper {
     }
 
     /**
-     *
-     *
-     *
      * 退出应用程序
      */
     public void AppExit(Activity context) {
@@ -124,11 +121,11 @@ public class DoubleClickExitHelper {
             //结束所有页面
 
 
-            context.finish();
-            // ActivityManagerUtil.getInstance().finishAllActivity();
+            // context.finish();
+            ActivityManagerUtil.getInstance().finishAllActivity();
             // 杀死该应用进程
-            //android.os.Process.killProcess(android.os.Process.myPid());
-            //System.exit(0);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
         } catch (Exception e) {
         }
     }
