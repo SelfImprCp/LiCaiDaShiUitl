@@ -57,6 +57,7 @@ public class DoubleClickExitHelper {
             return false;
         }
         if (isOnKeyBacking) {
+
             mHandler.removeCallbacks(onBackTimeRunnable);
             if (mBackToast != null) {
                 mBackToast.cancel();
