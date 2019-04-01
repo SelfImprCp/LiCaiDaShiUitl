@@ -50,7 +50,6 @@ public class DoubleClickExitHelper {
     }
 
     /**
-     *
      * Activity onKeyDown事件
      */
     public boolean onKeyDown(int keyCode, KeyEvent event, String strContent) {
@@ -117,14 +116,16 @@ public class DoubleClickExitHelper {
     /**
      * 退出应用程序
      */
-    public void AppExit(Context context) {
+    public void AppExit(Activity context) {
         try {
             //结束所有页面
 
-             ActivityManagerUtil.getInstance().finishAllActivity();
+
+            context.finish();
+            // ActivityManagerUtil.getInstance().finishAllActivity();
             // 杀死该应用进程
-          android.os.Process.killProcess(android.os.Process.myPid());
-             System.exit(0);
+            //android.os.Process.killProcess(android.os.Process.myPid());
+            //System.exit(0);
         } catch (Exception e) {
         }
     }
