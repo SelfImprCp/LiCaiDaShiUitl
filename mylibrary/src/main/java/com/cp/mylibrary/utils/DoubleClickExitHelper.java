@@ -50,6 +50,7 @@ public class DoubleClickExitHelper {
     }
 
     /**
+     *
      * Activity onKeyDown事件
      */
     public boolean onKeyDown(int keyCode, KeyEvent event, String strContent) {
