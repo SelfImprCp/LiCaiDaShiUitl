@@ -21,6 +21,8 @@ public class SettingAppStartUtils {
         try {
             context.startActivity(getSettingIntent());
         }catch (Exception e){
+            LogCp.i(LogCp.CP, com.cp.mylibrary.utils.SettingAppStartUtils.class + " 出异常了 " + e.getMessage());
+
             e.printStackTrace();
             context.startActivity(new Intent(Settings.ACTION_SETTINGS));
         }
@@ -33,7 +35,7 @@ public class SettingAppStartUtils {
         String brand = android.os.Build.BRAND;
 
 
-        LogCp.i(LogCp.CP,SettingAppStartUtils.class + "什么手机：" + brand);
+        LogCp.i(LogCp.CP, com.cp.mylibrary.utils.SettingAppStartUtils.class + "什么手机：" + brand.toLowerCase());
 
         switch (brand.toLowerCase()){
             case "samsung":
@@ -45,7 +47,7 @@ public class SettingAppStartUtils {
                         "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity");
                 break;
 
-            case "HONOR":
+            case "honor":
                 componentName = new ComponentName("com.huawei.systemmanager",
                         "com.huawei.systemmanager.appcontrol.activity.StartupAppControlActivity");
                 break;
@@ -88,5 +90,6 @@ public class SettingAppStartUtils {
         }
         return intent;
     }
+
 
 }
