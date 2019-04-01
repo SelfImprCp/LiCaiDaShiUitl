@@ -31,6 +31,9 @@ public class SettingAppStartUtils {
 
         String brand = android.os.Build.BRAND;
 
+
+        LogCp.i(LogCp.CP,SettingAppStartUtils.class + "什么手机：" + brand);
+
         switch (brand.toLowerCase()){
             case "samsung":
                 componentName = new ComponentName("com.samsung.android.sm",
