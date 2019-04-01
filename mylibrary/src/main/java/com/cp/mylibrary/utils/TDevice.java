@@ -194,8 +194,14 @@ public class TDevice {
 
     }
 
+    /**
+     * 7.0 以上版本用
+     *
+     * @param context
+     * @param file
+     */
 
-    public static void install(Context context,File file) {
+    public static void install(Context context, File file) {
 //        File file = new File(
 //                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
 //                , "myApp.apk");
@@ -213,6 +219,13 @@ public class TDevice {
 
     }
 
+
+    /**
+     * 7.0 以下版本用
+     *
+     * @param context
+     * @param file
+     */
 
     public static Intent getInstallApkIntent(File file) {
         Intent intent = new Intent();
