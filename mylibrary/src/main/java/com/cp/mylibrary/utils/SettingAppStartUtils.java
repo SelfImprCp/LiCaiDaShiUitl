@@ -43,6 +43,13 @@ public class SettingAppStartUtils {
                 componentName = new ComponentName("com.huawei.systemmanager",
                         "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity");
                 break;
+
+            case "HONOR":
+                componentName = new ComponentName("com.huawei.systemmanager",
+                        "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity");
+                break;
+
+
             case "xiaomi":
                 componentName = new ComponentName("com.miui.securitycenter",
                         "com.miui.permcenter.autostart.AutoStartManagementActivity");
