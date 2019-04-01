@@ -46,7 +46,7 @@ public class SettingAppStartUtils {
 
             case "HONOR":
                 componentName = new ComponentName("com.huawei.systemmanager",
-                        "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity");
+                        "com.huawei.systemmanager.appcontrol.activity.StartupAppControlActivity");
                 break;
 
 
