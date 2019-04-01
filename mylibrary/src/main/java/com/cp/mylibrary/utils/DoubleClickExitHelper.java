@@ -116,6 +116,7 @@ public class DoubleClickExitHelper {
     /**
      *
      *
+     *
      * 退出应用程序
      */
     public void AppExit(Activity context) {
