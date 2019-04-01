@@ -21,6 +21,7 @@ public class SettingAppStartUtils {
         try {
             context.startActivity(getSettingIntent());
         }catch (Exception e){
+            e.printStackTrace();
             context.startActivity(new Intent(Settings.ACTION_SETTINGS));
         }
     }
