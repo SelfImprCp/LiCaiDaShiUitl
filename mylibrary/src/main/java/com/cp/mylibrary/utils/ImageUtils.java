@@ -325,7 +325,7 @@ public class ImageUtils {
 //
 //        return imagePath;
 
-      return getFilePathByUri(context, uri);
+        return getFilePathByUri(context, uri);
 
 //        String imagePath = "";
 //        String[] proj = new String[]{"_data"};
@@ -341,23 +341,36 @@ public class ImageUtils {
     }
 
 
-
-
-
-
     public static String getFilePathByUri(Context context, Uri uri) {
         String path = null;
         // 以 file:// 开头的
-         if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
+//        if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
+//            path = uri.getPath();
+//            return path;
+//        }
+        // 以 content:// 开头的，比如 content://media/extenral/images/media/17766
+        // if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+
+//        if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())) {
+//
+//            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
+//            if (cursor != null) {
+//                if (cursor.moveToFirst()) {
+//                    int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//                    if (columnIndex > -1) {
+//                        path = cursor.getString(columnIndex);
+//                    }
+//                }
+//                cursor.close();
+//            }
+//            return path;
+//        }
+
+        if (uri.getAuthority().contains("com.cp.fileprovider")) {
             path = uri.getPath();
             return path;
-       }
-        // 以 content:// 开头的，比如 content://media/extenral/images/media/17766
-       // if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-
-            if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())  ) {
-
-                Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
+        } else {
+            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
@@ -368,7 +381,10 @@ public class ImageUtils {
                 cursor.close();
             }
             return path;
+
         }
+
+
 //        // 4.4及之后的 是以 content:// 开头的，比如 content://com.android.providers.media.documents/document/image%3A235700
 //        if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //         //   if (DocumentsContract.isDocumentUri(context, uri)) {
@@ -390,7 +406,7 @@ public class ImageUtils {
 //
 //       //     }
 //        }
-        return null;
+        //   return null;
     }
 
     private static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
@@ -414,12 +430,6 @@ public class ImageUtils {
     private static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
     }
-
-
-
-
-
-
 
 
     //简易处理板  （实际本没有发现什么问题，可以直接使用）
@@ -450,7 +460,6 @@ public class ImageUtils {
     /**
      * 适配api19以上,根据uri获取图片的绝对路径
      * https://blog.csdn.net/weixin_36838630/article/details/79698164
-     *
      */
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
