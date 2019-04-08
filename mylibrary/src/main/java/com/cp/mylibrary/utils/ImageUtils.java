@@ -3,6 +3,7 @@ package com.cp.mylibrary.utils;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,7 +22,9 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -287,6 +290,7 @@ public class ImageUtils {
      * @param uri
      * @return
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @SuppressWarnings("deprecation")
     public static String getAbsoluteImagePath(Activity context, Uri uri) {
 //        String imagePath = "";
@@ -307,21 +311,105 @@ public class ImageUtils {
 //
 //        return imagePath;
 
-        String imagePath = "";
-        String[] proj = new String[]{"_data"};
-        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
-        if(cursor != null) {
-            int column_index = cursor.getColumnIndexOrThrow("_data");
-            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
-                imagePath = cursor.getString(column_index);
-            }
-        }
+//        String imagePath = "";
+//        String[] proj = new String[]{"_data"};
+//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
+//        if(cursor != null) {
+//            int column_index = cursor.getColumnIndexOrThrow("_data");
+//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
+//                imagePath = cursor.getString(column_index);
+//            }
+//        }
+//
+//        return imagePath;
 
-        return imagePath;
+        return getRealPathFromUri(context, uri);
+
 
     }
 
 
+    //简易处理板  （实际本没有发现什么问题，可以直接使用）
+    public static String getRealPathFromURI(Context context, Uri contentURI) {
+        String result;
+        Cursor cursor = context.getContentResolver().query(contentURI,
+                new String[]{MediaStore.Images.ImageColumns.DATA},//
+                null, null, null);
+        if (cursor == null) result = contentURI.getPath();
+        else {
+            cursor.moveToFirst();
+            int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(index);
+            cursor.close();
+        }
+        return result;
+    }
+
+    //复杂版处理  (适配多种API)   最后直接调用这个方法就可以了
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static String getRealPathFromUri(Context context, Uri uri) {
+        int sdkVersion = Build.VERSION.SDK_INT;
+        if (sdkVersion < 11) return getRealPathFromUri_BelowApi11(context, uri);
+        if (sdkVersion < 19) return getRealPathFromUri_Api11To18(context, uri);
+        else return getRealPathFromUri_AboveApi19(context, uri);
+    }
+
+    /**
+     * 适配api19以上,根据uri获取图片的绝对路径
+     */
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private static String getRealPathFromUri_AboveApi19(Context context, Uri uri) {
+        String filePath = null;
+        String wholeID = DocumentsContract.getDocumentId(uri);
+
+        // 使用':'分割
+        String id = wholeID.split(":")[1];
+
+        String[] projection = {MediaStore.Images.Media.DATA};
+        String selection = MediaStore.Images.Media._ID + "=?";
+        String[] selectionArgs = {id};
+
+        Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,//
+                projection, selection, selectionArgs, null);
+        int columnIndex = cursor.getColumnIndex(projection[0]);
+        if (cursor.moveToFirst()) filePath = cursor.getString(columnIndex);
+        cursor.close();
+        return filePath;
+    }
+
+    /**
+     * 适配api11-api18,根据uri获取图片的绝对路径
+     */
+    private static String getRealPathFromUri_Api11To18(Context context, Uri uri) {
+        String filePath = null;
+        String[] projection = {MediaStore.Images.Media.DATA};
+        //这个有两个包不知道是哪个。。。。不过这个复杂版一般用不到
+        CursorLoader loader = new CursorLoader(context, uri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            filePath = cursor.getString(cursor.getColumnIndex(projection[0]));
+            cursor.close();
+        }
+        return filePath;
+    }
+
+    /**
+     * 适配api11以下(不包括api11),根据uri获取图片的绝对路径
+     */
+    private static String getRealPathFromUri_BelowApi11(Context context, Uri uri) {
+        String filePath = null;
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = context.getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            filePath = cursor.getString(cursor.getColumnIndex(projection[0]));
+            cursor.close();
+        }
+        return filePath;
+    }
 
 
     /**
@@ -387,8 +475,6 @@ public class ImageUtils {
     }
 
 
-
-
     //***************************图片压缩机制*********************************//
     public static Bitmap getSmallBitmap(String filePath) {
 
@@ -403,25 +489,25 @@ public class ImageUtils {
         options.inJustDecodeBounds = false;
 
         Bitmap bm = BitmapFactory.decodeFile(filePath, options);
-        if(bm == null){
-            return  null;
+        if (bm == null) {
+            return null;
         }
         int degree = readPictureDegree(filePath);
-        bm = rotateBitmap(bm,degree) ;
-        ByteArrayOutputStream baos = null ;
-        try{
+        bm = rotateBitmap(bm, degree);
+        ByteArrayOutputStream baos = null;
+        try {
             baos = new ByteArrayOutputStream();
             bm.compress(Bitmap.CompressFormat.JPEG, 30, baos);
 
-        }finally{
+        } finally {
             try {
-                if(baos != null)
-                    baos.close() ;
+                if (baos != null)
+                    baos.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return bm ;
+        return bm;
 
     }
 
@@ -451,7 +537,7 @@ public class ImageUtils {
     }
 
     private static int readPictureDegree(String path) {
-        int degree  = 0;
+        int degree = 0;
         try {
             ExifInterface exifInterface = new ExifInterface(path);
             int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
@@ -471,9 +557,10 @@ public class ImageUtils {
         }
         return degree;
     }
-    private static Bitmap rotateBitmap(Bitmap bitmap, int rotate){
-        if(bitmap == null)
-            return null ;
+
+    private static Bitmap rotateBitmap(Bitmap bitmap, int rotate) {
+        if (bitmap == null)
+            return null;
 
         int w = bitmap.getWidth();
         int h = bitmap.getHeight();
@@ -488,27 +575,25 @@ public class ImageUtils {
     //***************************图片压缩机制*********************************//
 
 
-
-
     /**
      * 回收ImageView占用的图像内存;
+     *
      * @param view
      */
-    public static void recycleImageView(View view){
-        if(view==null) return;
-        if(view instanceof ImageView){
-            Drawable drawable=((ImageView) view).getDrawable();
-            if(drawable instanceof BitmapDrawable){
-                Bitmap bmp = ((BitmapDrawable)drawable).getBitmap();
-                if (bmp != null && !bmp.isRecycled()){
+    public static void recycleImageView(View view) {
+        if (view == null) return;
+        if (view instanceof ImageView) {
+            Drawable drawable = ((ImageView) view).getDrawable();
+            if (drawable instanceof BitmapDrawable) {
+                Bitmap bmp = ((BitmapDrawable) drawable).getBitmap();
+                if (bmp != null && !bmp.isRecycled()) {
                     ((ImageView) view).setImageBitmap(null);
                     bmp.recycle();
-                    bmp=null;
+                    bmp = null;
                 }
             }
         }
     }
-
 
 
 }
