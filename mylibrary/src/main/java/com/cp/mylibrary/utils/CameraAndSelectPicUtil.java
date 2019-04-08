@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images;
+import android.support.v4.content.FileProvider;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -276,7 +277,20 @@ public class CameraAndSelectPicUtil {
                 .format(new Date());
         String fileName = "mofoxuser_" + timeStamp + ".jpg";// 照片命名
         File out = new File(savePath, fileName);
-        Uri uri = Uri.fromFile(out);
+
+
+
+        Uri uri  ;
+
+        if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
+            uri =
+                    FileProvider.getUriForFile(mContext, "com.cp.fileprovider", out);
+
+        } else {
+              uri = Uri.fromFile(out);
+        }
+
+
         origUri = uri;
 
         theLarge = savePath + fileName;// 该照片的绝对路径
