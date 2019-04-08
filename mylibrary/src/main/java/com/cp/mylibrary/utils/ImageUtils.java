@@ -292,7 +292,7 @@ public class ImageUtils {
      * @param uri
      * @return
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
     @SuppressWarnings("deprecation")
     public static String getAbsoluteImagePath(Activity context, Uri uri) {
 //        String imagePath = "";
@@ -325,9 +325,19 @@ public class ImageUtils {
 //
 //        return imagePath;
 
-        return getFilePathByUri(context, uri);
+      //  return getFilePathByUri(context, uri);
 
+        String imagePath = "";
+        String[] proj = new String[]{"_data"};
+        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
+        if(cursor != null) {
+            int column_index = cursor.getColumnIndexOrThrow("_data");
+            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
+                imagePath = cursor.getString(column_index);
+            }
+        }
 
+        return imagePath;
     }
 
 
