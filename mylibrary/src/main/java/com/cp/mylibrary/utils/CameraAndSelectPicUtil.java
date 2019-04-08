@@ -392,7 +392,24 @@ public class CameraAndSelectPicUtil {
         protraitPath = FILE_SAVEPATH + cropFileName;
         protraitFile = new File(protraitPath);
 
-        cropUri = Uri.fromFile(protraitFile);
+//        cropUri = Uri.fromFile(protraitFile);
+
+
+
+
+
+
+        if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
+            cropUri =
+                    FileProvider.getUriForFile(mContext, "com.cp.fileprovider", protraitFile);
+
+        } else {
+            cropUri = Uri.fromFile(protraitFile);
+        }
+
+
+
+
         return this.cropUri;
     }
 
