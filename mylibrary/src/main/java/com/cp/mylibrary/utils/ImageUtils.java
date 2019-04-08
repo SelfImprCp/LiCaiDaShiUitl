@@ -248,24 +248,24 @@ public class ImageUtils {
      * @param
      * @return
      */
-//    public static String getAbsolutePathFromNoStandardUri(Uri mUri) {
-//        String filePath = null;
-//
-//        String mUriString = mUri.toString();
-//        mUriString = Uri.decode(mUriString);
-//
-//        String pre1 = "file://" + SDCARD + File.separator;
-//        String pre2 = "file://" + SDCARD_MNT + File.separator;
-//
-//        if (mUriString.startsWith(pre1)) {
-//            filePath = Environment.getExternalStorageDirectory().getPath()
-//                    + File.separator + mUriString.substring(pre1.length());
-//        } else if (mUriString.startsWith(pre2)) {
-//            filePath = Environment.getExternalStorageDirectory().getPath()
-//                    + File.separator + mUriString.substring(pre2.length());
-//        }
-//        return filePath;
-//    }
+    public static String getAbsolutePathFromNoStandardUri(Uri mUri) {
+        String filePath = null;
+
+        String mUriString = mUri.toString();
+        mUriString = Uri.decode(mUriString);
+
+        String pre1 = "file://" + SDCARD + File.separator;
+        String pre2 = "file://" + SDCARD_MNT + File.separator;
+
+        if (mUriString.startsWith(pre1)) {
+            filePath = Environment.getExternalStorageDirectory().getPath()
+                    + File.separator + mUriString.substring(pre1.length());
+        } else if (mUriString.startsWith(pre2)) {
+            filePath = Environment.getExternalStorageDirectory().getPath()
+                    + File.separator + mUriString.substring(pre2.length());
+        }
+        return filePath;
+    }
 
 //    public static String getAbsoluteImagePath(Activity context, Uri uri) {
 //        String imagePath = "";
