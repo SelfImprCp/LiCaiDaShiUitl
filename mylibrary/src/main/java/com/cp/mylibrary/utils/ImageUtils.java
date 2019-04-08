@@ -19,6 +19,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
@@ -31,6 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * Created by Jerry on 2016/7/6.
@@ -246,24 +248,38 @@ public class ImageUtils {
      * @param
      * @return
      */
-    public static String getAbsolutePathFromNoStandardUri(Uri mUri) {
-        String filePath = null;
+//    public static String getAbsolutePathFromNoStandardUri(Uri mUri) {
+//        String filePath = null;
+//
+//        String mUriString = mUri.toString();
+//        mUriString = Uri.decode(mUriString);
+//
+//        String pre1 = "file://" + SDCARD + File.separator;
+//        String pre2 = "file://" + SDCARD_MNT + File.separator;
+//
+//        if (mUriString.startsWith(pre1)) {
+//            filePath = Environment.getExternalStorageDirectory().getPath()
+//                    + File.separator + mUriString.substring(pre1.length());
+//        } else if (mUriString.startsWith(pre2)) {
+//            filePath = Environment.getExternalStorageDirectory().getPath()
+//                    + File.separator + mUriString.substring(pre2.length());
+//        }
+//        return filePath;
+//    }
 
-        String mUriString = mUri.toString();
-        mUriString = Uri.decode(mUriString);
-
-        String pre1 = "file://" + SDCARD + File.separator;
-        String pre2 = "file://" + SDCARD_MNT + File.separator;
-
-        if (mUriString.startsWith(pre1)) {
-            filePath = Environment.getExternalStorageDirectory().getPath()
-                    + File.separator + mUriString.substring(pre1.length());
-        } else if (mUriString.startsWith(pre2)) {
-            filePath = Environment.getExternalStorageDirectory().getPath()
-                    + File.separator + mUriString.substring(pre2.length());
-        }
-        return filePath;
-    }
+//    public static String getAbsoluteImagePath(Activity context, Uri uri) {
+//        String imagePath = "";
+//        String[] proj = new String[]{"_data"};
+//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
+//        if(cursor != null) {
+//            int column_index = cursor.getColumnIndexOrThrow("_data");
+//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
+//                imagePath = cursor.getString(column_index);
+//            }
+//        }
+//
+//        return imagePath;
+//    }
 
     /**
      * 通过uri获取文件的绝对路径

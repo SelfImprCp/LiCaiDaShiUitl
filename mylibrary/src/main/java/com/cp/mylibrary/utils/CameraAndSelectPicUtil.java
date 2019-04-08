@@ -378,7 +378,7 @@ public class CameraAndSelectPicUtil {
         }
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
                 .format(new Date());
-        String thePath = ImageUtils.getAbsolutePathFromNoStandardUri(uri);
+        String thePath = ImageUtils.getAbsoluteImagePath((Activity) mContext,uri);
 
         // 如果是标准Uri
         if (StringUtils.isEmpty(thePath)) {
@@ -427,7 +427,7 @@ public class CameraAndSelectPicUtil {
         }
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
                 .format(new Date());
-        String thePath = ImageUtils.getAbsolutePathFromNoStandardUri(uri);
+        String thePath = ImageUtils.getAbsoluteImagePath(mActivity,uri);
 
         // 如果是标准Uri
         if (StringUtils.isEmpty(thePath)) {
