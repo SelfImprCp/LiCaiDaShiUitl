@@ -325,19 +325,19 @@ public class ImageUtils {
 //
 //        return imagePath;
 
-      //  return getFilePathByUri(context, uri);
+      return getFilePathByUri(context, uri);
 
-        String imagePath = "";
-        String[] proj = new String[]{"_data"};
-        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
-        if(cursor != null) {
-            int column_index = cursor.getColumnIndexOrThrow("_data");
-            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
-                imagePath = cursor.getString(column_index);
-            }
-        }
-
-        return imagePath;
+//        String imagePath = "";
+//        String[] proj = new String[]{"_data"};
+//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
+//        if(cursor != null) {
+//            int column_index = cursor.getColumnIndexOrThrow("_data");
+//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
+//                imagePath = cursor.getString(column_index);
+//            }
+//        }
+//
+//        return imagePath;
     }
 
 
