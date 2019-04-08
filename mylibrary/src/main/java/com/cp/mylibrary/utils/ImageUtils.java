@@ -368,7 +368,7 @@ public class ImageUtils {
         }
         // 4.4及之后的 是以 content:// 开头的，比如 content://com.android.providers.media.documents/document/image%3A235700
         if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (DocumentsContract.isDocumentUri(context, uri)) {
+         //   if (DocumentsContract.isDocumentUri(context, uri)) {
 
                     // MediaProvider
                     final String docId = DocumentsContract.getDocumentId(uri);
@@ -385,7 +385,7 @@ public class ImageUtils {
                     path = getDataColumn(context, contentUri, selection, selectionArgs);
                     return path;
 
-            }
+       //     }
         }
         return null;
     }
