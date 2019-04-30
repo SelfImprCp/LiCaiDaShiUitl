@@ -18,6 +18,7 @@ package com.cp.mylibrary.custom;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,7 +29,7 @@ import android.widget.ScrollView;
  * 有弹性的ScrollView 实现下拉弹回和上拉弹回
  * @version 1.2
  */
-public class CPScrollView extends ScrollView {
+public class CPScrollView extends NestedScrollView {
 
 	// data
 	private static final float MOVE_FACTOR = 0.5f; // 移动因子,手指移动100px,那么View就只移动50px

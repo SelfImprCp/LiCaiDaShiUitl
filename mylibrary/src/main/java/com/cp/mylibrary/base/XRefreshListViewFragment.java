@@ -391,8 +391,11 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
             data = new ArrayList<T>();
         }
 
+        if (mErrorLayout != null) {
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        }
 
-        mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+
         if (mCurrentPage == 0) {
             mAdapter.clear();
         }
