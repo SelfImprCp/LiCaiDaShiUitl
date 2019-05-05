@@ -396,7 +396,7 @@ public class XRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment
         }
 
 
-        if (mCurrentPage == 0) {
+        if (mCurrentPage == 0&&mAdapter!=null) {
             mAdapter.clear();
         }
 
