@@ -392,9 +392,12 @@ public class XRefreshListViewSize10Fragment<T extends MyEntity> extends MyBaseFr
             data = new ArrayList<T>();
         }
 
+        if (mErrorLayout != null) {
+            mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
+        }
 
-        mErrorLayout.setErrorType(EmptyLayout.HIDE_LAYOUT);
-        if (mCurrentPage == 0) {
+
+        if (mCurrentPage == 0&&mAdapter!=null) {
             mAdapter.clear();
         }
 
