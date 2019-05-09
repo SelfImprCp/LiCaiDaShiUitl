@@ -207,7 +207,7 @@ public class TDevice {
 //                , "myApp.apk");
         //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
         Uri apkUri =
-                FileProvider.getUriForFile(context, "com.cp.fileprovider", file);
+                FileProvider.getUriForFile(context, ShareUitl.FILE_PROVIDER, file);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         // 由于没有在Activity环境下启动Activity,设置下面的标签
@@ -243,21 +243,6 @@ public class TDevice {
     }
 
 
-    /**
-     * 调用系统安装了的应用分享
-     *
-     * @param context
-     * @param title
-     * @param url
-     */
-    public static void showSystemShareOption(Context context,
-                                             final String title, final String url) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "分享：" + title);
-        intent.putExtra(Intent.EXTRA_TEXT, title + " " + url);
-        context.startActivity(Intent.createChooser(intent, "选择分享"));
-    }
 
 
     /**

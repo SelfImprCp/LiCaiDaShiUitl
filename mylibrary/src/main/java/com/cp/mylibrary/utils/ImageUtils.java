@@ -366,7 +366,7 @@ public class ImageUtils {
 //            return path;
 //        }
 
-        if (uri.getAuthority().contains("com.cp.fileprovider")) {
+        if (uri.getAuthority().contains(ShareUitl.FILE_PROVIDER)) {
             path = uri.getPath();
             return path;
         } else {

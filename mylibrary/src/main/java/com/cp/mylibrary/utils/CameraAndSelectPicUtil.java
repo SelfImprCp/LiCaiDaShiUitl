@@ -284,7 +284,7 @@ public class CameraAndSelectPicUtil {
 
         if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
             uri =
-                    FileProvider.getUriForFile(mContext, "com.cp.fileprovider", out);
+                    FileProvider.getUriForFile(mContext, ShareUitl.FILE_PROVIDER, out);
 
         } else {
               uri = Uri.fromFile(out);
@@ -401,7 +401,7 @@ public class CameraAndSelectPicUtil {
 
         if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
             cropUri =
-                    FileProvider.getUriForFile(mContext, "com.cp.fileprovider", protraitFile);
+                    FileProvider.getUriForFile(mContext, ShareUitl.FILE_PROVIDER, protraitFile);
 
         } else {
             cropUri = Uri.fromFile(protraitFile);
