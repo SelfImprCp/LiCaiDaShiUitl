@@ -65,7 +65,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
 
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
-        return inflater.inflate(R.layout.activity_listview_refresh, container, false);
+        return inflater.inflate(R.layout.activity_listview_no_refresh, container, false);
     }
 
 
