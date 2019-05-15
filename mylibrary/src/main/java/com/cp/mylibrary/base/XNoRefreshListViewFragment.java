@@ -33,7 +33,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
 
 
     public static final int STATE_NONE = 0;
-    public static final int STATE_REFRESH = 1;
+   // public static final int STATE_REFRESH = 1;
     public static final int STATE_LOADMORE = 2;
     public static final int STATE_NOMORE = 3;
     public static final int STATE_PRESSNONE = 4;// 正在下拉但还没有到刷新的状态
@@ -85,7 +85,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
             @Override
             public void onClick(View v) {
                 mCurrentPage = 0;
-                mState = STATE_REFRESH;
+
                 mErrorLayout.setErrorType(EmptyLayout.NETWORK_LOADING);
                 sendRequestData(true);
             }
@@ -272,7 +272,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
             return;
         }
         // 数据已经全部加载，或数据为空时，或正在加载，不处理滚动事件
-        if (mState == STATE_LOADMORE || mState == STATE_REFRESH) {
+        if (mState == STATE_LOADMORE ) {
             return;
         }
         // 判断是否滚动到底部
