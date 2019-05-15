@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by Jerry on 2016/7/8.
  * <p>
- * 带刷新上拉功能的fragement 继承
+ * 不带刷新上拉功能的fragement 继承
  */
 public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment implements    AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
 
@@ -339,7 +339,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
             } else {
 
                 executeOnLoadDataSuccess(mData);
-                executeOnLoadFinish();
+              //  executeOnLoadFinish();
 
             }
         }
