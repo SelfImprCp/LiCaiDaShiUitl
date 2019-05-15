@@ -77,7 +77,8 @@ public class XNoRefreshListViewFragment<T extends MyEntity>
     @Override
     public void initView(View view) {
         super.initView(view);
-         mListView = (ListView) view.findViewById(R.id.listview_norefresh);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swiperefreshlayout);
+        mListView = (ListView) view.findViewById(R.id.listview_norefresh);
         mErrorLayout = (EmptyLayout) view.findViewById(R.id.error_layout);
 
         addHeadView();
