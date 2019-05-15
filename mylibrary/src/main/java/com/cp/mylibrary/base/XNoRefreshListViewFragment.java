@@ -29,7 +29,9 @@ import java.util.List;
  * <p>
  * 不带刷新上拉功能的fragement 继承
  */
-public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragment implements    AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
+public class XNoRefreshListViewFragment<T extends MyEntity>
+        extends MyBaseFragment implements
+        AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
 
 
     public static final int STATE_NONE = 0;
@@ -63,6 +65,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
 
     public String myCachePath = "";
 
+
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         return inflater.inflate(R.layout.activity_listview_no_refresh, container, false);
@@ -72,7 +75,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity> extends MyBaseFragme
     @Override
     public void initView(View view) {
         super.initView(view);
-         mListView = (ListView) view.findViewById(R.id.listview);
+         mListView = (ListView) view.findViewById(R.id.listview_norefresh);
         mErrorLayout = (EmptyLayout) view.findViewById(R.id.error_layout);
 
         addHeadView();

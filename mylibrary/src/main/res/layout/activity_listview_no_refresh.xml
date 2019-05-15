@@ -9,7 +9,7 @@
 
 
         <com.cp.mylibrary.custom.ListViewForScrollView
-            android:id="@+id/listview"
+            android:id="@+id/listview_norefresh"
             android:layout_width="fill_parent"
 
             android:divider="#00000000"
