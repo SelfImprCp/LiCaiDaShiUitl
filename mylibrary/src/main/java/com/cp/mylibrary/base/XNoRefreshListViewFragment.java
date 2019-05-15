@@ -64,6 +64,8 @@ public class XNoRefreshListViewFragment<T extends MyEntity>
     protected int mStoreEmptyState = -1;
 
     public String myCachePath = "";
+    //
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
 
 
     @Override
@@ -81,7 +83,7 @@ public class XNoRefreshListViewFragment<T extends MyEntity>
         addHeadView();
         addFooterView();
 
-
+        setSwipeRefreshLoadedState();
 
         mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
 
@@ -440,6 +442,19 @@ public class XNoRefreshListViewFragment<T extends MyEntity>
         }
 
     }
+
+
+
+    /**
+     * 设置顶部加载完毕的状态
+     */
+    protected void setSwipeRefreshLoadedState() {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setRefreshing(false);
+            mSwipeRefreshLayout.setEnabled(true);
+        }
+    }
+
 
 
     /**
