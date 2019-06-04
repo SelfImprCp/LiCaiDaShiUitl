@@ -458,6 +458,8 @@ public class XRefreshListViewActivity<T extends MyEntity>
      * @param data
      */
     protected void executeOnLoadDataSuccess(List<T> data) {
+        if (mAdapter==null)
+            return;
 
 
         if (data == null) {

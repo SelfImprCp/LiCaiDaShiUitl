@@ -386,6 +386,9 @@ public class XRefreshListViewFragment10HaiBao<T extends MyEntity> extends MyBase
     protected void executeOnLoadDataSuccess(List<T> data) {
 
 
+        if (mAdapter==null)
+            return;
+
         if (data == null) {
             data = new ArrayList<T>();
         }

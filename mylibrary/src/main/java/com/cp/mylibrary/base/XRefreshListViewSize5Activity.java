@@ -454,6 +454,8 @@ public class XRefreshListViewSize5Activity<T extends MyEntity> extends MyBaseAct
      */
     protected void executeOnLoadDataSuccess(List<T> data) {
 
+        if (mAdapter==null)
+            return;
 
 
         if (data == null) {

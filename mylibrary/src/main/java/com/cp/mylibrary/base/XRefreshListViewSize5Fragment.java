@@ -135,7 +135,6 @@ public class XRefreshListViewSize5Fragment<T extends MyEntity> extends MyBaseFra
         return null;
     }
 
-    ;
 
     @Override
     public void onRefresh() {
@@ -387,6 +386,8 @@ public class XRefreshListViewSize5Fragment<T extends MyEntity> extends MyBaseFra
     }
 
     protected void executeOnLoadDataSuccess(List<T> data) {
+        if (mAdapter==null)
+            return;
 
 
         if (data == null) {
