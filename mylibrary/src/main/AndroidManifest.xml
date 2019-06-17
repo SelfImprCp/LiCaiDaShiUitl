@@ -107,7 +107,7 @@
             android:name=".activity.OneImageShowActivity"
             android:screenOrientation="portrait"></activity>
 
-        <!-- 查看大图-->
+        <!-- 查看大图 -->
         <activity
             android:name=".activity.ImagePreviewActivity"
             android:screenOrientation="portrait"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
