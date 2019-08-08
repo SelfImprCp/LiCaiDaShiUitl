@@ -89,6 +89,14 @@ public class ImagePreviewActivity extends MyBaseActivity {
             }
         });
 
+        mViewPager.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
+
+
     }
 
     public static void showImagePrivew(Context context, int index,

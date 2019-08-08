@@ -490,7 +490,7 @@ public class XRefreshListViewActivity<T extends MyEntity>
         }
         mAdapter.setState(adapterState);
         mAdapter.addData(data);
-        // 判断等于是因为最后有一项是listview的状态
+        // 判断等于是因为最后有一  项是listview的状态
         if (mAdapter.getCount() == 1) {
 
             if (needShowEmptyNoData()) {
