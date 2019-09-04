@@ -149,7 +149,10 @@ public class TestWebView extends BaseActivity {
 
         } else {
 
-          String  Surl = "http://webapp.ailibuli.cn/News/news.html?noeId=3a492787-771a-432a-b9da-7ed94f6a76c9";
+            //  String  Surl = "http://webapp.ailibuli.cn/News/news.html?noeId=3a492787-771a-432a-b9da-7ed94f6a76c9";
+            String Surl = "http://webiwin.anjintech.com/aylcs/course/content.html?courseId=46&courseSubjectsId=261";
+
+
             webview_test_view.loadUrl(Surl);
 
 
@@ -170,8 +173,6 @@ public class TestWebView extends BaseActivity {
 
         return super.onKeyDown(keyCode, event);
     }
-
-
 
 
     /**

@@ -9,6 +9,7 @@ import com.cp.mylibrary.utils.OpenActivityUtil;
 import cn.licaidashi.main.domian.SimpleBackPage;
 
 import cn.licaidashi.main.ui.DialogTestActivity;
+import cn.licaidashi.main.ui.Fund;
 import cn.licaidashi.main.ui.GestureLockActivity;
 import cn.licaidashi.main.ui.GestureVerifyActivity;
 import cn.licaidashi.main.ui.ResumeActivity;
@@ -104,6 +105,13 @@ public class TestUIhelper {
     public static void showBanner(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
     }
+    public static void showFund(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context,Fund.class);
+    }
+
+
+
+
 
     public static void showTestSuperTextView(Context context) {
         OpenActivityUtil.getInstance().openActivity(context,TestSuperTextView.class);

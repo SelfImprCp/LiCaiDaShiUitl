@@ -25,6 +25,14 @@
 
 
             <TextView
+                android:id="@+id/fund"
+
+                style="@style/test_textview_style"
+                android:text="   基金交易  " />
+
+
+
+            <TextView
                 android:id="@+id/test_app_utils"
                 style="@style/test_textview_style"
 

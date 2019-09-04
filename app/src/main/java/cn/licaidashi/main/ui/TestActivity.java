@@ -161,6 +161,13 @@ public class TestActivity extends BaseActivity {
     private TextView music_play_textview_text;
 
 
+
+    @BindView(id = R.id.fund, click = true)
+    private TextView fund;
+
+
+
+
     @BindView(id = R.id.test_cp_scrollview)
     private CPScrollView test_cp_scrollview;
 
@@ -209,6 +216,13 @@ public class TestActivity extends BaseActivity {
                     }
                 }, 2000);
 
+                break;
+
+
+
+
+            case R.id.fund:
+                TestUIhelper.showFund(this);
                 break;
 
             //DateTimeUtil 测试
