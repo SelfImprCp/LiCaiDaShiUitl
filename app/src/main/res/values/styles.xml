@@ -51,6 +51,27 @@
     </style>
 
 
+    <style name="edit_text_input"  >
 
+        <item name="android:layout_width">match_parent</item>
+
+
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/space_55</item>3
+        <item name="android:layout_marginLeft">@dimen/space_8</item>
+
+        <item name="android:digits">@string/digits_number_dian</item>
+
+        <item name="android:hint">"请输入..."</item>
+        <item name="android:inputType">number</item>
+
+        <item name="android:paddingRight">@dimen/space_25</item>
+
+        <item name="android:textColor">@color/black_color_30</item>
+        <item name="android:textSize">@dimen/text_size_13</item>
+
+
+    </style>
 
 </resources>

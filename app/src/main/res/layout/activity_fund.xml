@@ -21,15 +21,232 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:orientation="vertical">
 
 
             <TextView
-                android:id="@+id/music_play_textview_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:text="基金买入计算 "
+                android:textSize="@dimen/text_size_20" />
 
-                style="@style/test_textview_style"
-                android:text="  基金买入计算 " />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/space_4"
+                    android:layout_gravity="center"
+                    android:text="总持有收益率：" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fund_shouyi_10_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_4"
+                        android:background="@drawable/round_corners_blue_nei_corners_25"
+                        android:padding="@dimen/space_4"
+                        android:text="-10以下"
+                        android:textColor="@color/white_cp_util" />
+
+                    <TextView
+                        android:id="@+id/fund_shouyi_5_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_4"
+                        android:background="@drawable/round_corners_blue_nei_corners_25"
+                        android:padding="@dimen/space_4"
+                        android:text="-5以下"
+                        android:textColor="@color/white_cp_util" />
+
+                    <TextView
+                        android:id="@+id/fund_shouyi_0_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_4"
+                        android:background="@drawable/round_corners_red_nei_corners_25"
+                        android:padding="@dimen/space_4"
+                        android:text="0以下"
+                        android:textColor="@color/white_cp_util" />
+
+                    <TextView
+                        android:id="@+id/fund_shouyi_0_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_4"
+                        android:background="@drawable/round_corners_blue_nei_corners_25"
+                        android:padding="@dimen/space_4"
+                        android:text="0-5"
+                        android:textColor="@color/white_cp_util" />
+
+                    <TextView
+                        android:id="@+id/fund_shouyi_5_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space_4"
+                        android:background="@drawable/round_corners_blue_nei_corners_25"
+                        android:padding="@dimen/space_4"
+                        android:text="5-10"
+                        android:textColor="@color/white_cp_util" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="可投入资金： " />
+
+                <EditText
+                    android:id="@+id/fund_money_all"
+                    style="@style/edit_text_input"
+                    android:layout_width="100dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 万元 " />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A基金今日跌幅：" />
+
+                <EditText
+                    android:id="@+id/fund_a_down"
+
+                    style="@style/edit_text_input" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B基金今日跌幅：" />
+
+                <EditText
+                    android:id="@+id/fund_b_down"
+                    style="@style/edit_text_input" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今日总共应买入：" />
+
+                <TextView
+                    android:textColor="@color/red"
+                    android:text="0"   android:textSize="@dimen/text_size_16"    android:id="@+id/fund_a_b_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A基金今日应买入：" />
+
+                <TextView
+                    android:id="@+id/fund_a_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:text="0"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="B基金今日应买入：" />
+
+                <TextView
+                    android:id="@+id/fund_b_buy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:text="0"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_40"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fund_jisuan"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:background="@color/black"
+                    android:gravity="center"
+                    android:text="计算"
+                    android:textColor="@color/white_cp_util"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/fund_qinling"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="清零"
+                    android:textSize="@dimen/text_size_16" />
+            </LinearLayout>
 
         </LinearLayout>
     </com.cp.mylibrary.custom.CPScrollView>

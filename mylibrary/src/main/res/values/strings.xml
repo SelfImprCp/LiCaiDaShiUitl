@@ -73,4 +73,14 @@
     <string name="state_load_error">加载失败</string>
     <string name="state_refreshing">正在刷新</string>
     <string name="state_loading_error">数据加载中&#8230;</string>
+
+
+
+    <string name="digits_number">0123456789</string>
+    <string name="digits_number_dian">0123456789.</string>
+
+    <string name="digits_number_text_A_a">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</string>
+
+    <string name="digits_number_text_A_a_you">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@.</string>
+
 </resources>

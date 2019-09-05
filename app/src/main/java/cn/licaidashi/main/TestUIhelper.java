@@ -42,81 +42,74 @@ import cn.licaidashi.main.ui.TestUrlActivity;
  */
 public class TestUIhelper {
 
-     public   static  void showTestActivity(Context context){
-         OpenActivityUtil.getInstance().openActivity(context,TestActivity.class);
+    public static void showTestActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context, TestActivity.class);
 
-     }
+    }
 
-    public   static  void showTestFileActivity(Context context){
-        OpenActivityUtil.getInstance().openActivity(context,TestFileUtil.class);
+    public static void showTestFileActivity(Context context) {
+        OpenActivityUtil.getInstance().openActivity(context, TestFileUtil.class);
 
     }
 
 
     public static void showTestDateTimeUtil(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestDateTimeUtil.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestDateTimeUtil.class);
 
     }
 
     public static void showtestKeyBoardUitls(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestKeyBoardUtils.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestKeyBoardUtils.class);
     }
 
 
     public static void showTestNetWorkUitls(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TextNetWorkUtils.class);
+        OpenActivityUtil.getInstance().openActivity(context, TextNetWorkUtils.class);
     }
-
 
 
     public static void showTesObjectsUitls(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestObjectUtils.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestObjectUtils.class);
     }
-
 
 
     public static void showTestFuWenBenUtil(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestFuWenBenUtil.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestFuWenBenUtil.class);
     }
-
-
-
-
 
 
     public static void showTestRandomUtils(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TextRandomUtils.class);
+        OpenActivityUtil.getInstance().openActivity(context, TextRandomUtils.class);
     }
 
     public static void showTestScreenUtils(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestScreentUtils.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestScreentUtils.class);
     }
+
     public static void showTwoCode(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestTwoCode.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestTwoCode.class);
     }
 
     public static void showCreateTwoCode(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestCreateTwoCode.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestCreateTwoCode.class);
     }
+
     public static void showImageLoad(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestImageLoad.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestImageLoad.class);
     }
 
     public static void showBanner(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestBanner.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestBanner.class);
     }
+
     public static void showFund(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,Fund.class);
+        OpenActivityUtil.getInstance().openActivityC(context, Fund.class);
     }
-
-
-
 
 
     public static void showTestSuperTextView(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestSuperTextView.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestSuperTextView.class);
     }
-
 
 
     /**
@@ -143,84 +136,68 @@ public class TestUIhelper {
 
 
     public static void showPullableListViewActivity(Context context) {
-       OpenActivityUtil.getInstance().openActivity(context,TestListViewRefreshActivity.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestListViewRefreshActivity.class);
     }
 
 
     public static void showDialogTestActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,DialogTestActivity.class);
+        OpenActivityUtil.getInstance().openActivity(context, DialogTestActivity.class);
     }
 
     public static void showUrlTestActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestUrlActivity.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestUrlActivity.class);
     }
 
 
     public static void showTestPickerView(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,TestPickerView.class);
+        OpenActivityUtil.getInstance().openActivity(context, TestPickerView.class);
     }
-
-
-
-
-
 
 
     public static void showGestureLockActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    GestureLockActivity
+        OpenActivityUtil.getInstance().openActivity(context, GestureLockActivity
                 .class);
     }
 
 
-    public static void showGestureVerifyActivity(Context context,String gustrue) {
+    public static void showGestureVerifyActivity(Context context, String gustrue) {
 
-         Bundle bundle = new Bundle();
-        bundle.putString(GestureVerifyActivity.GESTURE,gustrue);
+        Bundle bundle = new Bundle();
+        bundle.putString(GestureVerifyActivity.GESTURE, gustrue);
 
-        OpenActivityUtil.getInstance().openActivity(context,    GestureVerifyActivity
-                .class,bundle);
+        OpenActivityUtil.getInstance().openActivity(context, GestureVerifyActivity
+                .class, bundle);
     }
-
 
 
     public static void showResumeActivity(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    ResumeActivity
+        OpenActivityUtil.getInstance().openActivity(context, ResumeActivity
                 .class);
     }
-
-
 
 
     public static void showScrollViewText(Context context) {
-        OpenActivityUtil.getInstance().openActivity(context,    ScrollViewTextActivity
+        OpenActivityUtil.getInstance().openActivity(context, ScrollViewTextActivity
                 .class);
     }
 
 
-
-
     /**
-     *  test view
+     * test view
+     *
      * @param context
      */
-    public static void showTextViewPageFragment(Context context   ) {
+    public static void showTextViewPageFragment(Context context) {
         showSimpleBack(context, SimpleBackPage.VIEW_PAGE);
 
 
     }
 
 
-
-
-
-
-
     // ===============================以下代码勿改动======================================//
 
 
-
     /**
-     *
      * @param context
      * @param page
      */
@@ -231,7 +208,6 @@ public class TestUIhelper {
     }
 
     /**
-     *
      * @param context
      * @param page
      * @param args
@@ -244,7 +220,6 @@ public class TestUIhelper {
         intent.putExtra(SimpleBackActivity.BUNDLE_KEY_PAGE, page.getValue());
         context.startActivity(intent);
     }
-
 
 
 }

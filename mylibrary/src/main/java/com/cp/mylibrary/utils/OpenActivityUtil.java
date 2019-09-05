@@ -73,7 +73,7 @@ public class OpenActivityUtil {
     }
 
     public static void openActivityC(Context context, Class<?> pClass) {
-        openActivity(context, pClass, null);
+        openActivityNoTestNetWork(context, pClass, null);
     }
 
     /**
@@ -97,7 +97,21 @@ public class OpenActivityUtil {
             context.startActivity(intent);
         }
     }
+    public static void openActivityNoTestNetWork(Context context, Class<?> pClass,
+                                    Bundle pBundle) {
 
+
+
+
+
+            Intent intent = new Intent(context, pClass);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            if (pBundle != null) {
+                intent.putExtras(pBundle);
+            }
+            context.startActivity(intent);
+
+    }
     /**
      * 通过Action启动Activity
      *
