@@ -42,6 +42,7 @@ import cn.licaidashi.main.R;
  * //        跌1%以上，投入4%，
  * //        跌1.5%以上，投入5%
  * //                跌2%以上，投入6%
+ *
  */
 public class Fund extends BaseActivity {
 
