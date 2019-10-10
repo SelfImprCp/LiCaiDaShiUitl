@@ -37,13 +37,12 @@ import android.widget.TextView;
 
 
 import java.io.File;
-import java.lang.reflect.Field;
-import java.text.NumberFormat;
+
+
 import java.util.List;
-import java.util.UUID;
 
 
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+
 public class TDevice {
 
 

@@ -72,8 +72,6 @@ public class MyBaseActivity extends KJActivity {
 //        EventBus.getDefault().register(this);
 
 
-        AppUtils.getPromission(this);
-
 
     }
 

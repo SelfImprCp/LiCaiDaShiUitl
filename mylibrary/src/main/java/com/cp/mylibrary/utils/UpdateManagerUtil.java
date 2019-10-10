@@ -1,5 +1,6 @@
 package com.cp.mylibrary.utils;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
@@ -16,6 +17,7 @@ import android.graphics.BitmapFactory.Options;
 import android.net.Uri;
 import android.os.IBinder;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -252,11 +254,31 @@ public abstract class UpdateManagerUtil {
             if (arg0.getId() == R.id.base_version_dialog_sure_btn)
 
             {
-                // 启动下载新版本的服务
-                openDownLoadService(mContext, mUpdateRes.getUrl(),
-                        mUpdateRes.getVersion());
 
-                ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+
+                // 写入sdcard 权限
+                if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(mContext,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                    LogCp.i(LogCp.CP, UpdateManagerUtil.this + " 已经有了写入sdcard 的权限!");
+
+
+                    // 启动下载新版本的服务
+                    openDownLoadService(mContext, mUpdateRes.getUrl(),
+                            mUpdateRes.getVersion());
+
+                    ShowToastUtil.showToast(mContext, "开始下载新版本，下载完后会自动安装");
+
+
+                } else {
+                    //do not have permission
+                    LogCp.i(LogCp.CP, UpdateManagerUtil.this + "  没有 写入sdcard 的权限!");
+                    AppUtils.getSDCardPromission((Activity) mContext);
+
+
+                }
+
+
                 versionDialog.dismiss();
             } else if (arg0.getId() == R.id.base_version_dialog_cannel_btn) {
 
