@@ -33,10 +33,15 @@ public class AppUtils {
     }
 
 
+
+
     /**
-     * 取sdcard权限
+     * 取相机
      */
-    public static void getSDCardPromission(Activity context) {
+    public static void getPromissionCAMERA(Activity context) {
+
+
+
         LogCp.i(LogCp.CP, AppUtils.class + "  来取权限!");
 
         // 读取sdcard 权限
@@ -81,14 +86,6 @@ public class AppUtils {
 
             //   }
         }
-
-    }
-
-
-    /**
-     * 取相机
-     */
-    public static void getPromissionCAMERA(Activity context) {
 
 
         //  使用相机的权限
