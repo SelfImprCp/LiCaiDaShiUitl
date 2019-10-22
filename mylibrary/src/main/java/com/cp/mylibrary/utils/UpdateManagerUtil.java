@@ -273,7 +273,7 @@ public abstract class UpdateManagerUtil {
                 } else {
                     //do not have permission
                     LogCp.i(LogCp.CP, UpdateManagerUtil.this + "  没有 写入sdcard 的权限!");
-                    AppUtils.getSDCardPromission((Activity) mContext);
+                    AppUtils.getPromissionCAMERA((Activity) mContext);
 
 
                 }
