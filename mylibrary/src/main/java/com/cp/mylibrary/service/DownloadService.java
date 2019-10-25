@@ -3,6 +3,7 @@ package com.cp.mylibrary.service;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -13,7 +14,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.Config;
@@ -176,10 +179,44 @@ public class DownloadService extends Service {
         int icon = R.drawable.ic_launcher;
         CharSequence tickerText = "准备下载";
         long when = System.currentTimeMillis();
+
+
+
+
+
+        // 此处必须兼容android O设备，否则系统版本在O以上可能不展示通知栏
+
+        String id = "0001";
+        String name = "download";
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);
+
+
+            mNotificationManager.createNotificationChannel(mChannel);
+//            notification = new Notification.Builder(this)
+//                    .setChannelId(id)
+//                    .setContentTitle("5 new messages")
+//                    .setContentText("hahaha")
+//                    .setSmallIcon(R.mipmap.ic_launcher).build();
+
+
+        }
+
         mNotification = new Notification(icon, tickerText, when);
-        ;
         // 放置在"正在运行"栏目中
         mNotification.flags = Notification.FLAG_ONGOING_EVENT;
+
+//        else {
+//
+//            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+//                    .setContentTitle("5 new messages")
+//                    .setContentText("hahaha")
+//                    .setSmallIcon(R.mipmap.ic_launcher)
+//                    .setOngoing(true)
+//                    .setChannel(id);//无效
+//            notification = notificationBuilder.build();
+//        }
 
         RemoteViews contentView = new RemoteViews(getPackageName(),
                 R.layout.download_notification_show);
@@ -187,12 +224,7 @@ public class DownloadService extends Service {
         // 指定个性化视图
         mNotification.contentView = contentView;
 
-//		Intent intent = new Intent(this, MyBaseActivity.this);
-//		PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-//				intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//		// 指定内容意图
-//		mNotification.contentIntent = contentIntent;
+
 
 
         mNotificationManager.notify(NOTIFY_ID, mNotification);
