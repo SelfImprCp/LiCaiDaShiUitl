@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
@@ -191,14 +192,14 @@ public class DownloadService extends Service {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);
+            mChannel.setDescription(name);
+            mChannel.enableLights(true);
+            mChannel.setLightColor(Color.BLUE);
+            mChannel.enableVibration(true);
+            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
 
 
             mNotificationManager.createNotificationChannel(mChannel);
-//            notification = new Notification.Builder(this)
-//                    .setChannelId(id)
-//                    .setContentTitle("5 new messages")
-//                    .setContentText("hahaha")
-//                    .setSmallIcon(R.mipmap.ic_launcher).build();
 
 
         }
@@ -207,16 +208,6 @@ public class DownloadService extends Service {
         // 放置在"正在运行"栏目中
         mNotification.flags = Notification.FLAG_ONGOING_EVENT;
 
-//        else {
-//
-//            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-//                    .setContentTitle("5 new messages")
-//                    .setContentText("hahaha")
-//                    .setSmallIcon(R.mipmap.ic_launcher)
-//                    .setOngoing(true)
-//                    .setChannel(id);//无效
-//            notification = notificationBuilder.build();
-//        }
 
         RemoteViews contentView = new RemoteViews(getPackageName(),
                 R.layout.download_notification_show);
