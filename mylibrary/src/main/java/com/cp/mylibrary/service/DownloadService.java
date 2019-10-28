@@ -182,13 +182,13 @@ public class DownloadService extends Service {
         long when = System.currentTimeMillis();
 
 
-
-
-
         // 此处必须兼容android O设备，否则系统版本在O以上可能不展示通知栏
 
         String id = "0001";
         String name = "download";
+        RemoteViews contentView = new RemoteViews(getPackageName(),
+                R.layout.download_notification_show);
+        contentView.setTextViewText(R.id.tv_download_state, mTitle);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_LOW);
@@ -202,20 +202,33 @@ public class DownloadService extends Service {
             mNotificationManager.createNotificationChannel(mChannel);
 
 
+            Notification.Builder builder = new Notification.Builder(mContext, "channel_anyin");
+            //设置小图标
+            builder.setSmallIcon(R.drawable.ic_launcher)
+                    .setContent(contentView)
+                    .setWhen(System.currentTimeMillis())
+                    .setAutoCancel(true);//用户触摸时，自动关闭
+
+            mNotification = builder.build();
+        } else {
+            mNotification = new Notification.Builder(mContext)
+                    .setAutoCancel(true)
+
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setWhen(System.currentTimeMillis())
+                    .setContent(contentView)
+                    .build();
+
         }
 
-        mNotification = new Notification(icon, tickerText, when);
+
+//        mNotification = new Notification(icon, tickerText, when);
         // 放置在"正在运行"栏目中
         mNotification.flags = Notification.FLAG_ONGOING_EVENT;
 
 
-        RemoteViews contentView = new RemoteViews(getPackageName(),
-                R.layout.download_notification_show);
-        contentView.setTextViewText(R.id.tv_download_state, mTitle);
         // 指定个性化视图
-        mNotification.contentView = contentView;
-
-
+//        mNotification.contentView = contentView;
 
 
         mNotificationManager.notify(NOTIFY_ID, mNotification);
