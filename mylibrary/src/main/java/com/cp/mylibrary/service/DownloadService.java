@@ -204,25 +204,28 @@ public class DownloadService extends Service {
 
         }
 
-//        mNotification = new Notification(icon, tickerText, when);
+       mNotification = new Notification(icon, tickerText, when);
 //        // 放置在"正在运行"栏目中
-//        mNotification.flags = Notification.FLAG_ONGOING_EVENT;
+        mNotification.flags = Notification.FLAG_ONGOING_EVENT;
 
 
         RemoteViews contentViewv = new RemoteViews(getPackageName(),
                 R.layout.download_notification_show);
         contentViewv.setTextViewText(R.id.tv_download_state, mTitle);
         // 指定个性化视图
-        mNotification.contentView = contentViewv;
+//        mNotification.contentView = contentViewv;
 
         PendingIntent pendingintent = PendingIntent.getActivity(mContext, 0, new Intent(), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = getNofity(contentViewv)
                 .setProgress(100, progress, false)
                 .setContentIntent(pendingintent);
+        builder.setContent(contentViewv);
+
+        mNotification = builder.build();
 
 
-        mNotificationManager.notify(NOTIFY_ID, builder.build());
+        mNotificationManager.notify(NOTIFY_ID,mNotification);
     }
 
 
@@ -236,7 +239,7 @@ public class DownloadService extends Service {
                 .setAutoCancel(true)
                 .setOnlyAlertOnce(true)
                 .setWhen(System.currentTimeMillis())
-                //.setContent(contentView)
+            .setContent(contentView)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
     }
