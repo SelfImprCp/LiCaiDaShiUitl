@@ -16,6 +16,7 @@ import com.cp.mylibrary.utils.ActivityManagerUtil;
 import com.cp.mylibrary.utils.AppUtils;
 import com.cp.mylibrary.utils.NetWorkUtil;
 import com.cp.mylibrary.utils.ShowToastUtil;
+import com.cp.mylibrary.utils.StatusBarU;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
@@ -30,8 +31,6 @@ import de.greenrobot.event.EventBus;
 public class MyBaseActivity extends KJActivity {
 
     public Context mContext;
-    //为状态栏着色
-    public SystemBarTintManager tintManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,28 +48,11 @@ public class MyBaseActivity extends KJActivity {
         super.onCreate(savedInstanceState);
 
 
-        //     android:fitsSystemWindows="true"
-        //  android:clipToPadding="false"
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        StatusBarU.with(MyBaseActivity.this)
 
-
-        //只对api19以上版本有效
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true);
-        }
-        //为状态栏着色
-        tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-
-
-        tintManager.setStatusBarTintResource(R.color.black_color_30);
-
-
-//        EventBus.getDefault().register(this);
-
+                .setDrawable(getResources().getDrawable(R.drawable.status_bar_shape))
+                .init();
+       
 
 
     }

@@ -272,19 +272,6 @@ public class ImageUtils {
         return filePath;
     }
 
-//    public static String getAbsoluteImagePath(Activity context, Uri uri) {
-//        String imagePath = "";
-//        String[] proj = new String[]{"_data"};
-//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
-//        if(cursor != null) {
-//            int column_index = cursor.getColumnIndexOrThrow("_data");
-//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
-//                imagePath = cursor.getString(column_index);
-//            }
-//        }
-//
-//        return imagePath;
-//    }
 
     /**
      * 通过uri获取文件的绝对路径
@@ -295,76 +282,16 @@ public class ImageUtils {
 
     @SuppressWarnings("deprecation")
     public static String getAbsoluteImagePath(Activity context, Uri uri) {
-//        String imagePath = "";
-//        String[] proj = {MediaStore.Images.Media.DATA};
-//        Cursor cursor = context.managedQuery(uri, proj, // Which columns to
-//                // return
-//                null, // WHERE clause; which rows to return (all rows)
-//                null, // WHERE clause selection arguments (none)
-//                null); // Order-by clause (ascending by name)
-//
-//        if (cursor != null) {
-//            int column_index = cursor
-//                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//            if (cursor.getCount() > 0 && cursor.moveToFirst()) {
-//                imagePath = cursor.getString(column_index);
-//            }
-//        }
-//
-//        return imagePath;
 
-//        String imagePath = "";
-//        String[] proj = new String[]{"_data"};
-//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
-//        if(cursor != null) {
-//            int column_index = cursor.getColumnIndexOrThrow("_data");
-//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
-//                imagePath = cursor.getString(column_index);
-//            }
-//        }
-//
-//        return imagePath;
 
         return getFilePathByUri(context, uri);
 
-//        String imagePath = "";
-//        String[] proj = new String[]{"_data"};
-//        Cursor cursor = context.managedQuery(uri, proj, (String)null, (String[])null, (String)null);
-//        if(cursor != null) {
-//            int column_index = cursor.getColumnIndexOrThrow("_data");
-//            if(cursor.getCount() > 0 && cursor.moveToFirst()) {
-//                imagePath = cursor.getString(column_index);
-//            }
-//        }
-//
-//        return imagePath;
+
     }
 
 
     public static String getFilePathByUri(Context context, Uri uri) {
         String path = null;
-        // 以 file:// 开头的
-//        if (ContentResolver.SCHEME_FILE.equals(uri.getScheme())) {
-//            path = uri.getPath();
-//            return path;
-//        }
-        // 以 content:// 开头的，比如 content://media/extenral/images/media/17766
-        // if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-
-//        if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme())) {
-//
-//            Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.Media.DATA}, null, null, null);
-//            if (cursor != null) {
-//                if (cursor.moveToFirst()) {
-//                    int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//                    if (columnIndex > -1) {
-//                        path = cursor.getString(columnIndex);
-//                    }
-//                }
-//                cursor.close();
-//            }
-//            return path;
-//        }
 
         if (uri.getAuthority().contains(ShareUitl.FILE_PROVIDER)) {
             path = uri.getPath();
@@ -385,28 +312,6 @@ public class ImageUtils {
         }
 
 
-//        // 4.4及之后的 是以 content:// 开头的，比如 content://com.android.providers.media.documents/document/image%3A235700
-//        if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//         //   if (DocumentsContract.isDocumentUri(context, uri)) {
-//
-//                    // MediaProvider
-//                    final String docId = DocumentsContract.getDocumentId(uri);
-//                    final String[] split = docId.split(":");
-//                    final String type = split[0];
-//                LogCp.i(LogCp.CP,ImageUtils.class + " image Type : " + type);
-//
-//                Uri contentUri = null;
-//                    if ("image".equals(type)) {
-//                        contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-//                    }
-//                    final String selection = "_id=?";
-//                    final String[] selectionArgs = new String[]{split[1]};
-//                    path = getDataColumn(context, contentUri, selection, selectionArgs);
-//                    return path;
-//
-//       //     }
-//        }
-        //   return null;
     }
 
     private static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
