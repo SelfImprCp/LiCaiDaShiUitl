@@ -10,9 +10,11 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.cp.mylibrary.R;
 import com.cp.mylibrary.app.MyBaseApp;
 import com.cp.mylibrary.event.BaseEvent;
 import com.cp.mylibrary.utils.ActivityManagerUtil;
+import com.cp.mylibrary.utils.StatusBarU;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import de.greenrobot.event.EventBus;
@@ -38,16 +40,10 @@ public abstract class MyBaseFragmentActivity extends FragmentActivity {
         super.onCreate(savedInstanceState   );
 
 
+        StatusBarU.with(MyBaseFragmentActivity.this)
 
-        //只对api19以上版本有效
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus(true);
-        }
-        //为状态栏着色
-        tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-
-
+                .setDrawable(getResources().getDrawable(R.drawable.status_bar_shape))
+                .init();
 
 
         setContentView(setRootView());
