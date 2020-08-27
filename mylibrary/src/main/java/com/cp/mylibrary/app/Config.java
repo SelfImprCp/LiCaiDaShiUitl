@@ -9,6 +9,10 @@ import java.io.File;
  */
 public class Config {
 
+
+    // aylcs@xiaoshutou.com  密码 aylcs5201
+
+
     public static int PAGE_SIXE = 20;
 
     public static final String WEICHAT_APPID = "wx48dc03d81349300e";

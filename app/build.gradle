@@ -2,11 +2,12 @@ apply plugin: 'com.android.application'
 
 
 android {
+
     compileSdkVersion 26
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '25.0.0'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
     defaultConfig {
         applicationId "cn.licaidashi.main"
@@ -14,9 +15,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-        jackOptions {
-            enabled true
-        }
+
     }
     buildTypes {
         release {

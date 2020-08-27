@@ -67,17 +67,20 @@ public class AudioPlayer {
         handler = new Handler(Looper.getMainLooper());
         noisyReceiver = new NoisyAudioStreamReceiver();
         noisyFilter = new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
-        mediaPlayer.setOnCompletionListener(mp -> next());
-        mediaPlayer.setOnPreparedListener(mp -> {
-            if (isPreparing()) {
-                startPlayer();
-            }
-        });
-        mediaPlayer.setOnBufferingUpdateListener((mp, percent) -> {
-            for (OnPlayerEventListener listener : listeners) {
-                listener.onBufferingUpdate(percent);
-            }
-        });
+
+
+//
+//        mediaPlayer.setOnCompletionListener(mp -> next());
+//        mediaPlayer.setOnPreparedListener(mp -> {
+//            if (isPreparing()) {
+//                startPlayer();
+//            }
+//        });
+//        mediaPlayer.setOnBufferingUpdateListener((mp, percent) -> {
+//            for (OnPlayerEventListener listener : listeners) {
+//                listener.onBufferingUpdate(percent);
+//            }
+//        });
     }
 
     public void addOnPlayEventListener(OnPlayerEventListener listener) {
